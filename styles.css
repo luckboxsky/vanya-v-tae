@@ -627,3 +627,37 @@ html{scroll-padding-top:82px}
 .footer-brand{padding:0;background:#fff0e3;border-radius:4px;overflow:hidden}
 .footer-brand .footer-portrait-logo{width:104px;height:78px;max-width:none;object-fit:contain}
 @media(max-width:820px){.footer-brand .footer-portrait-logo{width:88px;height:66px}}
+
+/* Photo layout: preserve the full frame and balance columns by source proportions. */
+.russia-gallery-hint{display:none}
+@media(min-width:761px){
+ .photo-strip{grid-template-columns:minmax(0,.5625fr) minmax(0,.668202765fr) minmax(0,.5625fr);align-items:start}
+ .photo-strip figure{width:100%;max-width:none;justify-self:stretch}
+}
+@media(min-width:1001px){
+ .ordinary-life{grid-template-columns:minmax(0,.8fr) minmax(0,1.4fr) minmax(0,.8fr);align-items:start;gap:24px}
+ .ordinary-life>figure,.ordinary-life .flower-photo{width:100%;align-self:start;margin:0}
+ .ordinary-life .ordinary-copy{grid-column:auto;grid-row:auto;padding:0;max-width:none}
+ .ordinary-copy h3{font-size:clamp(38px,3.4vw,50px);line-height:1.05;margin:0 0 20px}
+ .ordinary-copy p{font-size:clamp(14px,1.05vw,15.5px);line-height:1.5;margin:0 0 .85em}
+ .ordinary-copy p:last-child{margin-bottom:0}
+}
+@media(min-width:761px) and (max-width:1000px){
+ .ordinary-life{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+ .ordinary-life>figure:first-child{grid-column:1;grid-row:1}
+ .ordinary-life .flower-photo{grid-column:2;grid-row:1;align-self:start}
+ .ordinary-life .ordinary-copy{grid-column:1/-1;grid-row:2;max-width:720px}
+}
+@media(max-width:760px){
+ .russia-grid{display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto;align-items:start;gap:25px}
+ .russia-main-photo{display:flex;flex-direction:column;width:min(100%,330px);height:auto!important;min-height:0;align-self:start;position:relative;overflow:hidden}
+ .russia-main-photo img{position:static;width:100%;height:auto!important;min-height:0;aspect-ratio:auto!important;object-fit:contain}
+ .russia-main-photo figcaption{position:static;inset:auto;padding:12px 14px;border-radius:0;background:#28343b;color:#fff;font-size:10px}
+ .russia-secondary{display:flex;flex-wrap:nowrap;gap:14px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scroll-padding-inline:0;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;margin-top:26px;padding:0 0 12px;align-items:stretch;min-width:0;max-width:100%;isolation:isolate}
+ .russia-secondary>figure,.russia-secondary .paz-video,.russia-secondary .russia-third{flex:0 0 86%;display:flex;flex-direction:column;height:auto!important;min-height:0;max-height:none;width:auto;grid-column:auto;position:relative;overflow:hidden;scroll-snap-align:start;scroll-snap-stop:always;border-radius:15px;background:#bac3c1;margin:0}
+ .russia-secondary .russia-snow img,.russia-secondary .russia-third img,.russia-secondary .paz-video video{position:static!important;inset:auto;display:block;width:100%;height:auto!important;min-height:0;max-height:none;aspect-ratio:9/16;object-fit:contain;object-position:center;flex:0 0 auto;border-radius:0;background:#bac3c1}
+ .russia-secondary .paz-video video{background:#202a2d}
+ .russia-secondary>figure figcaption,.russia-secondary .paz-video figcaption{position:static!important;inset:auto;display:flex;align-items:center;flex:1 0 auto;min-height:48px;margin:0;padding:12px 14px;background:#28343b;color:white;border-radius:0;text-shadow:none;font-size:10px;line-height:1.4;letter-spacing:.035em;overflow-wrap:break-word}
+ .russia-gallery-hint{display:block;font-size:11px;font-weight:700;color:#53615f;margin:8px 0 0;line-height:1.5}
+ .russia-secondary:focus-visible{outline:2px solid #536d62;outline-offset:4px}
+}
