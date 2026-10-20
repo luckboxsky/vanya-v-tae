@@ -683,7 +683,7 @@ footer{padding:12px 0}
  .friends-photo{max-width:350px;justify-self:start}
  .friends-preview-copy h2{font-size:clamp(38px,8.5vw,58px);margin:13px 0 22px}
  .friends-preview-copy .friends-quote p{font-size:14px;line-height:1.5}
- .friends-preview-copy .friends-topics{font-size:clamp(17px,4.5vw,20px);gap:9px}
+ .friends-preview-copy .friends-topics{font-size:clamp(15px,4.5vw,20px);gap:9px}
  .friends-preview-copy .friends-more{font-size:12px}
  .friends-actions .button{font-size:12px}
  footer{padding:10px 0}
