@@ -693,7 +693,7 @@ footer{padding:12px 0}
 
 /* Final phone refinements: swipe portraits, heading before photos, contained thank-you. */
 .support-thanks .thanks-title{display:block;color:inherit;font-size:inherit;line-height:inherit;margin:0;letter-spacing:inherit}
-.support-thanks svg.heart{display:inline-block;width:1.05em;height:1.05em;max-width:none;color:#f15f57;vertical-align:-.13em;margin:0 0 0 .1em;flex:none}
+.support-thanks svg.heart{font-size:1em;display:inline-block;width:1.05em;height:1.05em;max-width:none;color:#f15f57;vertical-align:-.13em;margin:0 0 0 .1em;flex:none}
 @media(max-width:760px){
  .photo-strip{--portrait-height:clamp(350px,110vw,500px);display:flex;flex-wrap:nowrap;align-items:start;gap:14px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scroll-padding-inline:0;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;padding-bottom:12px;max-width:100%;min-width:0}
  .photo-strip figure,.photo-strip figure:last-child{display:flex;flex-direction:column;flex:0 0 auto;width:calc(var(--portrait-height) * .5625);max-width:none;grid-column:auto;justify-self:auto;margin:0;scroll-snap-align:start;scroll-snap-stop:always}
