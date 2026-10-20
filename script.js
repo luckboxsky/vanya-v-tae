@@ -76,7 +76,22 @@
     document.querySelectorAll('[data-category]').forEach(card => {card.hidden = category !== 'all' && card.dataset.category !== category;});
   }));
   document.querySelectorAll('[data-method]').forEach(node => node.addEventListener('click', () => donate(node.dataset.method)));
-  document.querySelectorAll('[data-contact]').forEach(node => node.addEventListener('click', () => node.dataset.contact === 'telegram' ? telegram() : contact(node.dataset.contact)));
+  document.querySelectorAll('[data-contact]').forEach(node => {
+    const url = safeUrl(node.dataset.contact === 'telegram' ? c.telegram : c.instagram);
+    if (url) {
+      const link = document.createElement('a');
+      for (const attribute of node.attributes) {
+        if (!['type', 'data-contact'].includes(attribute.name)) link.setAttribute(attribute.name, attribute.value);
+      }
+      link.href = url;
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+      link.innerHTML = node.innerHTML;
+      node.replaceWith(link);
+    } else {
+      node.addEventListener('click', () => node.dataset.contact === 'telegram' ? telegram() : contact(node.dataset.contact));
+    }
+  });
   document.getElementById('modal-close')?.addEventListener('click', () => dialog?.close());
   dialog?.addEventListener('click', event => {if (event.target === dialog) dialog.close();});
   body?.addEventListener('click', async event => {
