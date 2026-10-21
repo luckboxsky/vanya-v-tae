@@ -14,7 +14,7 @@
     catch { return null; }
   };
   const pending = '<p class="config-hint">Реквизиты для этого способа ещё не добавлены. Пока выберите другой способ или напишите мне в Instagram.</p>';
-  const row = (label, value) => `<div class="detail-row"><label>${esc(label)}</label><span class="detail-value">${esc(value)}</span><button type="button" class="copy-button" data-copy="${esc(value)}">Скопировать</button></div>`;
+  const row = (label, value, copyValue = value, copyLabel = 'Скопировать') => `<div class="detail-row"><label>${esc(label)}</label><span class="detail-value">${esc(value)}</span><button type="button" class="copy-button" data-copy="${esc(copyValue)}">${esc(copyLabel)}</button></div>`;
   const external = (url, label) => `<a class="modal-link" href="${esc(url)}" target="_blank" rel="noopener noreferrer">${esc(label)}</a>`;
   function modal(name, html) {
     title.textContent = name;
@@ -28,16 +28,30 @@
     clearTimeout(toastTimer);
     toastTimer = setTimeout(() => toast.classList.remove('visible'), 2800);
   }
+
+  function qrBlock(qr, label, expanded = false) {
+    if (!qr || typeof qr.src !== 'string' || !/^assets\/[a-z0-9-]+\.png$/.test(qr.src)) return '';
+    const image = '<a class="donation-qr-link" href="' + esc(qr.src) + '" target="_blank" rel="noopener noreferrer" aria-label="' + esc('Открыть '+label) + '"><svg viewBox="' + esc(qr.viewBox) + '" role="img" aria-label="' + esc(label) + '"><image href="' + esc(qr.src) + '" width="' + esc(qr.width) + '" height="' + esc(qr.height) + '"/></svg></a><a class="qr-save" href="' + esc(qr.src) + '" download>Сохранить QR-код</a>';
+    return expanded ? '<div class="donation-qr">' + image + '</div>' : '<details class="donation-qr"><summary>Показать QR-код</summary>' + image + '</details>';
+  }
+  function cryptoContent(exchangeId) {
+    const list = Array.isArray(c.cryptoExchanges) ? c.cryptoExchanges : [];
+    const current = list.find(item => item.id === exchangeId) || list[0];
+    if (!current) return pending;
+    const tabs = '<div class="crypto-switch" role="group" aria-label="Выберите биржу">' + list.map(item => '<button type="button" data-crypto-exchange="' + esc(item.id) + '" aria-pressed="' + String(item.id === current.id) + '">' + esc(item.name) + '</button>').join('') + '</div>';
+    return tabs + '<div class="crypto-panel"><section class="crypto-internal"><h3>Внутри ' + esc(current.name) + '</h3><p>Для перевода с аккаунта ' + esc(current.name) + '. Внутренний перевод без комиссии биржи.</p>' + row(current.internalLabel, current.internalId, current.internalId, 'Скопировать ID') + '</section><section class="crypto-onchain"><h3>Из другого кошелька или биржи</h3><p class="crypto-network">USDT · TRON (TRC20)</p><p>При отправке выберите именно эту валюту и сеть.</p>' + row('Адрес кошелька', current.address, current.address, 'Скопировать адрес') + qrBlock(current.qr,'QR-код USDT '+current.name) + '</section></div>';
+  }
   function donate(type) {
     switch (type) {
       case 'boosty': {
         const url = safeUrl(c.boosty);
-        modal('ИНОСТРАННАЯ КАРТА', `<p>Поддержка через Boosty. Доступность платежа с иностранной карты зависит от страны, банка и настроек сервиса.</p>${url ? external(url, 'Перейти на Boosty') : pending}`);
+        modal('ПОДДЕРЖАТЬ НА BOOSTY', '<p>Разовый донат на развитие блога. Выберите сумму на Boosty и при желании оставьте сообщение. Подписку оформлять не нужно.</p><p class="config-hint">Для отправки доната Boosty попросит войти или зарегистрироваться. Доступность оплаты зависит от страны и банка вашей карты.</p>' + (url ? external(url, 'Поддержать на Boosty') + qrBlock(c.boostyQr,'QR-код для доната на Boosty') : pending));
         return;
       }
       case 'thai': {
-        const bank = c.thaiBankName && c.thaiAccountNumber;
-        modal('ТАЙСКИЙ БАНК', `<p>Перевод через банковское приложение на тайский счёт.</p>${bank ? row(c.thaiBankName,c.thaiAccountNumber) : pending}${c.thaiPromptpay ? row('PromptPay',c.thaiPromptpay) : ''}<p class="config-hint">Перед отправкой проверьте имя получателя в приложении банка.</p>`);
+        const ready = c.thaiBankName && c.thaiAccountNumber;
+        const recipient = c.thaiRecipient ? '<div class="donation-recipient"><span>Получатель</span><strong>' + esc(c.thaiRecipient) + '</strong></div>' : '';
+        modal('ТАЙСКИЙ БАНК', '<p class="donation-bank-name">' + esc(c.thaiBankName || 'Bangkok Bank') + '</p><p>Отсканируйте QR-код в банковском приложении или сохраните его и выберите из галереи приложения.</p>' + qrBlock(c.thaiQr,'PromptPay Bangkok Bank',true) + (ready ? row('Номер счёта',c.thaiAccountNumber) : pending) + recipient + '<p class="config-hint">Также можно перевести по номеру счёта. Перед подтверждением проверьте имя получателя.</p>');
         return;
       }
       case 'sbp': {
@@ -52,12 +66,13 @@
         return;
       }
       case 'kazakhstan': {
-        modal('КАЗАХСТАН', `<p>Перевод на карту или счёт в Казахстане.</p>${c.kazakhstanCard ? row(c.kazakhstanBankName || 'Карта',c.kazakhstanCard) : pending}`);
+        const card = String(c.kazakhstanCard || '').replace(/\s/g,'');
+        const displayCard = card.replace(/(.{4})(?=.)/g,'$1 ');
+        modal('КАЗАХСТАН', '<p class="donation-bank-name">' + esc(c.kazakhstanBankName || 'Freedom Bank') + '</p><p>Перевод по номеру карты через приложение вашего банка.</p>' + (card ? row('Номер карты',displayCard,card) : pending));
         return;
       }
       case 'crypto': {
-        const ready = c.cryptoNetwork && c.cryptoAddress;
-        modal('КРИПТОВАЛЮТА', `<p>Для криптовалютного перевода должны совпадать и валюта, и сеть.</p>${ready ? row('Валюта и сеть',`${c.cryptoCurrency || 'USDT'} / ${c.cryptoNetwork}`) + row('Адрес кошелька',c.cryptoAddress) : pending}<p class="config-hint">Внимательно сверяйте сеть перед переводом. Криптовалютные транзакции обычно необратимы.</p>`);
+        modal('КРИПТОВАЛЮТА', cryptoContent('bitazza'));
         return;
       }
     }
@@ -102,6 +117,14 @@
   document.getElementById('modal-close')?.addEventListener('click', () => dialog?.close());
   dialog?.addEventListener('click', event => {if (event.target === dialog) dialog.close();});
   body?.addEventListener('click', async event => {
+    const exchangeButton = event.target.closest('[data-crypto-exchange]');
+    if (exchangeButton) {
+      const exchangeId = exchangeButton.dataset.cryptoExchange;
+      if (!(c.cryptoExchanges || []).some(item => item.id === exchangeId)) return;
+      body.innerHTML = cryptoContent(exchangeId);
+      body.querySelectorAll('[data-crypto-exchange]').forEach(button => {if(button.dataset.cryptoExchange === exchangeId) button.focus();});
+      return;
+    }
     const button = event.target.closest('[data-copy]');
     if (!button) return;
     try {

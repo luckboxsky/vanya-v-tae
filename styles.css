@@ -773,3 +773,28 @@ footer{padding:12px 0}
 .sbp-recipient>span{font-size:11px;color:#617268}
 .sbp-recipient>strong{font-size:17px;line-height:1.5;overflow-wrap:break-word}
 @media(max-width:375px){.sbp-bank{font-size:12px;padding:7px 9px;gap:7px}.sbp-bank svg{width:24px;height:24px;flex-basis:24px}}
+
+/* Donation details: QR previews, copyable account numbers and exchange switch. */
+.modal .donation-bank-name{font-size:20px;font-weight:800;margin-bottom:12px}
+.donation-recipient{display:flex;flex-direction:column;gap:4px;padding:14px 0;margin-bottom:12px;border-top:1px solid #cdd8cb}
+.donation-recipient>span{font-size:11px;color:#617268}
+.donation-recipient>strong{font-size:16px;overflow-wrap:anywhere}
+.donation-qr{margin:16px 0 20px;border:1px solid #dfd4c8;border-radius:12px;background:#fffaf5;padding:12px}
+.donation-qr summary{cursor:pointer;min-height:44px;display:flex;align-items:center;justify-content:center;gap:8px;font-size:13px;font-weight:800;padding:8px 12px;border-radius:9px;background:#e8efea;list-style:none}
+.donation-qr summary::-webkit-details-marker{display:none}
+.donation-qr summary::after{content:'+';font-size:20px;line-height:1}
+.donation-qr[open] summary::after{content:'−'}
+.donation-qr-link{display:block;width:min(100%,240px);margin:12px auto;background:white;border-radius:10px;padding:4px}
+.donation-qr-link svg{display:block;width:100%;height:auto;aspect-ratio:1;image-rendering:pixelated}
+.qr-save{display:block;width:fit-content;max-width:100%;margin:8px auto 0;padding:8px 12px;min-height:40px;text-align:center;font-size:12px;font-weight:800;text-decoration:underline;text-underline-offset:3px;border-radius:9px}
+.crypto-switch{display:flex;gap:6px;padding:5px;margin:0 0 20px;background:#ecdfd2;border-radius:13px}
+.crypto-switch button{flex:1;min-width:0;min-height:44px;padding:10px 12px;border:1px solid transparent;border-radius:9px;background:transparent;color:#234b42;font-size:14px;font-weight:800}
+.crypto-switch button[aria-pressed="true"]{background:#234b42;color:white;box-shadow:0 2px 5px #23382a26}
+.crypto-panel h3{font-size:22px;line-height:1.2;margin:0 0 9px;letter-spacing:0}
+.modal .crypto-panel p{font-size:13px;line-height:1.5;margin-bottom:12px}
+.crypto-internal{padding-bottom:5px}
+.crypto-onchain{border-top:1px solid #cdd8cb;margin-top:16px;padding-top:20px}
+.modal .crypto-network{display:inline-block;padding:6px 10px;border-radius:8px;background:#e5efe6;color:#234b42;font-size:13px;font-weight:800;margin:0 0 12px}
+.crypto-onchain .detail-value{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:13px;line-height:1.65;overflow-wrap:anywhere;word-break:break-all}
+.crypto-internal .detail-value{font-size:18px}
+@media(max-width:375px){.modal-box{padding:32px 20px}.donation-qr{padding:8px}.crypto-panel h3{font-size:20px}.crypto-switch button{font-size:13px;padding:10px 8px}}
