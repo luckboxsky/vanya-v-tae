@@ -30,7 +30,6 @@
  document.addEventListener('click',e=>{
   const place=e.target.closest('[data-place]');if(place){e.preventDefault();history.pushState(null,'','#'+place.dataset.place);showPlace(place.dataset.place);return;}
   const back=e.target.closest('[data-back]');if(back){e.preventDefault();history.pushState(null,'',location.pathname);showHome();return;}
-  const style=e.target.closest('[data-style]');if(style){const atlas=style.dataset.style==='atlas';root.classList.toggle('atlas',atlas);document.querySelectorAll('[data-style]').forEach(b=>b.setAttribute('aria-pressed',String(b===style)));return;}
   const category=e.target.closest('[data-category]');if(category&&current){detail.querySelectorAll('[data-category]').forEach(b=>b.setAttribute('aria-pressed',String(b===category)));showItems(category.dataset.category);}
  });
  window.addEventListener('hashchange',route);
