@@ -726,3 +726,41 @@ footer{padding:12px 0}
 .photo-map-caption .photo-location:hover{background:#fee3d3}
 .photo-map-caption .photo-location:focus-visible{outline:2px solid #234b42;outline-offset:3px}
 @media(max-width:760px){.thai-feature-image .photo-map-caption{inset:auto 10px 10px;gap:6px}.photo-map-caption .photo-label,.photo-map-caption .photo-location{min-height:44px;padding:9px;font-size:8.5px;letter-spacing:.03em}.photo-map-caption .photo-location{gap:4px}.photo-map-caption .photo-location svg{width:13px;height:16px;flex-basis:13px}}
+
+/* Approved homepage update: community chat, rounded controls, clearer location action. */
+.community-button{background:#e8f0ef;color:#234b42;border-color:#a9c4c4;justify-content:center;text-align:center}
+.community-button:hover{background:#dcebea;border-color:#82aaaa}
+.community-button .telegram-chat-icon{color:#249bd7;flex:0 0 20px;width:20px;height:20px}
+.community-label{display:flex;flex-direction:column;gap:3px;text-align:left;line-height:1.3}
+.community-label small{font-size:10px;font-weight:600;color:#54716c}
+.hero-buttons{width:100%;gap:10px;align-items:stretch}
+.hero-buttons .button{justify-content:center;font-size:12px;padding:12px;min-height:56px;gap:8px}
+.hero-buttons .hero-community{flex:1 1 180px}
+.hero-buttons .community-label>span{font-size:11px}
+.community-service .service-footer{flex-direction:column;align-items:stretch;gap:12px}
+.community-service .service-footer>strong{font-size:11px}
+.community-service .community-button{width:100%;min-height:48px;font-size:12px;padding:12px 10px;gap:8px}
+.community-service .community-button span{min-width:0;overflow-wrap:break-word}
+.friends-preview-copy .friends-more{font-family:var(--display);font-size:clamp(15px,1.35vw,19px);font-weight:500;font-style:normal;line-height:1.3;text-align:center;text-transform:uppercase;letter-spacing:.015em;color:#234b42;margin:8px 0 20px}
+:where(.button,button,input,select,textarea,summary,.mobile-nav nav,.modal,.modal-box,.toast,.skip,.partner-card,.service,figcaption,.photo-label,.photo-location){border-radius:12px}
+.hero-media figcaption,.russia-main-photo figcaption{border-radius:10px}
+.thai-feature-image .photo-map-caption{border-radius:0}
+.photo-map-caption .photo-label,.photo-map-caption .photo-location{border-radius:10px;font-size:9px;padding:9px 12px;min-height:38px}
+.photo-map-caption .photo-location{background:linear-gradient(135deg,#d3ebe8,#b7dad5);border:1px solid #8fbab2;box-shadow:0 3px 9px #183d3529;min-height:44px;transition:background .2s,box-shadow .2s,transform .2s}
+.photo-map-caption .photo-location svg{width:14px;height:16px;flex-basis:14px;color:#32685e}
+.photo-map-caption .photo-location:hover{background:linear-gradient(135deg,#bfe0da,#9bc9c0);box-shadow:0 4px 12px #183d3540;transform:translateY(-1px)}
+.russia-secondary>figure figcaption{border-radius:0 0 15px 15px}
+.russia-secondary>figure img,.russia-secondary>figure video{border-radius:15px 15px 0 0}
+@media(max-width:760px){
+ .hero-buttons{display:grid;grid-template-columns:minmax(0,1fr);width:100%}
+ .hero-buttons .button{width:100%;min-height:50px;font-size:13px}
+ .hero-buttons .community-label>span{font-size:12px}
+ .hero-buttons .hero-community{min-height:60px}
+ .contact-actions{display:flex;flex-direction:column;align-items:stretch}
+ .contact-actions .button{min-width:0;width:100%}
+ .friends-preview-copy .friends-more{font-size:clamp(14px,4vw,18px)}
+ .photo-map-caption .photo-label,.photo-map-caption .photo-location{font-size:7.65px;padding:8px;letter-spacing:.03em}
+ .photo-map-caption .photo-label{min-height:39px}
+ .photo-map-caption .photo-location{min-height:44px}
+ .photo-map-caption .photo-location svg{width:12px;height:14px;flex-basis:12px}
+}
