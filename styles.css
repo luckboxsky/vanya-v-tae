@@ -764,3 +764,12 @@ footer{padding:12px 0}
  .photo-map-caption .photo-location{min-height:44px}
  .photo-map-caption .photo-location svg{width:12px;height:14px;flex-basis:12px}
 }
+
+/* SBP recipient: two banks, one phone number. */
+.sbp-banks{display:flex;flex-wrap:wrap;gap:10px;margin:4px 0 18px}
+.sbp-bank{display:inline-flex;align-items:center;gap:9px;min-height:48px;padding:8px 12px;background:#f2e6dc;border:1px solid #dec9ba;border-radius:12px;font-weight:800;font-size:14px;line-height:1.3}
+.sbp-bank svg{display:block;flex:0 0 28px;width:28px;height:28px}
+.sbp-recipient{display:flex;flex-direction:column;gap:4px;padding:14px 0;margin:0 0 14px;border-top:1px solid #cdd8cb}
+.sbp-recipient>span{font-size:11px;color:#617268}
+.sbp-recipient>strong{font-size:17px;line-height:1.5;overflow-wrap:break-word}
+@media(max-width:375px){.sbp-bank{font-size:12px;padding:7px 9px;gap:7px}.sbp-bank svg{width:24px;height:24px;flex-basis:24px}}

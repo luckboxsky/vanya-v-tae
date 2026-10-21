@@ -10,6 +10,8 @@ window.SITE_CONFIG = {
   boosty: null,         // например: 'https://boosty.to/your_account'
   sbpPhone: '89203414537', // пользователь прислал этот номер раньше; ОБЯЗАТЕЛЬНО проверить
   sbpBank: 'Т-Банк',
+  sbpBanks: [{id:'tbank', name:'Т-Банк'}, {id:'yandex', name:'Яндекс Банк'}],
+  sbpRecipient: 'Иван Андреевич M.',
   thaiBankName: null,
   thaiAccountNumber: null,
   thaiPromptpay: null, // номер PromptPay, если хочешь показывать

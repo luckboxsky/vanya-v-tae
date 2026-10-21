@@ -41,7 +41,14 @@
         return;
       }
       case 'sbp': {
-        modal('ПЕРЕВОД ПО СБП', `<p>Перевод с российской карты по номеру телефона.</p>${c.sbpPhone ? row('Телефон СБП',c.sbpPhone) : pending}${c.sbpBank ? `<p class="config-hint">Банк: <strong>${esc(c.sbpBank)}</strong>. Перед переводом проверьте имя получателя.</p>` : ''}`);
+        const bankMarks = {
+          tbank: '<svg viewBox="0 0 32 32" aria-hidden="true"><path fill="#ffdd2d" d="M3 2h26v16c0 7-13 12-13 12S3 25 3 18Z"/><path fill="#222" d="M8 8h16v4h-6v11h-4V12H8Z"/></svg>',
+          yandex: '<svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#222"/><text x="16" y="23" fill="#fff" text-anchor="middle" font-family="Arial,sans-serif" font-size="24" font-weight="700">Я</text></svg>'
+        };
+        const banks = Array.isArray(c.sbpBanks) && c.sbpBanks.length ? c.sbpBanks : (c.sbpBank ? [{name:c.sbpBank}] : []);
+        const bankList = banks.length ? '<div class="sbp-banks" aria-label="Банки получателя">' + banks.map(bank => '<span class="sbp-bank">' + (bankMarks[bank.id] || '') + '<span>' + esc(bank.name) + '</span></span>').join('') + '</div>' : '';
+        const recipient = c.sbpRecipient ? '<div class="sbp-recipient"><span>Получатель</span><strong>' + esc(c.sbpRecipient) + '</strong></div>' : '';
+        modal('ПЕРЕВОД ПО СБП', '<p>В приложении своего банка выберите перевод по СБП, вставьте номер телефона и выберите банк получателя.</p>' + (c.sbpPhone ? row('Номер телефона', c.sbpPhone) : pending) + bankList + recipient + '<p class="config-hint">Перед подтверждением перевода проверьте имя получателя и выбранный банк.</p>');
         return;
       }
       case 'kazakhstan': {
