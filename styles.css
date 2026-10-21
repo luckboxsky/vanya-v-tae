@@ -735,7 +735,7 @@ footer{padding:12px 0}
 .community-label small{font-size:10px;font-weight:600;color:#54716c}
 .hero-buttons{width:100%;gap:10px;align-items:stretch}
 .hero-buttons .button{justify-content:center;font-size:12px;padding:12px;min-height:56px;gap:8px}
-.hero-buttons .hero-community{flex:1 1 180px}
+.hero-buttons .hero-community{flex:0 0 auto;width:fit-content;max-width:100%}
 .hero-buttons .community-label>span{font-size:11px}
 .community-service .service-footer{flex-direction:column;align-items:stretch;gap:12px}
 .community-service .service-footer>strong{font-size:11px}
