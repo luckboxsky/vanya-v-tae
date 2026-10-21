@@ -39,3 +39,15 @@
 .places-directory .partner-details .partner-description{padding-top:10px}
 .places-directory .partner-logo-frame.logo-avatar{border-radius:18px}
 .places-directory .partner-logo-frame.logo-avatar img{padding:0;object-fit:cover;object-position:50% 36%;border-radius:0}
+.places-directory .partner-title-row{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:10px;min-height:45px}
+.places-directory .partner-title-row .partner-benefit{margin:0;padding:7px 9px;font-size:10px;max-width:155px;align-self:center}
+.places-directory .partner-entry:not(.partner-featured) .partner-role-text{min-height:44px}
+.places-directory .partner-promocode{display:block;margin-top:4px;font-size:11px;color:#526e59;font-weight:500;line-height:1.5}
+.places-directory .partner-promocode strong{font-weight:800}
+.places-directory .partner-entry:not(.partner-featured) .partner-details{margin-top:auto;padding-top:5px;border-top:0}
+.places-directory .partner-entry:not(.partner-featured) .partner-details summary{border-top:1px solid #ddc9b9;border-radius:0;padding-top:7px;margin-top:18px;min-height:51px}
+.places-directory [data-partner="green-way"] .partner-logo-frame img{padding:0;transform:translateY(-6%) scale(1.1)}
+.places-directory [data-partner="funny-time"] .partner-logo-frame img{padding:0;transform:scale(1.15)}
+@media(max-width:760px){.places-directory .partner-title-row{grid-template-columns:auto minmax(0,1fr);gap:12px}.places-directory .partner-title-row .partner-benefit{justify-self:end;font-size:9px;padding:7px;max-width:140px}.places-directory .partner-entry:not(.partner-featured) .partner-role-text{min-height:0}}
+@media(max-width:350px){.places-directory .partner-title-row{grid-template-columns:minmax(0,1fr) auto;gap:7px}.places-directory .partner-title-row h3{font-size:29px}.places-directory .partner-title-row .partner-benefit{max-width:118px;font-size:8px}}
+@media(min-width:761px) and (max-width:900px){.places-directory .partner-title-row h3{font-size:28px}.places-directory .partner-title-row .partner-benefit{max-width:125px;font-size:9px;padding:6px 7px}}
