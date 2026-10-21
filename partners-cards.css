@@ -1,0 +1,28 @@
+.places-directory .recommendation-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;align-items:stretch}
+.places-directory .partner-entry{display:flex;flex-direction:column;padding:28px;min-width:0;gap:22px}
+.places-directory .partner-logo-frame{width:144px;height:108px;flex-shrink:0;border-radius:16px;background:#fff;display:flex;align-items:center;justify-content:center;overflow:hidden;border:1px solid #e6d9cb}
+.places-directory .partner-logo-frame img{display:block;width:100%;height:100%;max-width:100%;object-fit:contain;padding:9px;border-radius:0}
+.places-directory .partner-logo-frame.logo-dark{background:#050505;border-color:#050505}
+.places-directory .person-monogram{font-family:var(--display);font-size:61px;line-height:1;color:var(--ink);background:#dce7db;width:100%;height:100%;display:flex;align-items:center;justify-content:center}
+.places-directory .partner-content{display:flex;flex-direction:column;flex:1;min-width:0}
+.places-directory .partner-category{color:#8a6f5d;letter-spacing:.06em;font-size:10px;font-weight:800;text-transform:uppercase;margin-bottom:12px}
+.places-directory .partner-entry h3{font-size:35px;line-height:1.12;letter-spacing:-.01em}
+.places-directory .partner-entry .partner-role-text{font-size:12px;font-weight:800;line-height:1.5;margin:10px 0 17px;color:#506d5c}
+.places-directory .partner-description p{font-size:14px;line-height:1.65;color:#345c4e;margin:0 0 15px}
+.places-directory .partner-description p:last-child{margin-bottom:0}
+.places-directory .partner-benefit{border-radius:12px;align-self:flex-start;padding:9px 12px;background:#e3edda;color:#35583e;font-size:12px;line-height:1.4;font-weight:800;margin:0 0 17px}
+.places-directory .partner-entry .partner-promo-note{font-size:12px;line-height:1.6;font-weight:700;color:#91644f;margin:18px 0 0}
+.places-directory .partner-actions{display:flex;flex-wrap:wrap;gap:10px;padding-top:24px;margin-top:auto}
+.places-directory a.partner-action{display:inline-flex;align-items:center;justify-content:center;gap:14px;min-height:46px;border-radius:12px;padding:11px 16px;font-size:12px;line-height:1.4;font-weight:800;background:#234b42;color:#fff8f0;border:1px solid #234b42;transition:background .15s,transform .15s;text-decoration:none}
+.places-directory a.partner-action:hover{background:#315f51;transform:translateY(-1px)}
+.places-directory a.partner-action-secondary{background:transparent;color:#234b42;border-color:#b7c6b7}
+.places-directory a.partner-action-secondary:hover{background:#edf0e3}
+.places-directory .partner-featured{grid-column:1/-1;display:grid;grid-template-columns:minmax(240px,.7fr) minmax(0,1.3fr);gap:34px;padding:32px;background:#f4ead8;border-color:#cfb998}
+.places-directory .partner-featured h3{font-size:44px}
+.places-directory .market-banner{min-height:260px;border-radius:20px;padding:28px 20px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:13px;background:radial-gradient(ellipse at 15% 5%,#fffcf3 0,transparent 70%),#e8e1cf;border:1px solid #dbd0b9;align-self:stretch;text-align:center;overflow:hidden}
+.places-directory .market-banner img{width:min(100%,250px);height:auto;object-fit:contain;border-radius:12px}
+.places-directory .market-banner strong{display:block;font-family:var(--display);font-weight:500;font-size:clamp(45px,5vw,68px);letter-spacing:.06em;line-height:1;color:#254b42}
+.places-directory .market-banner>span{font-size:9px;font-weight:800;letter-spacing:.05em;line-height:1.8;color:#697b66}
+@media(max-width:900px){.places-directory .partner-entry{padding:23px}.places-directory .partner-featured{grid-template-columns:minmax(200px,.7fr) minmax(0,1.3fr);gap:24px}.places-directory .partner-description p{font-size:13px}.places-directory .partner-entry h3{font-size:32px}}
+@media(max-width:760px){.places-directory .recommendation-grid{grid-template-columns:1fr;gap:17px}.places-directory .partner-entry{padding:23px;gap:19px}.places-directory .partner-featured{display:flex;grid-column:auto}.places-directory .market-banner{width:100%;min-height:205px;padding:25px 20px;gap:11px}.places-directory .market-banner img{max-width:220px}.places-directory .market-banner strong{font-size:50px}.places-directory .partner-featured h3{font-size:36px}.places-directory .partner-description p{font-size:14px}.places-directory .partner-actions{padding-top:21px}.places-directory a.partner-action{flex:1 1 auto}.places-directory .partner-logo-frame{width:144px;height:108px}}
+@media(prefers-reduced-motion:reduce){.places-directory a.partner-action{transition:none}}

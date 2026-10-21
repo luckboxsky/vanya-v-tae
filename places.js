@@ -1,6 +1,6 @@
 (() => {
  'use strict';
- const root=document.querySelector('.places-directory');
+ const recommendations=window.PLACE_RECOMMENDATIONS||[];
  const grid=document.getElementById('places-grid');
  const home=document.getElementById('places-home');
  const detail=document.getElementById('place-detail');
@@ -12,17 +12,29 @@
   chiangmai:{title:'ЧИАНГМАЙ',sub:'Мой дом на севере Таиланда',intro:'Сейчас я живу в Чиангмае и постепенно собираю здесь своих людей. Начнём с фотографа и гайда моей подруги, а дальше добавим любимые места и новые знакомства.',categories:['Все','Фотография','Гайды'],items:[['Фотография','Фотограф в Чиангмае','Человек, к которому можно обратиться за съёмкой.'],['Гайды','Гайд по Чиангмаю','Подборка от моей подруги.']]}
  };
  let current=null;
+ copy.phuket.intro='Мои люди на Пхукете: транспорт, жильё, экскурсии и проекты, которые мне хочется поддержать. Всех, кого рекомендую здесь, я знаю лично.';
+ copy.phuket.categories=['Все','Объявления','Транспорт','Жильё','Экскурсии'];
+ copy.phuket.items=[];
+ copy.samui.intro='На Самуи я прожил больше года. Здесь собираю проверенные контакты по транспорту, любимые места и свои заметки о районах острова.';
+ copy.samui.items=copy.samui.items.filter(item=>item[0]!=='Транспорт');
+ function esc(value){return String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+ function renderRecommendation(item){
+  const logo=item.featured?`<div class="market-banner"><img src="${esc(item.logo)}" alt="Пхукет"><strong>МАРКЕТ</strong><span>ОБЪЯВЛЕНИЯ · АФИША · ЖИЗНЬ ОСТРОВА</span></div>`:`<div class="partner-logo-frame ${item.id==='funny-time'?'logo-dark':''}">${item.logo?`<img src="${esc(item.logo)}" alt="${esc(item.name)} — логотип" loading="lazy">`:'<span class="person-monogram" aria-label="Виктор">В</span>'}</div>`;
+  return `<article class="recommendation-card partner-entry ${item.featured?'partner-featured':''}" data-partner="${esc(item.id)}">${logo}<div class="partner-content"><div class="partner-category">${item.categories.map(esc).join(' · ')}</div><h3>${esc(item.name)}</h3><p class="partner-role-text">${esc(item.role)}</p>${item.badge?`<div class="partner-benefit">${esc(item.badge)}</div>`:''}<div class="partner-description">${item.paragraphs.map(p=>`<p>${esc(p)}</p>`).join('')}</div>${item.note?`<p class="partner-promo-note">${esc(item.note)}</p>`:''}<div class="partner-actions">${item.links.map((link,i)=>`<a class="partner-action ${i?'partner-action-secondary':''}" href="${esc(link.url)}" ${link.url.startsWith('https:')?'target="_blank" rel="noopener noreferrer"':''}>${esc(link.label)}<span aria-hidden="true">↗</span></a>`).join('')}</div></div></article>`;
+ }
  function createCards(){
   grid.innerHTML=maps.map(m=>`<article class="place-card"><div class="map-frame">${m.map}</div><div class="card-copy"><div><h2><a href="#${m.id}" data-place="${m.id}">${m.name}</a></h2><p>${copy[m.id].sub}</p></div><a class="card-arrow" href="#${m.id}" data-place="${m.id}" aria-label="Открыть ${m.name}">↗</a></div></article>`).join('');
  }
  function showItems(category){
   const items=copy[current].items.filter(x=>category==='Все'||x[0]===category);
-  document.getElementById('recommendations').innerHTML=items.map(item=>`<article class="recommendation-card"><span>${item[0].toUpperCase()}</span><h3>${item[1]}</h3><span class="coming-soon">Скоро</span><p>${item[2]}</p></article>`).join('');
+  const live=recommendations.filter(item=>item.places.includes(current)&&(category==='Все'||item.categories.includes(category)));
+  document.getElementById('recommendations').innerHTML=live.map(renderRecommendation).join('')+items.map(item=>`<article class="recommendation-card"><span>${item[0].toUpperCase()}</span><h3>${item[1]}</h3><span class="coming-soon">Скоро</span><p>${item[2]}</p></article>`).join('');
  }
  function showPlace(id){
   const m=maps.find(m=>m.id===id);if(!m)return;
   current=id;const c=copy[id];
   detail.innerHTML=`<a class="back-link" href="#" data-back>← Все места</a><div class="detail-head"><div><div class="eyebrow">СВОИ ЛЮДИ · ${c.title}</div><h1>${c.title}</h1><p class="detail-intro">${c.intro}</p></div><div class="detail-map">${m.map.replaceAll('id="',`id="detail-`).replaceAll('url(#','url(#detail-')}</div></div><div class="categories" role="group" aria-label="Категория рекомендаций">${c.categories.map((name,i)=>`<button type="button" data-category="${name}" aria-pressed="${i===0}">${name}</button>`).join('')}</div><div class="recommendation-grid" id="recommendations"></div><p class="empty-note">Подборка готовится. Скоро здесь появятся контакты, фотографии и подробные рекомендации.</p>`;
+  detail.querySelector('.empty-note').textContent=id==='phuket'?'Подборка будет пополняться. Следом добавлю любимые рестораны и места острова.':'Подборка пополняется: новые контакты, фотографии и подробные рекомендации появятся здесь.';
   home.hidden=true;detail.hidden=false;showItems('Все');window.scrollTo({top:0,behavior:'instant'});
  }
  function showHome(){home.hidden=false;detail.hidden=true;current=null;window.scrollTo({top:0,behavior:'instant'});}
