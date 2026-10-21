@@ -26,3 +26,16 @@
 @media(max-width:900px){.places-directory .partner-entry{padding:23px}.places-directory .partner-featured{grid-template-columns:minmax(200px,.7fr) minmax(0,1.3fr);gap:24px}.places-directory .partner-description p{font-size:13px}.places-directory .partner-entry h3{font-size:32px}}
 @media(max-width:760px){.places-directory .recommendation-grid{grid-template-columns:1fr;gap:17px}.places-directory .partner-entry{padding:23px;gap:19px}.places-directory .partner-featured{display:flex;grid-column:auto}.places-directory .market-banner{width:100%;min-height:205px;padding:25px 20px;gap:11px}.places-directory .market-banner img{max-width:220px}.places-directory .market-banner strong{font-size:50px}.places-directory .partner-featured h3{font-size:36px}.places-directory .partner-description p{font-size:14px}.places-directory .partner-actions{padding-top:21px}.places-directory a.partner-action{flex:1 1 auto}.places-directory .partner-logo-frame{width:144px;height:108px}}
 @media(prefers-reduced-motion:reduce){.places-directory a.partner-action{transition:none}}
+.places-directory .partner-entry:not(.partner-featured) .partner-actions{margin-top:0;padding-top:3px}
+.places-directory .partner-details{margin-top:19px;border-top:1px solid #ddc9b9;padding-top:5px;border-radius:0}
+.places-directory .partner-details summary{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:44px;cursor:pointer;list-style:none;font-size:12px;font-weight:800;color:#496e5b;border-radius:9px}
+.places-directory .partner-details summary::-webkit-details-marker{display:none}
+.places-directory .partner-details summary:focus-visible{outline:3px solid #bf6e5e;outline-offset:3px}
+.places-directory .partner-details .details-label-open{display:none}
+.places-directory .partner-details[open] .details-label-open{display:inline}
+.places-directory .partner-details[open] .details-label-closed{display:none}
+.places-directory .details-toggle{font-size:23px;line-height:1;font-weight:500;transition:transform .15s}
+.places-directory .partner-details[open] .details-toggle{transform:rotate(45deg)}
+.places-directory .partner-details .partner-description{padding-top:10px}
+.places-directory .partner-logo-frame.logo-avatar{border-radius:18px}
+.places-directory .partner-logo-frame.logo-avatar img{padding:0;object-fit:cover;object-position:50% 36%;border-radius:0}
