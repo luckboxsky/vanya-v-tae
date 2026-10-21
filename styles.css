@@ -798,3 +798,12 @@ footer{padding:12px 0}
 .crypto-onchain .detail-value{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:13px;line-height:1.65;overflow-wrap:anywhere;word-break:break-all}
 .crypto-internal .detail-value{font-size:18px}
 @media(max-width:375px){.modal-box{padding:32px 20px}.donation-qr{padding:8px}.crypto-panel h3{font-size:20px}.crypto-switch button{font-size:13px;padding:10px 8px}}
+
+/* Final homepage footer: compact text and back-to-top link. */
+footer.footer-compact{padding:0}
+.footer-compact .footer-inner{min-height:44px;gap:12px;flex-wrap:nowrap;line-height:1.3;font-size:12px;font-weight:750}
+.footer-compact .footer-to-top{min-height:44px;padding:0 4px;font-size:12px;font-weight:800;white-space:nowrap}
+.boosty-actions{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 10px}
+.boosty-actions .modal-link{margin:0;border-radius:10px;text-align:center;min-height:44px}
+.boosty-actions .modal-link+.modal-link{background:transparent;color:#254838}
+@media(max-width:375px){.footer-compact .footer-inner{font-size:10px;gap:8px}.footer-compact .footer-to-top{font-size:11px}}

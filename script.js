@@ -45,7 +45,7 @@
     switch (type) {
       case 'boosty': {
         const url = safeUrl(c.boosty);
-        modal('ПОДДЕРЖАТЬ НА BOOSTY', '<p>Разовый донат на развитие блога. Выберите сумму на Boosty и при желании оставьте сообщение. Подписку оформлять не нужно.</p><p class="config-hint">Для отправки доната Boosty попросит войти или зарегистрироваться. Доступность оплаты зависит от страны и банка вашей карты.</p>' + (url ? external(url, 'Поддержать на Boosty') + qrBlock(c.boostyQr,'QR-код для доната на Boosty') : pending));
+        modal('ПОДДЕРЖАТЬ НА BOOSTY', '<p>Разовый донат на развитие блога. Выберите сумму на Boosty и при желании оставьте сообщение. Если хотите поддерживать меня регулярно, можете оформить подписку — есть несколько вариантов.</p><p class="config-hint">Для отправки доната Boosty попросит войти или зарегистрироваться. Доступность оплаты зависит от страны и банка вашей карты.</p>' + (url ? '<div class="boosty-actions">' + external(url, 'Поддержать на Boosty') + external('https://boosty.to/vanyavtae', 'Выбрать подписку') + '</div>' + qrBlock(c.boostyQr,'QR-код для доната на Boosty') : pending));
         return;
       }
       case 'thai': {
