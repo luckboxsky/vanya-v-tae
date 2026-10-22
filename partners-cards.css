@@ -128,4 +128,8 @@
 .places-directory .spot-card .spot-role{font-size:13px;font-weight:700;color:#596e62;margin:0 0 14px}
 .places-directory .spot-card .spot-text p{font-size:14px;line-height:1.7;margin:0 0 12px}
 .places-directory .spot-card .partner-actions{margin-top:auto;padding-top:8px}
-@media(max-width:760px){.places-directory .spot-card{padding:22px}.places-directory .spot-card h3{font-size:27px}}
+@media(max-width:760px){.places-directory .spot-card{padding:22px}.places-directory .spot-card h3{font-size:27px}}.spot-photos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:4px 0 18px}
+.spot-photos figure{margin:0;min-width:0}
+.spot-photos img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:12px}
+.places-directory .spot-photos figcaption{font-size:12px;font-weight:500;line-height:1.5;color:#596e62;margin-top:6px;text-transform:none;letter-spacing:normal}
+@media(max-width:760px){.spot-photos{grid-template-columns:repeat(2,minmax(0,1fr))}.spot-photos figure:first-child{grid-column:1/-1}}

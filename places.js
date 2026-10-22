@@ -32,7 +32,8 @@
  // Favourite places (cafes, beaches, viewpoints) get a compact card: no logo, the whole text visible at once.
  function renderSpot(item){
   const actions=`<div class="partner-actions">${item.links.map((link,i)=>`<a class="partner-action ${i?'partner-action-secondary':''}" data-click-partner="${esc(item.id)}" data-click-place="${esc(current)}" data-click-channel="${linkChannel(link)}" href="${esc(link.url)}" ${link.url.startsWith('https:')?'target="_blank" rel="noopener noreferrer"':''}>${contactIcon(link.url)}<span>${esc(link.label)}</span></a>`).join('')}</div>`;
-  return `<article class="recommendation-card spot-card" data-partner="${esc(item.id)}"><div class="partner-category">${item.categories.map(esc).join(' · ')}</div><h3>${esc(item.name)}</h3><p class="spot-role">${esc(item.role)}</p><div class="spot-text">${item.paragraphs.map(p=>`<p>${esc(p)}</p>`).join('')}</div>${actions}</article>`;
+  const photos=item.photos?.length?`<div class="spot-photos">${item.photos.map(photo=>`<figure><img src="${esc(photo.src)}" alt="${esc(photo.alt)}" width="${photo.width||1280}" height="${photo.height||960}" loading="lazy">${photo.caption?`<figcaption>${esc(photo.caption)}</figcaption>`:''}</figure>`).join('')}</div>`:'';
+  return `<article class="recommendation-card spot-card" data-partner="${esc(item.id)}"><div class="partner-category">${item.categories.map(esc).join(' · ')}</div><h3>${esc(item.name)}</h3><p class="spot-role">${esc(item.role)}</p><div class="spot-text">${item.paragraphs.map(p=>`<p>${esc(p)}</p>`).join('')}</div>${photos}${actions}</article>`;
  }
  function renderRecommendation(item){
   if(item.spot)return renderSpot(item);
