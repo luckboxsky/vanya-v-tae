@@ -96,3 +96,22 @@
 .coffee-details summary:focus-visible,.coffee-intro a:focus-visible{outline:2px solid #234b42;outline-offset:4px}
 @media(max-width:1100px){.coffee-catalog{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:640px){.places-directory .coffee-section{padding:20px}.coffee-catalog{grid-template-columns:1fr}.coffee-product{padding:20px}.coffee-product .coffee-taste,.coffee-product .coffee-process{min-height:0}.coffee-order{align-items:stretch;flex-direction:column;gap:12px}.coffee-order .coffee-contact{justify-content:center}}
+
+/* Travel services: personal picks with referral bonuses, shown above the coffee catalogue. */
+.services-section{padding:32px;margin:28px 0;border:1px solid #dac9b9;border-radius:18px;background:#fff8f0;scroll-margin-top:85px}
+.places-directory .services-section h2{font-family:Oswald,sans-serif;font-size:32px;line-height:1.25;margin:0 0 14px}
+.services-intro{font-size:14px;max-width:780px;margin-bottom:26px}
+.services-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.service-card{min-width:0;padding:24px;border:1px solid #dac9b9;border-radius:16px;background:#fff2e5;display:flex;flex-direction:column}
+.service-logo{display:grid;place-items:center;height:96px;margin-bottom:20px;border-radius:12px;background:#fff;border:1px solid #eadccf}
+.service-logo img{display:block;height:30px;width:auto;max-width:72%;object-fit:contain}.service-card[data-service="agoda"] .service-logo img{height:50px}
+.service-card .service-kind{font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#a9533e;margin:0 0 8px}
+.places-directory .service-card h3{font-family:Oswald,sans-serif;font-size:29px;line-height:1.2;margin:0 0 12px}
+.service-card .service-bonus{align-self:flex-start;font-size:12px;font-weight:800;color:#234b42;background:#e6ecdc;border-radius:999px;padding:6px 12px;margin:0 0 14px}
+.service-card p{font-size:14px;line-height:1.7;margin:0 0 12px}
+.places-directory a.service-action{margin-top:auto;display:inline-flex;align-items:center;justify-content:center;min-height:46px;border-radius:12px;padding:11px 16px;font-size:13px;font-weight:800;background:#234b42;color:#fff8f0;border:1px solid #234b42;text-decoration:none;text-align:center}
+.places-directory a.service-action-secondary{background:transparent;color:#234b42}
+.places-directory a.service-action:hover{background:#376458;color:#fff}
+.places-directory a.service-action:focus-visible{outline:2px solid #234b42;outline-offset:4px}
+.services-note{font-size:12px;color:#596e62;margin:18px 0 0}
+@media(max-width:760px){.services-section{padding:20px}.services-grid{grid-template-columns:1fr}.service-card{padding:20px}.places-directory .services-section h2{font-size:28px}.service-logo{height:84px}}

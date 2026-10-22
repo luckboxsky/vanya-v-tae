@@ -61,7 +61,7 @@
   home.hidden=true;detail.hidden=false;showItems('Все');window.scrollTo({top:0,behavior:'instant'});
  }
  function showHome(){home.hidden=false;detail.hidden=true;current=null;window.scrollTo({top:0,behavior:'instant'});}
- function route(){const id=location.hash.slice(1);if(copy[id])showPlace(id);else if(!id)showHome();}
+ function route(){const id=location.hash.slice(1);if(copy[id])showPlace(id);else if(!id)showHome();else{const target=document.getElementById(id);if(target){const jump=()=>window.scrollTo({top:target.getBoundingClientRect().top+window.scrollY-85,behavior:'instant'});jump();if(document.readyState!=='complete')window.addEventListener('load',jump,{once:true});}}}
  document.addEventListener('click',e=>{
   const place=e.target.closest('[data-place]');if(place){e.preventDefault();history.pushState(null,'','#'+place.dataset.place);showPlace(place.dataset.place);return;}
   const back=e.target.closest('[data-back]');if(back){e.preventDefault();history.pushState(null,'',location.pathname+location.search);showHome();return;}

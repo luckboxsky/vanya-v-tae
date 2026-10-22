@@ -11,10 +11,14 @@ const PARTNERS = {
   'city-motorbike': {name:'City Motorbike Rentals', places:['chiangmai'], channels:['maps']},
   'natasha-guide': {name:'Наташа · гайд по Чиангмаю', places:['chiangmai'], channels:['telegram','instagram']},
   'roma-black': {name:'Рома Блэк · фотограф', places:['chiangmai'], channels:['telegram','instagram']},
+  avosend: {name:'Avosend', places:['services'], channels:['website']},
+  trip: {name:'Trip.com', places:['services'], channels:['website']},
+  booking: {name:'Booking.com', places:['services'], channels:['website']},
+  agoda: {name:'Agoda', places:['services'], channels:['website']},
   'stasya-visa': {name:'Стася · визы и школа', places:['phuket'], channels:['telegram']}
 };
 const ORIGINS = new Set(['https://vanyavtae.com','https://www.vanyavtae.com','https://yellow-term-6761.ddnpw2r226.workers.dev']);
-const ISLANDS = {phuket:'Пхукет',samui:'Самуи',krabi:'Краби',phangan:'Пханган',chiangmai:'Чиангмай'};
+const ISLANDS = {phuket:'Пхукет',samui:'Самуи',krabi:'Краби',phangan:'Пханган',chiangmai:'Чиангмай',services:'Сервисы'};
 const ACTIONS = {website:'Сайт / приложение',telegram:'Telegram',phone:'Телефон',maps:'Google Карты',instagram:'Instagram'};
 const response = (status) => new Response(null,{status,headers:{'Cache-Control':'no-store'}});
 
