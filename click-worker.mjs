@@ -1,3 +1,4 @@
+import {weatherResponse} from './weather-worker.mjs';
 const PARTNERS = {
   'phuket-market': {name:'Phuket Market', places:['phuket'], channels:['website']},
   'green-way': {name:'Green Way', places:['phuket','samui'], channels:['telegram','phone']},
@@ -44,6 +45,7 @@ export async function recordClick(request, env) {
 
 export default {
   async fetch(request, env) {
+    if (new URL(request.url).pathname === '/_weather/chiang-mai') return weatherResponse(request);
     if (new URL(request.url).pathname === '/_events/partner-click') return recordClick(request,env);
     return env.ASSETS.fetch(request);
   }

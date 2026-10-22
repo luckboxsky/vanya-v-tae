@@ -6,11 +6,16 @@
   "assets": {
     "directory": ".",
     "binding": "ASSETS",
-    "run_worker_first": ["/_events/*"]
+    "run_worker_first": [
+      "/_events/*",
+      "/_weather/chiang-mai"
+    ]
   },
-  "d1_databases": [{
-    "binding": "CLICK_DB",
-    "database_name": "vanyavtae-clicks",
-    "database_id": "75193df3-0ee4-447b-8606-c975b1a29b21"
-  }]
+  "d1_databases": [
+    {
+      "binding": "CLICK_DB",
+      "database_name": "vanyavtae-clicks",
+      "database_id": "75193df3-0ee4-447b-8606-c975b1a29b21"
+    }
+  ]
 }

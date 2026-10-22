@@ -1,0 +1,15 @@
+.hero-media figcaption.hero-presence{max-width:calc(100% - 32px);padding:13px 16px;border:1px solid #fff9;background:#fff5e9ed;backdrop-filter:blur(10px);border-radius:12px;color:#234b42;box-shadow:0 4px 18px #172f2510;font-family:var(--body);font-size:12px;line-height:1.5;letter-spacing:0;text-transform:none}
+.hero-presence-location{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:800}
+.hero-presence-location a:hover{text-decoration:underline;text-underline-offset:3px}
+.hero-presence-dot{width:7px;height:7px;border-radius:50%;background:#648b52;flex:0 0 7px;animation:presence-breathe 3s ease-in-out infinite}
+.hero-presence-details{display:flex;align-items:center;gap:13px;margin-top:6px;font-size:13px;font-weight:600;white-space:nowrap}
+.hero-presence-details time{font-variant-numeric:tabular-nums;color:#526459}
+.hero-presence-weather{display:inline-flex;align-items:center;gap:6px}
+.hero-presence-weather[hidden],.hero-presence-details time[hidden],.hero-presence-details[hidden]{display:none}
+.hero-presence-weather svg{width:21px;height:21px;display:block;color:#a16c33}
+.hero-presence-credit{display:none;margin-top:5px;font-size:9px;font-weight:500;color:#65736a}
+.has-weather .hero-presence-credit{display:flex;gap:5px;align-items:center}
+.hero-presence-credit a{text-decoration:underline;text-underline-offset:2px}
+@keyframes presence-breathe{0%,100%{box-shadow:0 0 0 0 #648b5225}50%{box-shadow:0 0 0 4px #648b5200}}
+@media(prefers-reduced-motion:reduce){.hero-presence-dot{animation:none}}
+@media(max-width:480px){.hero-media figcaption.hero-presence{bottom:12px;left:12px;max-width:calc(100% - 24px);padding:11px 13px}.hero-presence-location{font-size:11px}.hero-presence-details{font-size:12px;gap:12px}}

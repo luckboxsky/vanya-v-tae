@@ -20,3 +20,5 @@ prepare-site.mjs
 SITE-MAINTENANCE.md
 
 page-polish.mjs
+
+weather-worker.mjs
