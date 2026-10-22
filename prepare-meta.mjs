@@ -49,5 +49,6 @@ for(const [file,meta] of Object.entries(pages)) {
   html=html.replace(/((?:src|href)=["']\/(?:places\.js|places-data\.js|partners-cards\.css))\?v=[^"']+/g,'$1?v=krabi-avatar-20261023');
   html=html.replace(/partners-cards\.css\?v=[^"']+/g,'partners-cards.css?v=coffee-20261023');
   html=html.replace(/((?:src|href)=["']\/(?:places\.js|places-maps\.js))\?v=[^"']+/g,'$1?v=krabi-relief-20261023');
+  html=html.replace(/((?:src|href)=["']\/(?:places\.js|places-data\.js|partners-cards\.css))\?v=[^"']+/g,'$1?v=phangan-20261023');
   fs.writeFileSync(path,html);
 }

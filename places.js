@@ -18,6 +18,9 @@
  copy.phuket.items=[];
  copy.samui.intro='На Самуи я прожил больше года. Здесь собираю проверенные контакты по транспорту, любимые места и свои заметки о районах острова.';
  copy.samui.items=copy.samui.items.filter(item=>item[0]!=='Транспорт');
+ copy.phangan.intro='Пять лет моей жизни прошли на Пхангане. Здесь делюсь проверенными контактами и личным опытом — в том числе рассказываю, куда обращаться не советую.';
+ copy.phangan.categories=['Все','Транспорт','Мотосервис'];
+ copy.phangan.items=[];
  function esc(value){return String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
 
  function contactIcon(url){const shape=url.includes('instagram.com')?'<rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor" stroke="none"/>':url.includes('maps.app.goo.gl')?'<path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="3"/>':url.startsWith('tel:')?'<path d="M5 3h4l2 5-3 2a15 15 0 0 0 6 6l2-3 5 2v4c0 1-1 2-2 2C9 21 3 15 3 5c0-1 1-2 2-2Z"/>':url.startsWith('https://t.me/')?'<path d="m21 3-4 18-6-5-4 3 1-6 10-7-12 6-4-2Z"/>':'<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c5 5 5 13 0 18-5-5-5-13 0-18Z"/>';return '<svg class="partner-contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+shape+'</svg>';}
@@ -26,7 +29,7 @@
  function photoGallery(item){return item.photos?.length?'<div class="partner-trip-photos" aria-label="Фотографии из моей поездки">'+item.photos.map(photo=>'<figure><img src="'+esc(photo.src)+'" alt="'+esc(photo.alt)+'" width="720" height="1280" loading="lazy"><figcaption>'+esc(photo.caption)+'</figcaption></figure>').join('')+'</div>':'';}
  function renderRecommendation(item){
   const portrait=item.isPortrait||item.id==='viktor';
-  const logo=item.featured?`<div class="market-banner"><img src="${esc(item.logo)}" alt="Пхукет"><strong>МАРКЕТ</strong><span>ОБЪЯВЛЕНИЯ · АФИША · ЖИЗНЬ ОСТРОВА</span></div>`:`<div class="partner-logo-frame ${item.id==='funny-time'?'logo-app':''} ${portrait?'logo-avatar':''}">${item.logo?`<img src="${esc(item.logo)}" alt="${esc(item.name)}${portrait?' — фото':' — логотип'}" loading="lazy">`:`<span class="partner-monogram" aria-label="${esc(item.name)}">${esc(item.monogram||item.name.slice(0,1))}</span>`}</div>`;
+  const logo=item.serviceIcon?'<div class="partner-service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 6a5 5 0 0 0-6 6L3 17a3 3 0 0 0 4 4l5-5a5 5 0 0 0 6-6l-3 3-4-4Z"/></svg></div>':item.featured?`<div class="market-banner"><img src="${esc(item.logo)}" alt="Пхукет"><strong>МАРКЕТ</strong><span>ОБЪЯВЛЕНИЯ · АФИША · ЖИЗНЬ ОСТРОВА</span></div>`:`<div class="partner-logo-frame ${item.id==='funny-time'?'logo-app':''} ${portrait?'logo-avatar':''}">${item.logo?`<img src="${esc(item.logo)}" alt="${esc(item.name)}${portrait?' — фото':' — логотип'}" loading="lazy">`:`<span class="partner-monogram" aria-label="${esc(item.name)}">${esc(item.monogram||item.name.slice(0,1))}</span>`}</div>`;
   const description=`<div class="partner-description">${item.paragraphs.map(p=>`<p>${esc(p)}</p>`).join('')}</div>${photoGallery(item)}${item.note?`<p class="partner-promo-note">${esc(item.note)}</p>`:''}`;
   const actions=`<div class="partner-actions">${item.links.map((link,i)=>`<a class="partner-action ${i?'partner-action-secondary':''}" data-click-partner="${esc(item.id)}" data-click-place="${esc(current)}" data-click-channel="${linkChannel(link)}" href="${esc(link.url)}" ${link.url.startsWith('https:')?'target="_blank" rel="noopener noreferrer"':''}>${contactIcon(link.url)}<span>${esc(link.label)}</span></a>`).join('')}</div>`;
   const content=item.featured?description+actions:actions+`<details class="partner-details"><summary aria-label="Подробнее о ${esc(item.name)}"><span class="details-label-closed">Подробнее</span><span class="details-label-open">Свернуть описание</span><span class="details-toggle" aria-hidden="true">+</span></summary>${description}</details>`;
@@ -38,13 +41,19 @@
  }
  function showItems(category){
   const items=copy[current].items.filter(x=>category==='Все'||x[0]===category);
-  const live=recommendations.filter(item=>item.places.includes(current)&&(category==='Все'||item.categories.includes(category)));
+  const live=recommendations.filter(item=>item.status!=='not-recommended'&&item.places.includes(current)&&(category==='Все'||item.categories.includes(category)));
   document.getElementById('recommendations').innerHTML=live.map(renderRecommendation).join('')+items.map(item=>`<article class="recommendation-card"><span>${item[0].toUpperCase()}</span><h3>${item[1]}</h3><span class="coming-soon">Скоро</span><p>${item[2]}</p></article>`).join('');
+ }
+ function safetySection(id){
+  const warnings=recommendations.filter(item=>item.places.includes(id)&&item.status==='not-recommended');
+  if(!warnings.length)return '';
+  const notice=window.PLACE_SAFETY_NOTICE;
+  return '<section class="place-cautions" aria-labelledby="place-cautions-heading"><h2 id="place-cautions-heading">Не рекомендую</h2><p class="caution-context">Мой личный опыт · Пханган</p>'+warnings.map(item=>'<article class="caution-card" data-warning="'+esc(item.id)+'"><h3>'+esc(item.name)+'</h3><p class="caution-role">'+esc(item.role)+'</p>'+item.paragraphs.map(p=>'<p>'+esc(p)+'</p>').join('')+'<div class="partner-actions">'+item.links.map(link=>'<a class="partner-action partner-action-secondary" href="'+esc(link.url)+'" data-click-partner="'+esc(item.id)+'" data-click-place="'+esc(id)+'" data-click-channel="maps" target="_blank" rel="noopener noreferrer">'+contactIcon(link.url)+'<span>'+esc(link.label)+'</span></a>').join('')+'</div></article>').join('')+(notice?'<aside class="scam-notice"><h3>'+esc(notice.title)+'</h3>'+notice.paragraphs.map(p=>'<p>'+esc(p)+'</p>').join('')+'</aside>':'')+'</section>';
  }
  function showPlace(id){
   const m=maps.find(m=>m.id===id);if(!m)return;
   current=id;const c=copy[id];
-  detail.innerHTML=`<a class="back-link" href="#" data-back>← Все места</a><div class="detail-head"><div><div class="eyebrow">РЕКОМЕНДУЮ ЛИЧНО · ${c.title}</div><h1>${c.title}</h1><p class="detail-intro">${c.intro}</p></div><div class="detail-map">${m.map.replaceAll('id="',`id="detail-`).replaceAll('url(#','url(#detail-')}</div></div><div class="categories" role="group" aria-label="Категория рекомендаций">${c.categories.map((name,i)=>`<button type="button" data-category="${name}" aria-pressed="${i===0}">${name}</button>`).join('')}</div><div class="recommendation-grid" id="recommendations"></div><p class="empty-note">Подборка готовится. Скоро здесь появятся контакты, фотографии и подробные рекомендации.</p>`;
+  detail.innerHTML=`<a class="back-link" href="#" data-back>← Все места</a><div class="detail-head"><div><div class="eyebrow">РЕКОМЕНДУЮ ЛИЧНО · ${c.title}</div><h1>${c.title}</h1><p class="detail-intro">${c.intro}</p></div><div class="detail-map">${m.map.replaceAll('id="',`id="detail-`).replaceAll('url(#','url(#detail-')}</div></div><div class="categories" role="group" aria-label="Категория рекомендаций">${c.categories.map((name,i)=>`<button type="button" data-category="${name}" aria-pressed="${i===0}">${name}</button>`).join('')}</div><div class="recommendation-grid" id="recommendations"></div>${safetySection(id)}<p class="empty-note">Подборка готовится. Скоро здесь появятся контакты, фотографии и подробные рекомендации.</p>`;
   detail.querySelector('.empty-note').textContent=id==='phuket'?'Подборка будет пополняться. Следом добавлю любимые рестораны и места острова.':'Подборка пополняется: новые контакты, фотографии и подробные рекомендации появятся здесь.';
   home.hidden=true;detail.hidden=false;showItems('Все');window.scrollTo({top:0,behavior:'instant'});
  }

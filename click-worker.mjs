@@ -1,5 +1,7 @@
 import {weatherResponse} from './weather-worker.mjs';
 const PARTNERS = {
+  'autain-bike': {name:'Autain Bike Repair', places:['phangan'], channels:['maps']},
+  'nong-bikes': {name:'Nong cheap rent and repair bikes', places:['phangan'], channels:['maps']},
   'phuket-market': {name:'Phuket Market', places:['phuket'], channels:['website']},
   'green-way': {name:'Green Way', places:['phuket','samui'], channels:['telegram','phone']},
   'funny-time': {name:'Funny Time', places:['phuket'], channels:['website']},
@@ -8,7 +10,7 @@ const PARTNERS = {
   'fat-cat-krabi': {name:'Кирилл · Толстый кот', places:['krabi'], channels:['maps','instagram']}
 };
 const ORIGINS = new Set(['https://vanyavtae.com','https://www.vanyavtae.com','https://yellow-term-6761.ddnpw2r226.workers.dev']);
-const ISLANDS = {phuket:'Пхукет',samui:'Самуи',krabi:'Краби'};
+const ISLANDS = {phuket:'Пхукет',samui:'Самуи',krabi:'Краби',phangan:'Пханган'};
 const ACTIONS = {website:'Сайт / приложение',telegram:'Telegram',phone:'Телефон',maps:'Google Карты',instagram:'Instagram'};
 const response = (status) => new Response(null,{status,headers:{'Cache-Control':'no-store'}});
 

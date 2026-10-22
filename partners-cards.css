@@ -60,6 +60,16 @@
 @media(max-width:560px){.partner-trip-photos{grid-template-columns:1fr;gap:20px}}
 
 /* Coffee catalogue: all weights and prices remain visible without JavaScript. */
+.partner-service-icon{display:grid;place-items:center;width:76px;height:76px;border-radius:50%;background:#e6ecdc;color:#234b42;margin-bottom:22px}.partner-service-icon svg{width:38px;height:38px}
+@media(max-width:600px){.places-directory [data-partner="autain-bike"] .partner-title-row{grid-template-columns:minmax(0,1fr)}.places-directory [data-partner="autain-bike"] .partner-title-row .partner-benefit{justify-self:start;max-width:none}}
+.place-cautions{margin-top:44px;padding-top:30px;border-top:1px solid #ddc9b9}.places-directory .place-cautions h2{font-family:Oswald,sans-serif;font-size:36px;margin:0 0 8px;color:#914c3d}
+.caution-context{font-size:12px;color:#7f5b4d;margin:0 0 20px}
+.caution-card,.scam-notice{padding:26px;border:1px solid #d9ad99;border-radius:18px;background:#f7e6dc;max-width:850px;margin-bottom:22px}
+.places-directory .caution-card h3,.places-directory .scam-notice h3{font-family:Oswald,sans-serif;font-size:27px;line-height:1.3;margin:0 0 14px;overflow-wrap:anywhere}
+.caution-card p,.scam-notice p{font-size:14px;line-height:1.75;margin:0 0 15px;max-width:740px}
+.caution-card .caution-role{font-size:12px;font-weight:700;color:#7f5b4d}
+.caution-card .partner-actions{margin-top:20px}.scam-notice{background:#f4edda;border-color:#cdbb87}.scam-notice p:last-child{font-weight:800;margin-bottom:0}
+@media(max-width:600px){.caution-card,.scam-notice{padding:20px}.places-directory .caution-card h3,.places-directory .scam-notice h3{font-size:25px}}
 .places-directory .coffee-section{padding:32px}
 .coffee-eyebrow,.coffee-profile{font-size:11px!important;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#a9533e}
 .coffee-section .coffee-intro{max-width:780px;margin-bottom:26px}

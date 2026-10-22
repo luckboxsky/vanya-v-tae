@@ -9,8 +9,10 @@ const photoGallery=item=>item.photos?.length?'<div class="partner-trip-photos">'
 const islands=[['phangan','Остров Пханган'],['samui','Остров Самуи'],['phuket','Остров Пхукет'],['chiangmai','Чиангмай'],['krabi','Краби']];
 const sections=islands.map(([id,name])=>{
  const list=data.window.PLACE_RECOMMENDATIONS.filter(e=>e.places.includes(id));
- const cards=list.map(item=>`<article><h3>${esc(item.name)}</h3><p><strong>${esc(item.role)}</strong></p>${item.paragraphs.map(p=>`<p>${esc(p)}</p>`).join('')}${photoGallery(item)}${item.note?`<p>${esc(item.note)}</p>`:''}<div class="directory-links">${item.links.map(link=>`<a href="${esc(link.url)}" data-click-partner="${esc(item.id)}" data-click-place="${id}" data-click-channel="${link.channel||(link.url.startsWith('tel:')?'phone':link.url.startsWith('https://t.me/')?'telegram':'website')}"${link.url.startsWith('https:')?' target="_blank" rel="noopener noreferrer"':''}>${esc(link.label)}</a>`).join('')}</div></article>`).join('');
- return `<section id="directory-${id}"><h2>${name}</h2>${cards||'<p>Собираю проверенные контакты и любимые места. Подборка появится здесь.</p>'}</section>`;
+ const cards=list.map(item=>`<article><h3>${item.status==='not-recommended'?'Не рекомендую: ':''}${esc(item.name)}</h3><p><strong>${esc(item.role)}</strong></p>${item.paragraphs.map(p=>`<p>${esc(p)}</p>`).join('')}${photoGallery(item)}${item.note?`<p>${esc(item.note)}</p>`:''}<div class="directory-links">${item.links.map(link=>`<a href="${esc(link.url)}" data-click-partner="${esc(item.id)}" data-click-place="${id}" data-click-channel="${link.channel||(link.url.startsWith('tel:')?'phone':link.url.startsWith('https://t.me/')?'telegram':'website')}"${link.url.startsWith('https:')?' target="_blank" rel="noopener noreferrer"':''}>${esc(link.label)}</a>`).join('')}</div></article>`).join('');
+ const notice=id==='phangan'?data.window.PLACE_SAFETY_NOTICE:null;
+ const safety=notice?'<aside class="scam-notice"><h3>'+esc(notice.title)+'</h3>'+notice.paragraphs.map(p=>'<p>'+esc(p)+'</p>').join('')+'</aside>':'';
+ return `<section id="directory-${id}"><h2>${name}</h2>${cards||'<p>Собираю проверенные контакты и любимые места. Подборка появится здесь.</p>'}${safety}</section>`;
 }).join('');
 const file=new URL('./partners.html',import.meta.url);
 let html=fs.readFileSync(file,'utf8');
