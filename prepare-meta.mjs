@@ -33,7 +33,9 @@ for(const [file,meta] of Object.entries(pages)) {
       .replace(/<meta\b[^>]*>/gi,tag=>/charset=|(?:name|property)=["'](?:viewport|theme-color|description|twitter:[^"']+|og:[^"']+)["']/i.test(tag)?'':tag)
       .replace(/<link\b[^>]*>/gi,tag=>/rel=["'](?:canonical|icon)["']|fonts\.(?:googleapis|gstatic)\.com|site-fixes\.css/i.test(tag)?'':tag);
     const sharedHead=metadata(meta);
-    return '<head>\n'+sharedHead+'\n'+head.trim()+'\n<link rel="stylesheet" href="/site-fixes.css?v=3">\n</head>';
+    // Collapse lines left empty by removed tags so repeated runs don't add blank lines.
+    head=head.trim().replace(/\r?\n[ \t\r]*(?:\n[ \t\r]*)+/g,'\n');
+    return '<head>\n'+sharedHead+'\n'+head+'\n<link rel="stylesheet" href="/site-fixes.css?v=3">\n</head>';
   });
 
   html=instagramNotice(html);
