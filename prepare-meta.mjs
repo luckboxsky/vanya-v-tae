@@ -40,5 +40,6 @@ for(const [file,meta] of Object.entries(pages)) {
   html=html.replace(/script\.js\?v=[^"\s>]+/g,"script.js?v=instagram-note-1");
   html=polishPage(html);
   html=html.replace(/((?:src|href)=["']\/(?:script\.js|site-fixes\.css))\?v=[^"']+/g,'$1?v=qa-20261022');
+  html=html.replace(/((?:src|href)=["']\/(?:home-useful\.css|partners-cards\.css|places\.js|places-data\.js|blog-filters\.js))\?v=[^"']+/g,'$1?v=home-20261023');
   fs.writeFileSync(path,html);
 }
