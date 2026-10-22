@@ -8,6 +8,7 @@ const PARTNERS = {
   viktor: {name:'Виктор', places:['phuket'], channels:['telegram']},
   'el-phuket': {name:'EL PHUKET', places:['phuket'], channels:['website']},
   'fat-cat-krabi': {name:'Кирилл · Толстый кот', places:['krabi'], channels:['maps','instagram']},
+  'city-motorbike': {name:'City Motorbike Rentals', places:['chiangmai'], channels:['maps']},
   'natasha-guide': {name:'Наташа · гайд по Чиангмаю', places:['chiangmai'], channels:['telegram','instagram']},
   'roma-black': {name:'Рома Блэк · фотограф', places:['chiangmai'], channels:['telegram','instagram']},
   'stasya-visa': {name:'Стася · визы и школа', places:['phuket'], channels:['telegram']}

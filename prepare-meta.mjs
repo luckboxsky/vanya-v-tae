@@ -10,8 +10,8 @@ const ASSET_VERSIONS={
   'home-useful.css':'recommend-20261023',
   'blog-filters.js':'home-20261023',
   'partners-cards.css':'roma-20261023',
-  'places.js':'stasya-20261023',
-  'places-data.js':'stasya-20261023',
+  'places.js':'cm-bikes-20261023',
+  'places-data.js':'cm-bikes-20261023',
   'places-maps.js':'krabi-relief-20261023'
 };
 function applyAssetVersions(html) {

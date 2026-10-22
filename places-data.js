@@ -124,6 +124,17 @@ window.PLACE_RECOMMENDATIONS = [
     ]
   },
   {
+    id:'city-motorbike',places:['chiangmai'],categories:['Транспорт'],
+    name:'City Motorbike Rentals',role:'Аренда байков · Чиангмай',serviceIcon:'bike',
+    badge:'Рекомендую лично',
+    paragraphs:[
+      'Здесь я сам брал байк в аренду, а мои друзья — уже три раза. Ни одной претензии и ни одного вопроса: всё классно и надёжно.',
+      'Байки в идеальном состоянии, депозит возвращают без проблем, цены адекватные и недорогие. Держит прокат иностранец.',
+      'Это моя личная рекомендация: если нужен байк в Чиангмае, смело обращайтесь.'
+    ],
+    links:[{label:'Открыть на Google Картах',url:'https://maps.app.goo.gl/My1ot9CRpVBVhjQUA',channel:'maps'}]
+  },
+  {
     id:'natasha-guide',places:['chiangmai'],categories:['Гайды'],
     name:'Наташа · гайд по Чиангмаю',role:'Авторский гайд и канал о Чиангмае',logo:'/assets/natasha-avatar.jpg',isPortrait:true,
     paragraphs:[
