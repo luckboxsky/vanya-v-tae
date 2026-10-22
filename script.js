@@ -11,7 +11,7 @@
     try { const url = new URL(value); return ['https:', 'http:'].includes(url.protocol) ? url.href : null; }
     catch { return null; }
   };
-  const pending = '<p class="config-hint">Реквизиты для этого способа ещё не добавлены. Пока выберите другой способ или напишите мне в Instagram.</p>';
+  const pending = '<p class="config-hint">Реквизиты для этого способа ещё не добавлены. Пока выберите другой способ или напишите мне в Instagram*.</p>';
   const row = (label, value, copyValue = value, copyLabel = 'Скопировать') => `<div class="detail-row"><label>${esc(label)}</label><span class="detail-value">${esc(value)}</span><button type="button" class="copy-button" data-copy="${esc(copyValue)}">${esc(copyLabel)}</button></div>`;
   const external = (url, label) => `<a class="modal-link" href="${esc(url)}" target="_blank" rel="noopener noreferrer">${esc(label)}</a>`;
   function ensureModal() {
@@ -31,6 +31,7 @@
   function modal(name, html) {
     ensureModal();
     title.textContent = name;
+    if (html.includes("Instagram*")) html += '<p class="config-hint">* Instagram принадлежит компании Meta Platforms Inc., признанной экстремистской организацией; её деятельность запрещена на территории Российской Федерации.</p>';
     body.innerHTML = html;
     if (typeof dialog.showModal === 'function') dialog.showModal();
     else dialog.setAttribute('open','');
@@ -91,19 +92,19 @@
     }
   }
   const contactCopy = {
-    question: {title:'ЗАДАТЬ ВОПРОС', intro:'Короткие вопросы про Таиланд можно присылать в личку Instagram. Отвечаю сам, когда есть время.', message:'Привет, Ваня! У меня вопрос про Таиланд: '},
+    question: {title:'ЗАДАТЬ ВОПРОС', intro:'Короткие вопросы про Таиланд можно присылать в личку Instagram*. Отвечаю сам, когда есть время.', message:'Привет, Ваня! У меня вопрос про Таиланд: '},
     consult: {title:'КОНСУЛЬТАЦИЯ', intro:'Разговор про Таиланд: 30 минут — 500 бат, 60 минут — 1 000 бат. Договоримся о времени лично.', message:'Привет, Ваня! Хочу договориться о консультации по Таиланду. Мой вопрос: '},
-    collab: {title:'СОТРУДНИЧЕСТВО', intro:'Реклама, совместные проекты и другие предложения. Пиши мне в Instagram.', message:'Привет, Ваня! У меня предложение по сотрудничеству: '}
+    collab: {title:'СОТРУДНИЧЕСТВО', intro:'Реклама, совместные проекты и другие предложения. Пиши мне в Instagram*.', message:'Привет, Ваня! У меня предложение по сотрудничеству: '}
   };
   function contact(type) {
     const details = contactCopy[type] || contactCopy.question;
     const url = safeUrl(c.instagram);
-    modal(details.title, `<p>${esc(details.intro)}</p><div class="detail-row"><label>Можно начать с такого сообщения</label><span class="detail-value">${esc(details.message)}</span><button type="button" class="copy-button" data-copy="${esc(details.message)}">Скопировать текст</button></div>${url ? external(url,'Открыть мой Instagram') : '<p class="config-hint">Ссылка на Instagram ещё не добавлена в настройки сайта. Перед окончательным запуском её необходимо указать.</p>'}`);
+    modal(details.title, `<p>${esc(details.intro)}</p><div class="detail-row"><label>Можно начать с такого сообщения</label><span class="detail-value">${esc(details.message)}</span><button type="button" class="copy-button" data-copy="${esc(details.message)}">Скопировать текст</button></div>${url ? external(url,'Открыть мой Instagram*') : '<p class="config-hint">Ссылка на Instagram* ещё не добавлена в настройки сайта. Перед окончательным запуском её необходимо указать.</p>'}`);
   }
   const telegramDetails = {title:'РАБОЧИЙ TELEGRAM', intro:'Для сообщений с сайта будет отдельный рабочий Telegram. Личный аккаунт здесь не публикую.'};
   function telegram() {
     const url=safeUrl(c.telegram);
-    modal(telegramDetails.title,`<p>${telegramDetails.intro}</p>${url ? external(url,'Открыть Telegram') : '<p class="config-hint">Ссылка на рабочий Telegram ещё не добавлена. Пока можно написать мне в Instagram, когда ссылка появится в настройках сайта.</p>'}`);
+    modal(telegramDetails.title,`<p>${telegramDetails.intro}</p>${url ? external(url,'Открыть Telegram') : '<p class="config-hint">Ссылка на рабочий Telegram ещё не добавлена. Пока можно написать мне в Instagram*, когда ссылка появится в настройках сайта.</p>'}`);
   }
   document.querySelectorAll('[data-filter]').forEach(button=> button.addEventListener('click', () => {
     const category=button.dataset.filter;

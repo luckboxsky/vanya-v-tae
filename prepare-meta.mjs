@@ -17,6 +17,26 @@ const metrika=`<!-- Yandex.Metrika counter -->
 const metrikaFallback=`<!-- Yandex.Metrika fallback -->
 <noscript><div><img src="https://mc.yandex.ru/watch/113735677" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika fallback -->`;
+
+// Mark Instagram references and retain a readable notice without JavaScript.
+function instagramNotice(html) {
+  html=html.replace(/<!-- Instagram notice -->[\s\S]*?<!-- \/Instagram notice -->\s*/g,'');
+  html=html.split(/(<script\b[^>]*>[\s\S]*?<\/script>|<style\b[^>]*>[\s\S]*?<\/style>|<[^>]+>)/gi).map(part=>{
+    if(part.startsWith('<')) return part;
+    return part.replace(/Instagram(?![\w*])/g,'Instagram*');
+  }).join('');
+  html=html.replace(/<a\b([^>]*href=["']https?:\/\/(?:www\.)?instagram\.com[^>]*)>([\s\S]*?)<\/a>/gi,(_,attrs,body)=>{
+    if(!attrs.includes('aria-describedby=')) attrs+=' aria-describedby="instagram-notice"';
+    if(!body.includes('*')) {
+      if(body.includes('actor-watch')) body=body.replace('Смотреть оригинал','Смотреть оригинал*');
+      else body=body.replace(/(\s*↗)?$/, '*$1');
+    }
+    return '<a'+attrs+'>'+body+'</a>';
+  });
+  const note='<!-- Instagram notice -->\n<aside class="wrap instagram-notice" id="instagram-notice" aria-label="Примечание об Instagram" style="padding-top:20px;padding-bottom:20px;font-size:13px;line-height:1.6"><p style="margin:0">* Instagram принадлежит компании Meta Platforms Inc., признанной экстремистской организацией; её деятельность запрещена на территории Российской Федерации.</p></aside>\n<!-- /Instagram notice -->\n';
+  return html.replace(/<footer\b/i,note+'<footer');
+}
+
 for(const [file,meta] of Object.entries(pages)) {
   const path=new URL('./'+file,import.meta.url);
   let html=fs.readFileSync(path,'utf8');
@@ -30,5 +50,7 @@ for(const [file,meta] of Object.entries(pages)) {
     return '<head>\n'+sharedHead+'\n'+head.trim()+'\n<link rel="stylesheet" href="/site-fixes.css?v=3">\n</head>';
   });
   html=html.replace(/<body\b[^>]*>/i,tag=>tag+'\n'+metrikaFallback+'\n');
+  html=instagramNotice(html);
+  html=html.replace(/script\.js\?v=[^"\s>]+/g,"script.js?v=instagram-note-1");
   fs.writeFileSync(path,html);
 }
