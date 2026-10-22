@@ -6,7 +6,7 @@ const pages=JSON.parse(fs.readFileSync(new URL('./site-pages.json',import.meta.u
 // Files not listed keep the shared version from page-polish.mjs. See SITE-MAINTENANCE.md.
 const ASSET_VERSIONS={
   'script.js':'qa-20261022',
-  'site-fixes.css':'qa-20261022',
+  'site-fixes.css':'launch-20261023',
   'home-useful.css':'recommend-20261023',
   'blog-filters.js':'home-20261023',
   'partners-cards.css':'phangan-20261023',

@@ -95,3 +95,10 @@ dialog.modal:not([open]){display:none}
 .privacy-main{min-width:0}.privacy-main h1{overflow-wrap:anywhere}
 @media(max-width:360px){.privacy-main h1{font-size:32px}}
 @media(max-width:1020px){.mobile-nav nav{max-height:calc(100vh - 110px);max-height:calc(100dvh - 110px);overflow-y:auto;overscroll-behavior-y:contain;-webkit-overflow-scrolling:touch}}
+
+/* Pre-launch QA: the whole box of a collapsible block opens it, and small links get a finger-sized tap area. */
+.directory-index{padding:0 24px}.directory-index>summary{padding:20px 0}.directory-index[open]{padding-bottom:20px}.directory-index[open]>summary{margin-bottom:4px}
+.story-disclaimer{padding:0 19px}.story-disclaimer summary{padding:15px 0}.story-disclaimer[open]{padding-bottom:15px}
+.story-back{padding:12px 0;margin-top:-12px;margin-bottom:23px}
+@media(max-width:600px){.directory-index{padding:0 18px}.directory-index>summary{padding:18px 0}.directory-index[open]{padding-bottom:18px}}
+@media(max-width:650px){.story-back{margin-bottom:13px}}
