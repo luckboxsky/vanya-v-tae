@@ -57,6 +57,9 @@
   current=id;const c=copy[id];
   detail.innerHTML=`<a class="back-link" href="#" data-back>← Все места</a><div class="detail-head"><div><div class="eyebrow">РЕКОМЕНДУЮ ЛИЧНО · ${c.title}</div><h1>${c.title}</h1><p class="detail-intro">${c.intro}</p></div><div class="detail-map">${m.map.replaceAll('id="',`id="detail-`).replaceAll('url(#','url(#detail-')}</div></div><div class="categories" role="group" aria-label="Категория рекомендаций">${c.categories.map((name,i)=>`<button type="button" data-category="${name}" aria-pressed="${i===0}">${name}</button>`).join('')}</div><div class="recommendation-grid" id="recommendations"></div>${safetySection(id)}<p class="empty-note">Подборка готовится. Скоро здесь появятся контакты, фотографии и подробные рекомендации.</p>`;
   detail.querySelector('.empty-note').hidden=recommendations.some(item=>item.places.includes(id)&&item.status!=='not-recommended');
+  // Category filters only help when a place has enough cards to sort through.
+  const cardCount=recommendations.filter(item=>item.places.includes(id)&&item.status!=='not-recommended').length+c.items.length;
+  detail.querySelector('.categories').style.display=cardCount<5?'none':'';
   detail.querySelector('.empty-note').textContent=id==='phuket'?'Подборка будет пополняться. Следом добавлю любимые рестораны и места острова.':'Подборка пополняется: новые контакты, фотографии и подробные рекомендации появятся здесь.';
   home.hidden=true;detail.hidden=false;showItems('Все');window.scrollTo({top:0,behavior:'instant'});
  }
