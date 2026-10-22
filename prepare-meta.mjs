@@ -9,7 +9,7 @@ const ASSET_VERSIONS={
   'site-fixes.css':'launch-20261023',
   'home-useful.css':'services-20261023',
   'blog-filters.js':'home-20261023',
-  'partners-cards.css':'services-20261023',
+  'partners-cards.css':'tbank-20261023',
   'places.js':'services-20261023',
   'places-data.js':'cm-bikes-20261023',
   'places-maps.js':'krabi-relief-20261023'

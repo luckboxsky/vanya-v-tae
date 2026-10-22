@@ -104,7 +104,7 @@
 .services-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
 .service-card{min-width:0;padding:24px;border:1px solid #dac9b9;border-radius:16px;background:#fff2e5;display:flex;flex-direction:column}
 .service-logo{display:grid;place-items:center;height:96px;margin-bottom:20px;border-radius:12px;background:#fff;border:1px solid #eadccf}
-.service-logo img{display:block;height:30px;width:auto;max-width:72%;object-fit:contain}.service-card[data-service="agoda"] .service-logo img{height:50px}
+.service-logo img{display:block;height:30px;width:auto;max-width:72%;object-fit:contain}.service-card[data-service="agoda"] .service-logo img{height:50px}.service-card[data-service="tbank"] .service-logo img{height:40px}.service-card p a{text-decoration:underline;text-underline-offset:3px;font-weight:700}
 .service-card .service-kind{font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#a9533e;margin:0 0 8px}
 .places-directory .service-card h3{font-family:Oswald,sans-serif;font-size:29px;line-height:1.2;margin:0 0 12px}
 .service-card .service-bonus{align-self:flex-start;font-size:12px;font-weight:800;color:#234b42;background:#e6ecdc;border-radius:999px;padding:6px 12px;margin:0 0 14px}
