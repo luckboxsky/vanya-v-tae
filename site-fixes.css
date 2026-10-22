@@ -102,3 +102,9 @@ dialog.modal:not([open]){display:none}
 .story-back{padding:12px 0;margin-top:-12px;margin-bottom:23px}
 @media(max-width:600px){.directory-index{padding:0 18px}.directory-index>summary{padding:18px 0}.directory-index[open]{padding-bottom:18px}}
 @media(max-width:650px){.story-back{margin-bottom:13px}}
+
+/* Lists and subheadings inside articles. */
+.story-content ul,.story-content ol{margin:0 0 24px;padding-left:24px}
+.story-content li{font-size:17px;line-height:1.75;margin-bottom:8px}
+.story-content h3{font-family:Oswald,sans-serif;font-size:clamp(23px,3vw,28px);line-height:1.3;margin:32px 0 16px}
+@media(max-width:650px){.story-content li{font-size:16px}}
