@@ -33,5 +33,12 @@
     "path": "/samui-first-days",
     "image": "https://vanyavtae.com/second-thailand-chair.jpg",
     "type": "article"
+  },
+  "advertising.html": {
+    "title": "Реклама и сотрудничество | Ваня в Тае",
+    "description": "Видео о Таиланде, съёмки и совместные проекты с Ваней. Форматы сотрудничества, опыт и контакт для обсуждения рекламы.",
+    "path": "/advertising",
+    "image": "https://vanyavtae.com/assets/og.jpg",
+    "type": "website"
   }
 }

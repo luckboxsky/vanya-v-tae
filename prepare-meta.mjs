@@ -8,7 +8,7 @@ for(const [file,meta] of Object.entries(pages)) {
     head=head.replace(/<title>[\s\S]*?<\/title>/gi,'')
       .replace(/<meta\b[^>]*>/gi,tag=>/charset=|(?:name|property)=["'](?:viewport|theme-color|description|og:[^"']+)["']/i.test(tag)?'':tag)
       .replace(/<link\b[^>]*>/gi,tag=>/rel=["'](?:canonical|icon)["']|fonts\.(?:googleapis|gstatic)\.com|site-fixes\.css/i.test(tag)?'':tag);
-    return '<head>\n'+metadata(meta)+'\n'+head.trim()+'\n<link rel="stylesheet" href="/site-fixes.css?v=2">\n</head>';
+    return '<head>\n'+metadata(meta)+'\n'+head.trim()+'\n<link rel="stylesheet" href="/site-fixes.css?v=3">\n</head>';
   });
   fs.writeFileSync(path,html);
 }
