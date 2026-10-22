@@ -1,6 +1,7 @@
 // Shared metadata template. Keep page titles, canonical URLs and social cards together.
 export function metadata({title,description,path,image='https://vanyavtae.com/assets/og.jpg',type='website'}) {
   const esc=value=>String(value).replaceAll('&','&amp;').replaceAll('"','&quot;').replaceAll('<','&lt;');
+  const schema=JSON.stringify({'@context':'https://schema.org','@graph':[{'@type':'WebSite','@id':'https://vanyavtae.com/#website',url:'https://vanyavtae.com/',name:'Ваня в Тае',inLanguage:'ru',author:{'@id':'https://vanyavtae.com/#person'}},{'@type':'Person','@id':'https://vanyavtae.com/#person',name:'Иван Минеев',alternateName:'Ваня в Тае',url:'https://vanyavtae.com/',sameAs:['https://t.me/thevany','https://www.instagram.com/vanyavtae/']}]});
   const url='https://vanyavtae.com'+path;
   return `<meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
@@ -15,6 +16,12 @@ export function metadata({title,description,path,image='https://vanyavtae.com/as
 <meta property="og:description" content="${esc(description)}">
 <meta property="og:url" content="${esc(url)}">
 <meta property="og:image" content="${esc(image)}">
+${image.endsWith("/assets/og.jpg")?'<meta property="og:image:width" content="1200">\n<meta property="og:image:height" content="630">':''}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="${esc(title)}">
+<meta name="twitter:description" content="${esc(description)}">
+<meta name="twitter:image" content="${esc(image)}">
+<script type="application/ld+json" id="site-schema">${schema}</script>
 <link rel="icon" href="/assets/favicon.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

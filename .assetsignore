@@ -18,3 +18,5 @@ prepare-meta.mjs
 site-pages.json
 prepare-site.mjs
 SITE-MAINTENANCE.md
+
+page-polish.mjs

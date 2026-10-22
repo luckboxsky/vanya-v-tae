@@ -40,5 +40,10 @@
     "path": "/advertising",
     "image": "https://vanyavtae.com/assets/og.jpg",
     "type": "website"
+  },
+  "privacy.html": {
+    "title": "Конфиденциальность и аналитика | Ваня в Тае",
+    "description": "Какие данные использует сайт Ваня в Тае, как работает аналитика и как изменить выбор.",
+    "path": "/privacy"
   }
 }
