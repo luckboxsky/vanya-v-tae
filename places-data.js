@@ -113,7 +113,7 @@ window.PLACE_RECOMMENDATIONS = [
   },
   {
     id:'natasha-guide',places:['chiangmai'],categories:['Гайды'],
-    name:'Наташа · гайд по Чиангмаю',role:'Авторский гайд и канал о Чиангмае',logo:'/assets/natasha-avatar.jpg',isPortrait:true,
+    name:'Наташа · гайд по Чиангмаю',role:'Авторский гайд и канал о Чиангмае',logo:'/assets/natasha-avatar.jpg',isPortrait:true,
     paragraphs:[
       'Наташа давно живёт в Таиланде — мы знакомы ещё с Пхангана. Очень приличная и хорошая девушка.',
       'Она сделала классный и очень подробный гайд по Чиангмаю. Есть бесплатная короткая версия и платная — подробная, с кучей точек. Если собираетесь в Чиангмай, очень рекомендую.',
@@ -123,6 +123,20 @@ window.PLACE_RECOMMENDATIONS = [
     links:[
       {label:'Канал Наташи в Telegram',url:'https://t.me/magicchiangmai',channel:'telegram'},
       {label:'Instagram Наташи*',url:'https://www.instagram.com/natalie_magic/',channel:'instagram'}
+    ]
+  },
+  {
+    id:'roma-black',places:['chiangmai'],categories:['Фотография'],
+    name:'Рома Блэк · фотограф',role:'Фото и видео · Чиангмай',logo:'/assets/roma-avatar.jpg',isPortrait:true,
+    paragraphs:[
+      'Рома — мой хороший друг, фотограф и видеограф. У него куча профессионального оборудования, он успешно снимает фото и видео для стоков — профессионал своего дела.',
+      'Делает фотосессии, а также контент и видео для блогеров.',
+      'Рома живёт в Чиангмае уже около шести лет, мы знакомы ещё с Пхангана и постоянно тусим вместе. А ещё мы вместе продаём кофе — о нём ниже на этой странице. Всем рекомендую.'
+    ],
+    badge:'Рекомендую лично',
+    links:[
+      {label:'Написать Роме в Telegram',url:'https://t.me/RomaBlack',channel:'telegram'},
+      {label:'Instagram Ромы*',url:'https://www.instagram.com/romablack/',channel:'instagram'}
     ]
   }
 ];

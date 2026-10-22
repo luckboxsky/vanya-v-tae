@@ -8,7 +8,8 @@ const PARTNERS = {
   viktor: {name:'Виктор', places:['phuket'], channels:['telegram']},
   'el-phuket': {name:'EL PHUKET', places:['phuket'], channels:['website']},
   'fat-cat-krabi': {name:'Кирилл · Толстый кот', places:['krabi'], channels:['maps','instagram']},
-  'natasha-guide': {name:'Наташа · гайд по Чиангмаю', places:['chiangmai'], channels:['telegram','instagram']}
+  'natasha-guide': {name:'Наташа · гайд по Чиангмаю', places:['chiangmai'], channels:['telegram','instagram']},
+  'roma-black': {name:'Рома Блэк · фотограф', places:['chiangmai'], channels:['telegram','instagram']}
 };
 const ORIGINS = new Set(['https://vanyavtae.com','https://www.vanyavtae.com','https://yellow-term-6761.ddnpw2r226.workers.dev']);
 const ISLANDS = {phuket:'Пхукет',samui:'Самуи',krabi:'Краби',phangan:'Пханган',chiangmai:'Чиангмай'};

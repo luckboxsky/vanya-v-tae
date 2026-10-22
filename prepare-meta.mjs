@@ -9,9 +9,9 @@ const ASSET_VERSIONS={
   'site-fixes.css':'launch-20261023',
   'home-useful.css':'recommend-20261023',
   'blog-filters.js':'home-20261023',
-  'partners-cards.css':'phangan-20261023',
-  'places.js':'chiangmai-20261023',
-  'places-data.js':'chiangmai-20261023',
+  'partners-cards.css':'roma-20261023',
+  'places.js':'roma-20261023',
+  'places-data.js':'roma-20261023',
   'places-maps.js':'krabi-relief-20261023'
 };
 function applyAssetVersions(html) {
