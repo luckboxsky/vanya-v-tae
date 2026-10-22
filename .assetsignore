@@ -3,3 +3,12 @@
 .github
 .github/**
 README.txt
+README.md
+click-worker.mjs
+wrangler.jsonc
+schema.sql
+test-worker.mjs
+node_modules
+node_modules/**
+.wrangler
+.wrangler/**

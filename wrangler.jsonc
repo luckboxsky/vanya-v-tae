@@ -1,0 +1,16 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "yellow-term-6761",
+  "main": "click-worker.mjs",
+  "compatibility_date": "2026-10-19",
+  "assets": {
+    "directory": ".",
+    "binding": "ASSETS",
+    "run_worker_first": ["/_events/*"]
+  },
+  "d1_databases": [{
+    "binding": "CLICK_DB",
+    "database_name": "vanyavtae-clicks",
+    "database_id": "75193df3-0ee4-447b-8606-c975b1a29b21"
+  }]
+}
