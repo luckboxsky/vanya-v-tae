@@ -11,7 +11,7 @@ const ASSET_VERSIONS={
   'blog-filters.js':'home-20261023',
   'partners-cards.css':'jump2-20261023',
   'places.js':'services-20261023',
-  'places-data.js':'cm-bikes-20261023',
+  'places-data.js':'light-20261023',
   'places-maps.js':'krabi-relief-20261023'
 };
 function applyAssetVersions(html) {
