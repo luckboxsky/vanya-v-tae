@@ -46,6 +46,6 @@ for(const [file,meta] of Object.entries(pages)) {
   html=html.replace(/(Таиланд|Истории)<br><span>/g,'$1 <br><span>');
   html=html.replace(/home-useful.css\?v=[^"']+/g,'home-useful.css?v=refine-20261023');
   html=html.replace(/((?:src|href)=["']\/(?:home-useful\.css|places\.js|places-data\.js))\?v=[^"']+/g,'$1?v=recommend-20261023');
-  html=html.replace(/((?:src|href)=["']\/(?:places\.js|places-data\.js|partners-cards\.css))\?v=[^"']+/g,'$1?v=krabi-20261023');
+  html=html.replace(/((?:src|href)=["']\/(?:places\.js|places-data\.js|partners-cards\.css))\?v=[^"']+/g,'$1?v=krabi-avatar-20261023');
   fs.writeFileSync(path,html);
 }

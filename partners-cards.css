@@ -58,3 +58,6 @@
 .partner-trip-photos figure{margin:0;min-width:0}.partner-trip-photos img{display:block;width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;border-radius:12px}
 .partner-trip-photos figcaption{font-size:12px;line-height:1.6;color:#596e62;margin-top:9px;text-transform:none;letter-spacing:normal}
 @media(max-width:560px){.partner-trip-photos{grid-template-columns:1fr;gap:20px}}
+
+.places-directory .map-card-hit-area{position:absolute;inset:0;display:block;cursor:pointer;border-radius:inherit}
+.places-directory .map-card-hit-area:focus-visible{outline:3px solid #234b42;outline-offset:-5px}
