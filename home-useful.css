@@ -55,3 +55,13 @@ body .site-header .site-nav a{font-size:13px}
 .map-country{font:800 11px Manrope,sans-serif;letter-spacing:.15em;fill:#60765e}.map-sea{font:italic 11px Manrope,sans-serif;fill:#688b8a}.map-caption{font:11px Manrope,sans-serif;fill:#61745e}
 .roma-production{margin-top:18px}.roma-production a{text-decoration:underline;text-underline-offset:3px}
 @media(max-width:820px){.useful-home .useful-hero h1{font-size:clamp(76px,19vw,112px)}.home-friends-grid{grid-template-columns:1fr;gap:28px}.home-thailand-map{max-width:420px}.home-about h2.kicker{font-size:11px}.useful-home .help .service h3{font-size:36px}.useful-home .help .service-grid{grid-template-rows:none;row-gap:14px}.useful-home .help .service{padding:23px;grid-row:auto;grid-template-rows:auto auto auto auto auto}}
+
+/* Recommendations, planned destinations and the filming portfolio photo. */
+.site-header .site-nav{gap:clamp(8px,1.2vw,18px)!important}
+.site-header .site-nav a{font-size:12px!important}
+.map-planned rect{fill:#fff0e9;stroke:#b74336;stroke-width:1.5}.map-planned text{font:700 15px Manrope,sans-serif;fill:#aa372d}.map-planned .planned-status{font-size:10px;font-weight:600}.map-planned .map-marker{fill:#b74336}.map-planned .map-leader{stroke:#b74336;stroke-dasharray:3 3}
+.cooperation-with-photo{display:grid;grid-template-columns:minmax(0,280px) minmax(0,1fr);gap:30px 65px;align-items:center}
+.cooperation-heading{grid-column:1/-1}.cooperation-heading h2{font-size:clamp(38px,4.8vw,62px);line-height:1.15;max-width:900px;margin:18px 0 0}.cooperation-heading h2 br{display:none}
+.cooperation-filming{margin:0}.cooperation-filming>a{display:block;border-radius:16px;overflow:hidden}.cooperation-filming img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:50% 50%;display:block;transition:transform .2s}.cooperation-filming a:hover img{transform:scale(1.025)}.cooperation-filming figcaption{font-size:11px;line-height:1.6;margin-top:10px;color:#536a5d}.cooperation-filming figcaption a{text-decoration:underline;text-underline-offset:3px}.cooperation-copy p{font-size:18px;line-height:1.65;margin-bottom:22px}.cooperation-copy .button{margin-top:6px}
+@media(max-width:820px){.cooperation-with-photo{grid-template-columns:minmax(0,1fr);gap:24px}.cooperation-heading{grid-column:1}.cooperation-filming{max-width:280px;justify-self:center}.cooperation-copy p{font-size:16px}.cooperation-heading h2{font-size:40px}.cooperation-heading h2 br{display:block}}
+@media(prefers-reduced-motion:reduce){.cooperation-filming img{transition:none}.cooperation-filming a:hover img{transform:none}}
