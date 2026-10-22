@@ -2,6 +2,21 @@ import fs from 'node:fs';
 import {polishPage} from './page-polish.mjs';
 import {metadata} from './site-meta.mjs';
 const pages=JSON.parse(fs.readFileSync(new URL('./site-pages.json',import.meta.url),'utf8'));
+// Cache-busting versions (?v=) for local CSS/JS. When a file changes, set a new version here — one line per file.
+// Files not listed keep the shared version from page-polish.mjs. See SITE-MAINTENANCE.md.
+const ASSET_VERSIONS={
+  'script.js':'qa-20261022',
+  'site-fixes.css':'qa-20261022',
+  'home-useful.css':'recommend-20261023',
+  'blog-filters.js':'home-20261023',
+  'partners-cards.css':'phangan-20261023',
+  'places.js':'phangan-20261023',
+  'places-data.js':'phangan-20261023',
+  'places-maps.js':'krabi-relief-20261023'
+};
+function applyAssetVersions(html) {
+  return html.replace(/((?:src|href)=["']\/([^"'?]+\.(?:css|js)))\?v=[^"']+/g,(whole,ref,file)=>ASSET_VERSIONS[file]?ref+'?v='+ASSET_VERSIONS[file]:whole);
+}
 // Analytics loads only after the visitor opts in.
 // Mark Instagram references and retain a readable notice without JavaScript.
 function instagramNotice(html) {
@@ -35,20 +50,12 @@ for(const [file,meta] of Object.entries(pages)) {
     const sharedHead=metadata(meta);
     // Collapse lines left empty by removed tags so repeated runs don't add blank lines.
     head=head.trim().replace(/\r?\n[ \t\r]*(?:\n[ \t\r]*)+/g,'\n');
-    return '<head>\n'+sharedHead+'\n'+head+'\n<link rel="stylesheet" href="/site-fixes.css?v=3">\n</head>';
+    return '<head>\n'+sharedHead+'\n'+head+'\n<link rel="stylesheet" href="/site-fixes.css">\n</head>';
   });
 
   html=instagramNotice(html);
-  html=html.replace(/script\.js\?v=[^"\s>]+/g,"script.js?v=instagram-note-1");
   html=polishPage(html);
-  html=html.replace(/((?:src|href)=["']\/(?:script\.js|site-fixes\.css))\?v=[^"']+/g,'$1?v=qa-20261022');
-  html=html.replace(/((?:src|href)=["']\/(?:home-useful\.css|partners-cards\.css|places\.js|places-data\.js|blog-filters\.js))\?v=[^"']+/g,'$1?v=home-20261023');
+  html=applyAssetVersions(html);
   html=html.replace(/(Таиланд|Истории)<br><span>/g,'$1 <br><span>');
-  html=html.replace(/home-useful.css\?v=[^"']+/g,'home-useful.css?v=refine-20261023');
-  html=html.replace(/((?:src|href)=["']\/(?:home-useful\.css|places\.js|places-data\.js))\?v=[^"']+/g,'$1?v=recommend-20261023');
-  html=html.replace(/((?:src|href)=["']\/(?:places\.js|places-data\.js|partners-cards\.css))\?v=[^"']+/g,'$1?v=krabi-avatar-20261023');
-  html=html.replace(/partners-cards\.css\?v=[^"']+/g,'partners-cards.css?v=coffee-20261023');
-  html=html.replace(/((?:src|href)=["']\/(?:places\.js|places-maps\.js))\?v=[^"']+/g,'$1?v=krabi-relief-20261023');
-  html=html.replace(/((?:src|href)=["']\/(?:places\.js|places-data\.js|partners-cards\.css))\?v=[^"']+/g,'$1?v=phangan-20261023');
   fs.writeFileSync(path,html);
 }
