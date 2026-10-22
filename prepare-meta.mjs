@@ -39,5 +39,6 @@ for(const [file,meta] of Object.entries(pages)) {
   html=instagramNotice(html);
   html=html.replace(/script\.js\?v=[^"\s>]+/g,"script.js?v=instagram-note-1");
   html=polishPage(html);
+  html=html.replace(/((?:src|href)=["']\/(?:script\.js|site-fixes\.css))\?v=[^"']+/g,'$1?v=qa-20261022');
   fs.writeFileSync(path,html);
 }

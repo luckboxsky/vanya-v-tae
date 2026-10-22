@@ -44,8 +44,9 @@
   }
 
   function qrBlock(qr, label, expanded = false) {
-    if (!qr || typeof qr.src !== 'string' || !/^assets\/[a-z0-9-]+\.png$/.test(qr.src)) return '';
-    const image = '<a class="donation-qr-link" href="' + esc(qr.src) + '" target="_blank" rel="noopener noreferrer" aria-label="' + esc('Открыть '+label) + '"><svg viewBox="' + esc(qr.viewBox) + '" role="img" aria-label="' + esc(label) + '"><image href="' + esc(qr.src) + '" width="' + esc(qr.width) + '" height="' + esc(qr.height) + '"/></svg></a><a class="qr-save" href="' + esc(qr.src) + '" download>Сохранить QR-код</a>';
+    if (!qr || typeof qr.src !== 'string' || !/^\/?assets\/[a-z0-9-]+\.png$/.test(qr.src)) return '';
+    const src = '/' + qr.src.replace(/^\//, '');
+    const image = '<a class="donation-qr-link" href="' + esc(src) + '" target="_blank" rel="noopener noreferrer" aria-label="' + esc('Открыть '+label) + '"><svg viewBox="' + esc(qr.viewBox) + '" role="img" aria-label="' + esc(label) + '"><image href="' + esc(src) + '" width="' + esc(qr.width) + '" height="' + esc(qr.height) + '"/></svg></a><a class="qr-save" href="' + esc(src) + '" download>Сохранить QR-код</a>';
     return expanded ? '<div class="donation-qr">' + image + '</div>' : '<details class="donation-qr"><summary>Показать QR-код</summary>' + image + '</details>';
   }
   function cryptoContent(exchangeId) {
@@ -65,7 +66,9 @@
       case 'thai': {
         const ready = c.thaiBankName && c.thaiAccountNumber;
         const recipient = c.thaiRecipient ? '<div class="donation-recipient"><span>Получатель</span><strong>' + esc(c.thaiRecipient) + '</strong></div>' : '';
-        modal('ТАЙСКИЙ БАНК', '<p class="donation-bank-name">' + esc(c.thaiBankName || 'Bangkok Bank') + '</p><p>Отсканируйте QR-код в банковском приложении или сохраните его и выберите из галереи приложения.</p>' + qrBlock(c.thaiQr,'PromptPay Bangkok Bank',true) + (ready ? row('Номер счёта',c.thaiAccountNumber) : pending) + recipient + '<p class="config-hint">Также можно перевести по номеру счёта. Перед подтверждением проверьте имя получателя.</p>');
+        const qr = qrBlock(c.thaiQr,'PromptPay Bangkok Bank',true);
+        const instruction = qr ? 'Отсканируйте QR-код в банковском приложении или сохраните его и выберите из галереи приложения.' : 'Переведите по номеру счёта через приложение вашего банка.';
+        modal('ТАЙСКИЙ БАНК', '<p class="donation-bank-name">' + esc(c.thaiBankName || 'Bangkok Bank') + '</p><p>' + instruction + '</p>' + qr + (ready ? row('Номер счёта',c.thaiAccountNumber) : pending) + recipient + '<p class="config-hint">Также можно перевести по номеру счёта. Перед подтверждением проверьте имя получателя.</p>');
         return;
       }
       case 'sbp': {
