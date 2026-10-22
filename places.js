@@ -4,6 +4,8 @@
  const grid=document.getElementById('places-grid');
  const home=document.getElementById('places-home');
  const detail=document.getElementById('place-detail');
+ // The plain-text directory stays in the HTML for search engines and no-JS visitors; the interactive cards replace it.
+ const directory=document.getElementById('directory-index');if(directory)directory.hidden=true;
  const maps=(window.PLACE_MAPS||[]).slice();
  const copy={
   phangan:{title:'ПХАНГАН',sub:'Мои пять лет островной жизни',intro:'На Пхангане я прожил пять лет. Здесь соберу проверенные контакты, любимые кафе и места, куда хочется возвращаться. Отдельно расскажу о районах острова.',categories:['Все','Транспорт','Жильё','Мотосервис','Еда и кофе','Любимые места'],items:[['Транспорт','Аренда байков','Люди, у которых я могу рекомендовать взять транспорт.'],['Мотосервис','Мотосервис друга','Мой тайский друг, который помогает с байками.'],['Жильё','Резорт друга','Ещё одно место, о котором расскажу лично.'],['Еда и кофе','Любимые кафе','Мои места для завтраков, кофе и встреч.'],['Любимые места','Вьюпойнты и прогулки','Красивые точки и маршруты по острову.']]},
@@ -54,6 +56,7 @@
   const m=maps.find(m=>m.id===id);if(!m)return;
   current=id;const c=copy[id];
   detail.innerHTML=`<a class="back-link" href="#" data-back>← Все места</a><div class="detail-head"><div><div class="eyebrow">РЕКОМЕНДУЮ ЛИЧНО · ${c.title}</div><h1>${c.title}</h1><p class="detail-intro">${c.intro}</p></div><div class="detail-map">${m.map.replaceAll('id="',`id="detail-`).replaceAll('url(#','url(#detail-')}</div></div><div class="categories" role="group" aria-label="Категория рекомендаций">${c.categories.map((name,i)=>`<button type="button" data-category="${name}" aria-pressed="${i===0}">${name}</button>`).join('')}</div><div class="recommendation-grid" id="recommendations"></div>${safetySection(id)}<p class="empty-note">Подборка готовится. Скоро здесь появятся контакты, фотографии и подробные рекомендации.</p>`;
+  detail.querySelector('.empty-note').hidden=recommendations.some(item=>item.places.includes(id)&&item.status!=='not-recommended');
   detail.querySelector('.empty-note').textContent=id==='phuket'?'Подборка будет пополняться. Следом добавлю любимые рестораны и места острова.':'Подборка пополняется: новые контакты, фотографии и подробные рекомендации появятся здесь.';
   home.hidden=true;detail.hidden=false;showItems('Все');window.scrollTo({top:0,behavior:'instant'});
  }
