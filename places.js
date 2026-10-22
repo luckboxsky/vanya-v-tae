@@ -42,10 +42,10 @@
   home.hidden=true;detail.hidden=false;showItems('Все');window.scrollTo({top:0,behavior:'instant'});
  }
  function showHome(){home.hidden=false;detail.hidden=true;current=null;window.scrollTo({top:0,behavior:'instant'});}
- function route(){const id=location.hash.slice(1);if(copy[id])showPlace(id);else showHome();}
+ function route(){const id=location.hash.slice(1);if(copy[id])showPlace(id);else if(!id)showHome();}
  document.addEventListener('click',e=>{
   const place=e.target.closest('[data-place]');if(place){e.preventDefault();history.pushState(null,'','#'+place.dataset.place);showPlace(place.dataset.place);return;}
-  const back=e.target.closest('[data-back]');if(back){e.preventDefault();history.pushState(null,'',location.pathname);showHome();return;}
+  const back=e.target.closest('[data-back]');if(back){e.preventDefault();history.pushState(null,'',location.pathname+location.search);showHome();return;}
   const category=e.target.closest('[data-category]');if(category&&current){detail.querySelectorAll('[data-category]').forEach(b=>b.setAttribute('aria-pressed',String(b===category)));showItems(category.dataset.category);}
  });
  window.addEventListener('hashchange',route);

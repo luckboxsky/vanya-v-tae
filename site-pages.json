@@ -1,0 +1,37 @@
+{
+  "index.html": {
+    "title": "Ваня в Тае | Жизнь и путешествия в Таиланде",
+    "description": "С 2017 года между Россией и Таиландом: ПАЗик в Иванове, острова, горы Чиангмая, истории и полезные советы.",
+    "path": "/",
+    "image": "https://vanyavtae.com/assets/og.jpg",
+    "type": "website"
+  },
+  "blog.html": {
+    "title": "Блог Вани в Тае | Истории, переезды и путешествия",
+    "description": "Личные истории о работе, переездах, жизни в Таиланде, бизнесе, путешествиях и попытках всё начать заново.",
+    "path": "/blog",
+    "image": "https://vanyavtae.com/assets/og.jpg",
+    "type": "website"
+  },
+  "partners.html": {
+    "title": "Свои люди | Ваня в Тае",
+    "description": "Проверенные люди и любимые места Вани: Пханган, Самуи, Пхукет и Чиангмай.",
+    "path": "/partners",
+    "image": "https://vanyavtae.com/assets/og.jpg",
+    "type": "website"
+  },
+  "first-thailand.html": {
+    "title": "Первый раз в Таиланде. Из Иванова на Самуи | Ваня в Тае",
+    "description": "Как после десяти лет за рулём я впервые отправился в Таиланд: бессонный перелёт, поезд через страну, паром и первые дни на Самуи. Воспоминания о феврале 2017 года.",
+    "path": "/first-thailand",
+    "image": "https://vanyavtae.com/first-thailand-04.jpg",
+    "type": "article"
+  },
+  "samui-first-days.html": {
+    "title": "Первые дни на Самуи: монах, джунгли и свои люди | Ваня в Тае",
+    "description": "Первые дни на Самуи: рассвет у пагоды, знакомство с Олесей, тайский буфет, джунгли и неожиданная встреча с продавцами своего байка.",
+    "path": "/samui-first-days",
+    "image": "https://vanyavtae.com/second-thailand-chair.jpg",
+    "type": "article"
+  }
+}

@@ -12,3 +12,9 @@ node_modules
 node_modules/**
 .wrangler
 .wrangler/**
+
+site-meta.mjs
+prepare-meta.mjs
+site-pages.json
+prepare-site.mjs
+SITE-MAINTENANCE.md
