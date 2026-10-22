@@ -4,11 +4,12 @@ const PARTNERS = {
   'green-way': {name:'Green Way', places:['phuket','samui'], channels:['telegram','phone']},
   'funny-time': {name:'Funny Time', places:['phuket'], channels:['website']},
   viktor: {name:'Виктор', places:['phuket'], channels:['telegram']},
-  'el-phuket': {name:'EL PHUKET', places:['phuket'], channels:['website']}
+  'el-phuket': {name:'EL PHUKET', places:['phuket'], channels:['website']},
+  'fat-cat-krabi': {name:'Кирилл · Толстый кот', places:['krabi'], channels:['maps','instagram']}
 };
 const ORIGINS = new Set(['https://vanyavtae.com','https://www.vanyavtae.com','https://yellow-term-6761.ddnpw2r226.workers.dev']);
-const ISLANDS = {phuket:'Пхукет',samui:'Самуи'};
-const ACTIONS = {website:'Сайт / приложение',telegram:'Telegram',phone:'Телефон'};
+const ISLANDS = {phuket:'Пхукет',samui:'Самуи',krabi:'Краби'};
+const ACTIONS = {website:'Сайт / приложение',telegram:'Telegram',phone:'Телефон',maps:'Google Карты',instagram:'Instagram'};
 const response = (status) => new Response(null,{status,headers:{'Cache-Control':'no-store'}});
 
 export async function recordClick(request, env) {
