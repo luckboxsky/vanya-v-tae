@@ -110,6 +110,20 @@ window.PLACE_RECOMMENDATIONS = [
       {label:'Ресторан на Google Картах',url:'https://maps.app.goo.gl/mXfpLZtKvpsqaZcE7',channel:'maps'},
       {label:'Instagram Кирилла*',url:'https://www.instagram.com/o_krabi_info/',channel:'instagram'}
     ]
+  },
+  {
+    id:'natasha-guide',places:['chiangmai'],categories:['Гайды'],
+    name:'Наташа · гайд по Чиангмаю',role:'Авторский гайд и канал о Чиангмае',logo:'/assets/natasha-avatar.jpg',isPortrait:true,
+    paragraphs:[
+      'Наташа давно живёт в Таиланде — мы знакомы ещё с Пхангана. Очень приличная и хорошая девушка.',
+      'Она сделала классный и очень подробный гайд по Чиангмаю. Есть бесплатная короткая версия и платная — подробная, с кучей точек. Если собираетесь в Чиангмай, очень рекомендую.',
+      'Ещё Наташа ведёт авторский канал в Telegram и блог в Instagram*. Промокод «Ваня в Тае» даст скидку 10% на гайд.'
+    ],
+    badge:'По промокоду · скидка 10%',promocode:'Ваня в Тае',
+    links:[
+      {label:'Канал Наташи в Telegram',url:'https://t.me/magicchiangmai',channel:'telegram'},
+      {label:'Instagram Наташи*',url:'https://www.instagram.com/natalie_magic/',channel:'instagram'}
+    ]
   }
 ];
 

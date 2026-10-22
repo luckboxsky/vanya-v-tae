@@ -7,10 +7,11 @@ const PARTNERS = {
   'funny-time': {name:'Funny Time', places:['phuket'], channels:['website']},
   viktor: {name:'Виктор', places:['phuket'], channels:['telegram']},
   'el-phuket': {name:'EL PHUKET', places:['phuket'], channels:['website']},
-  'fat-cat-krabi': {name:'Кирилл · Толстый кот', places:['krabi'], channels:['maps','instagram']}
+  'fat-cat-krabi': {name:'Кирилл · Толстый кот', places:['krabi'], channels:['maps','instagram']},
+  'natasha-guide': {name:'Наташа · гайд по Чиангмаю', places:['chiangmai'], channels:['telegram','instagram']}
 };
 const ORIGINS = new Set(['https://vanyavtae.com','https://www.vanyavtae.com','https://yellow-term-6761.ddnpw2r226.workers.dev']);
-const ISLANDS = {phuket:'Пхукет',samui:'Самуи',krabi:'Краби',phangan:'Пханган'};
+const ISLANDS = {phuket:'Пхукет',samui:'Самуи',krabi:'Краби',phangan:'Пханган',chiangmai:'Чиангмай'};
 const ACTIONS = {website:'Сайт / приложение',telegram:'Telegram',phone:'Телефон',maps:'Google Карты',instagram:'Instagram'};
 const response = (status) => new Response(null,{status,headers:{'Cache-Control':'no-store'}});
 
