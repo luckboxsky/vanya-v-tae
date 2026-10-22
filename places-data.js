@@ -1,4 +1,77 @@
 window.PLACE_RECOMMENDATIONS = [
+  // Phangan favourite places: compact spot cards (spot:true), each with a Google Maps link.
+  {
+    id:'zen-beach',places:['phangan'],categories:['Закаты и атмосфера'],spot:true,
+    name:'Zen Beach',role:'Пляж · закаты',
+    paragraphs:['Культовое место, где обязательно нужно побывать на закате: по вечерам собирается много людей, играют на барабанах, провожая солнце. Купаться тут так себе — мелковато, но ради атмосферы приехать однозначно стоит.'],
+    links:[{label:'На Google Картах',url:'https://maps.app.goo.gl/zgJ7E6AkcuNM69iRA',channel:'maps'}]
+  },
+  {
+    id:'l-alcove',places:['phangan'],categories:['Еда'],spot:true,
+    name:'L’Alcove',role:'Французский ресторан на берегу',
+    paragraphs:['Очень крутой французский ресторан прямо у моря: огромные порции и нормальные цены. Особенно люблю их салаты и нарезки — качественную салями и колбасы в Таиланде, а тем более на Пхангане, найти непросто, а здесь это топ.','По пятницам и субботам вечером бывает живая музыка. Хозяйки — две классные подружки, всё украшено огоньками: очень красиво и романтично.'],
+    links:[{label:'На Google Картах',url:'https://maps.app.goo.gl/XCjLk2jmCdEUZ8Wc6',channel:'maps'},{label:'+66 94 579 3769',url:'tel:+66945793769',channel:'phone'}]
+  },
+  {
+    id:'harborhouse',places:['phangan'],categories:['Еда'],spot:true,
+    name:'HarborHouse',role:'Тайская придорожная кафешка',
+    paragraphs:['С виду неприметная, но повар очень хороший — работал в Бангкоке. Обязательно возьмите креветки в чесночном соусе (тод кратьем гунг) и салат из лемонграсса со свежим тунцом. Цены очень приемлемые.'],
+    links:[{label:'На Google Картах',url:'https://maps.app.goo.gl/DUZztTt68E4ahb3S7',channel:'maps'}]
+  },
+  {
+    id:'dome-sauna',places:['phangan'],categories:['Закаты и атмосфера'],spot:true,
+    name:'The Dome Sauna',role:'Травяная сауна',
+    paragraphs:['Легендарная сауна с ароматом трав: каждый вечер костёр, вкусные чаи, офигенная музыка и красивая иллюминация. Очень аутентично и атмосферно — обязательно к посещению.','Совет: возьмите с собой простыню, чтобы сидеть в сауне на ней, а не прямо на камнях. И будьте готовы к самой разной публике — сюда приходят йоги, вегетарианцы и все-все-все.'],
+    links:[{label:'На Google Картах',url:'https://maps.app.goo.gl/1qLTtXPX98QgQTmV7',channel:'maps'}]
+  },
+  {
+    id:'bluerama',places:['phangan'],categories:['Закаты и атмосфера'],spot:true,
+    name:'Bluerama',role:'Бассейн-клуб при отеле',
+    paragraphs:['Это отель, но главное там — бассейн с музыкой, диджеями и постоянными тусовками. Вид на закат с бассейна офигенный, приятное место провести вечер. Дороговато, и, кажется, вход только для взрослых (adults only).'],
+    links:[{label:'На Google Картах',url:'https://goo.gl/maps/rLS4o1SiRuEGhEPQ8',channel:'maps'}]
+  },
+  {
+    id:'tomorrow-x',places:['phangan'],categories:['Закаты и атмосфера','Еда'],spot:true,
+    name:'Tomorrow X',role:'Чиллаут-клуб с бассейном на обрыве',
+    paragraphs:['Офигенное место: бассейн с видом «в бесконечность» прямо на обрыве. Очень вкусная кухня, в том числе нарезки, хорошие коктейли и нормальные цены.'],
+    links:[{label:'На Google Картах',url:'https://maps.app.goo.gl/LTVjKTm43GrQFFgg9',channel:'maps'},{label:'+66 82 401 4326',url:'tel:+66824014326',channel:'phone'}]
+  },
+  {
+    id:'phasawan-viewpoint',places:['phangan'],categories:['Природа'],spot:true,
+    name:'Phasawan Viewpoint',role:'Вьюпойнт в джунглях · Бан Тай',
+    paragraphs:['Лучший вьюпойнт на острове, вид безумно красивый. Но идти к нему около 20 минут по джунглям, а в конце нужно немного полезть по камням — дорога непростая и местами опасненькая.','Мой отец, когда мы ходили вместе, не рискнул. Молодёжь обычно спокойно доходит, но силы оценивайте трезво. Вторая ссылка — точка, где оставить байк.'],
+    links:[{label:'Вьюпойнт на Картах',url:'https://maps.app.goo.gl/tJ7BBRPbzFyEdp2p6',channel:'maps'},{label:'Где оставить байк',url:'https://goo.gl/maps/RnVzHd8v9Kgi8WadA',channel:'maps'}]
+  },
+  {
+    id:'sirtaki-taverna',places:['phangan'],categories:['Еда'],spot:true,
+    name:'Sirtaki Taverna',role:'Греческая таверна',
+    paragraphs:['Лично знаком с хозяйкой — её зовут Надежда. Великолепная греческая кухня: продукты везут из Греции, качественные оливки и сыр фета. Очень люблю здесь осьминога на гриле.'],
+    links:[{label:'На Google Картах',url:'https://goo.gl/maps/AKzpg5KdjT7mNGoy7',channel:'maps'}]
+  },
+  {
+    id:'pum-pui',places:['phangan'],categories:['Еда'],spot:true,
+    name:'Pum Pui',role:'Тайский ресторан',
+    paragraphs:['Один из лучших ресторанов тайской кухни на Пхангане. Потрясающая рыба и большие порции — особенно рекомендую рыбу с соусом в стиле исан. А ещё прикольный салат из помело.'],
+    links:[{label:'На Google Картах',url:'https://www.google.com/maps/search/?api=1&query=Pum+Pui+Restaurant+Ko+Pha-ngan',channel:'maps'}]
+  },
+  {
+    id:'phangan-food-court',places:['phangan'],categories:['Еда'],spot:true,
+    name:'Phangan Food Court',role:'Фудкорт · Пантип',
+    paragraphs:['Классический фудкорт, который знают все: типичное место встречи с кучей еды и сувенирами. На втором этаже есть мексиканское бистро, где можно спокойно попить пива.'],
+    links:[{label:'На Google Картах',url:'https://goo.gl/maps/1TdaUMhUehnTvfwFA',channel:'maps'}]
+  },
+  {
+    id:'night-market-vintage',places:['phangan'],categories:['Еда'],spot:true,
+    name:'Night Market, Cafe Vintage',role:'Романтичный фудкорт · по пути на Хадрин',
+    paragraphs:['Очень красивый и романтичный фудкорт с разными кухнями — тайской, корейской, японской, европейской. Есть неплохое разливное пиво. Сюда любят ходить тайцы: готовят хот-поты прямо за столом.','По вечерам бывает живая тайская музыка — иногда громковатая. Удобно заехать перекусить по пути на Хадрин.'],
+    links:[{label:'На Google Картах',url:'https://www.google.com/maps/search/?api=1&query=Night+Market+Cafe+Vintage+Ko+Pha-ngan',channel:'maps'}]
+  },
+  {
+    id:'belgian-beer-bistro',places:['phangan'],categories:['Еда'],spot:true,
+    name:'Belgian Beer Bistro',role:'Бельгийский ресторан',
+    paragraphs:['Для фанатов пива: огромный выбор пива из Бельгии и со всего мира. Цены кусачие, но каждый день есть блюдо дня со скидкой — обычно что-то мясное и увесистое, вроде свиной рульки.','Обязательно попробуйте запечённую сахарную косточку с крупной солью: вычерпываешь ложечкой — кайф.'],
+    links:[{label:'На Google Картах',url:'https://maps.app.goo.gl/wBdqspBkWtACwsZ79',channel:'maps'},{label:'+66 93 783 7340',url:'tel:+66937837340',channel:'phone'}]
+  },
 {
   "id": "autain-bike",
   "places": [

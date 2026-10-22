@@ -1,5 +1,17 @@
 import {weatherResponse} from './weather-worker.mjs';
 const PARTNERS = {
+  'zen-beach': {name:'Zen Beach', places:['phangan'], channels:['maps']},
+  'l-alcove': {name:'L’Alcove', places:['phangan'], channels:['maps','phone']},
+  harborhouse: {name:'HarborHouse', places:['phangan'], channels:['maps']},
+  'dome-sauna': {name:'The Dome Sauna', places:['phangan'], channels:['maps']},
+  bluerama: {name:'Bluerama', places:['phangan'], channels:['maps']},
+  'tomorrow-x': {name:'Tomorrow X', places:['phangan'], channels:['maps','phone']},
+  'phasawan-viewpoint': {name:'Phasawan Viewpoint', places:['phangan'], channels:['maps']},
+  'sirtaki-taverna': {name:'Sirtaki Taverna', places:['phangan'], channels:['maps']},
+  'pum-pui': {name:'Pum Pui', places:['phangan'], channels:['maps']},
+  'phangan-food-court': {name:'Phangan Food Court', places:['phangan'], channels:['maps']},
+  'night-market-vintage': {name:'Night Market, Cafe Vintage', places:['phangan'], channels:['maps']},
+  'belgian-beer-bistro': {name:'Belgian Beer Bistro', places:['phangan'], channels:['maps','phone']},
   'autain-bike': {name:'Autain Bike Repair', places:['phangan'], channels:['maps']},
   'nong-bikes': {name:'Nong cheap rent and repair bikes', places:['phangan'], channels:['maps']},
   'phuket-market': {name:'Phuket Market', places:['phuket'], channels:['website']},
