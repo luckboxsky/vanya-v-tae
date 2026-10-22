@@ -1,9 +1,7 @@
 (() => {
   'use strict';
   const c = window.SITE_CONFIG || {};
-  const dialog = document.getElementById('detail-modal');
-  const title = document.getElementById('modal-title');
-  const body = document.getElementById('modal-body');
+  let dialog, title, body;
   const toast = document.getElementById('toast');
   let toastTimer;
 
@@ -16,7 +14,22 @@
   const pending = '<p class="config-hint">Реквизиты для этого способа ещё не добавлены. Пока выберите другой способ или напишите мне в Instagram.</p>';
   const row = (label, value, copyValue = value, copyLabel = 'Скопировать') => `<div class="detail-row"><label>${esc(label)}</label><span class="detail-value">${esc(value)}</span><button type="button" class="copy-button" data-copy="${esc(copyValue)}">${esc(copyLabel)}</button></div>`;
   const external = (url, label) => `<a class="modal-link" href="${esc(url)}" target="_blank" rel="noopener noreferrer">${esc(label)}</a>`;
+  function ensureModal() {
+    if (dialog) return;
+    dialog = document.createElement('dialog');
+    dialog.id = 'detail-modal';
+    dialog.className = 'modal';
+    dialog.setAttribute('aria-labelledby','modal-title');
+    dialog.innerHTML = '<div class="modal-box"><button aria-label="Закрыть окно" class="modal-close" id="modal-close" type="button">×</button><span class="kicker">ВАНЯ В ТАЕ</span><h2 id="modal-title"></h2><div id="modal-body"></div></div>';
+    document.body.appendChild(dialog);
+    title = dialog.querySelector('#modal-title');
+    body = dialog.querySelector('#modal-body');
+    dialog.querySelector('#modal-close').addEventListener('click',()=>dialog.close());
+    dialog.addEventListener('click',event=>{if(event.target===dialog)dialog.close();});
+    body.addEventListener('click',handleModalAction);
+  }
   function modal(name, html) {
+    ensureModal();
     title.textContent = name;
     body.innerHTML = html;
     if (typeof dialog.showModal === 'function') dialog.showModal();
@@ -114,9 +127,7 @@
       node.addEventListener('click', () => node.dataset.contact === 'telegram' ? telegram() : contact(node.dataset.contact));
     }
   });
-  document.getElementById('modal-close')?.addEventListener('click', () => dialog?.close());
-  dialog?.addEventListener('click', event => {if (event.target === dialog) dialog.close();});
-  body?.addEventListener('click', async event => {
+  async function handleModalAction(event) {
     const exchangeButton = event.target.closest('[data-crypto-exchange]');
     if (exchangeButton) {
       const exchangeId = exchangeButton.dataset.cryptoExchange;
@@ -142,7 +153,7 @@
       }
       notify('Выделил текст: удерживай и выбери «Скопировать»');
     }
-  });
+  }
   document.querySelectorAll('.mobile-nav nav a').forEach(a => a.addEventListener('click', () => {const menu=a.closest('details');if(menu)menu.open=false;}));
   const year = document.getElementById('year');
   if (year) year.textContent = new Date().getFullYear();

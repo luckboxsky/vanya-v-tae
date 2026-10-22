@@ -17,4 +17,10 @@ dialog.modal:not([open]){display:none}
 .places-directory .coffee-contact{background:#234b42;color:#fff8f0}
 .coffee-note a{text-decoration:underline;text-underline-offset:4px}
 [id^="directory-"]{scroll-margin-top:85px}
+.story-next-step{margin-top:32px;padding:25px;border:1px solid var(--line,#dac9b9);border-radius:18px;background:var(--paper,#fff8f0)}
+.story-content .story-next-step h2{font-size:30px;line-height:1.25;margin:0 0 14px}
+.story-content .story-next-step p{font-size:16px;line-height:1.7;margin:0 0 18px}
+.story-next-actions{display:flex;flex-wrap:wrap;gap:12px}
+.story-next-actions .button{white-space:normal;text-align:center}
+@media(max-width:600px){.story-next-step{padding:20px}.story-next-actions{flex-direction:column;align-items:stretch}.story-content .story-next-step h2{font-size:27px}}
 @media(max-width:600px){.directory-index,.coffee-section{padding:18px}.directory-index>summary{font-size:14px}.directory-index h2,.places-directory .coffee-section h2{font-size:28px}.directory-links{flex-direction:column;align-items:flex-start}}
