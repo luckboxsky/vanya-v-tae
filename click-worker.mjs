@@ -12,15 +12,15 @@ const PARTNERS = {
   'phangan-food-court': {name:'Phangan Food Court', places:['phangan'], channels:['maps']},
   'night-market-vintage': {name:'Night Market, Cafe Vintage', places:['phangan'], channels:['maps']},
   'belgian-beer-bistro': {name:'Belgian Beer Bistro', places:['phangan'], channels:['maps','phone']},
-  'autain-bike': {name:'Autain Bike Repair', places:['phangan'], channels:['maps']},
+  'autain-bike': {name:'Autain Bike Repair', places:['phangan'], channels:['maps','article']},
   'nong-bikes': {name:'Nong cheap rent and repair bikes', places:['phangan'], channels:['maps']},
   'phuket-market': {name:'Phuket Market', places:['phuket'], channels:['website']},
-  'green-way': {name:'Green Way', places:['phuket','samui'], channels:['telegram','phone']},
+  'green-way': {name:'Green Way', places:['phuket','samui'], channels:['telegram','phone','article']},
   'funny-time': {name:'Funny Time', places:['phuket'], channels:['website']},
   viktor: {name:'Виктор', places:['phuket'], channels:['telegram']},
   'el-phuket': {name:'EL PHUKET', places:['phuket'], channels:['website']},
   'fat-cat-krabi': {name:'Кирилл · Толстый кот', places:['krabi'], channels:['maps','instagram']},
-  'city-motorbike': {name:'City Motorbike Rentals', places:['chiangmai'], channels:['maps']},
+  'city-motorbike': {name:'City Motorbike Rentals', places:['chiangmai'], channels:['maps','article']},
   'natasha-guide': {name:'Наташа · гайд по Чиангмаю', places:['chiangmai'], channels:['telegram','instagram']},
   'roma-black': {name:'Рома Блэк · фотограф', places:['chiangmai'], channels:['telegram','instagram']},
   avosend: {name:'Avosend', places:['services'], channels:['website']},
@@ -28,12 +28,12 @@ const PARTNERS = {
   booking: {name:'Booking.com', places:['services'], channels:['website']},
   agoda: {name:'Agoda', places:['services'], channels:['website']},
   tbank: {name:'Т-Банк', places:['services'], channels:['website']},
-  'viktor-samui': {name:'Виктор · Samui One', places:['samui'], channels:['telegram','phone']},
+  'viktor-samui': {name:'Виктор · Samui One', places:['samui'], channels:['telegram','phone','article']},
   'stasya-visa': {name:'Стася · визы и школа', places:['phuket'], channels:['telegram']}
 };
 const ORIGINS = new Set(['https://vanyavtae.com','https://www.vanyavtae.com','https://yellow-term-6761.ddnpw2r226.workers.dev']);
 const ISLANDS = {phuket:'Пхукет',samui:'Самуи',krabi:'Краби',phangan:'Пханган',chiangmai:'Чиангмай',services:'Сервисы'};
-const ACTIONS = {website:'Сайт / приложение',telegram:'Telegram',phone:'Телефон',maps:'Google Карты',instagram:'Instagram'};
+const ACTIONS = {website:'Сайт / приложение',telegram:'Telegram',phone:'Телефон',maps:'Google Карты',instagram:'Instagram',article:'Статья на сайте'};
 const response = (status) => new Response(null,{status,headers:{'Cache-Control':'no-store'}});
 
 export async function recordClick(request, env) {

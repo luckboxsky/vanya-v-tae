@@ -4,20 +4,24 @@
     "description": "Пять лет я сдавал байки в аренду на Пхангане. Как выбрать прокат, что проверить при получении, почему не оставлять паспорт и на чём разводят туристов.",
     "path": "/bike-rental-thailand",
     "image": "https://vanyavtae.com/assets/bike-rental-card.jpg",
-    "type": "article"
-  },  "money-thailand.html": {
+    "type": "article",
+    "published": "2026-10-23"
+  },
+  "money-thailand.html": {
     "title": "Как поменять деньги в Таиланде в 2026 году: мой способ | Ваня в Тае",
     "description": "Как перевести рубли в баты в 2026 году: почему неудобны P2P, банковские переводы и наличные доллары, и как я меняю деньги через Avosend — на тайский счёт или наличными в Big C.",
     "path": "/money-thailand",
     "image": "https://vanyavtae.com/assets/money-thailand-card.jpg",
-    "type": "article"
+    "type": "article",
+    "published": "2026-10-23"
   },
   "tbank-premium.html": {
     "title": "Т-Банк Премиум перед поездкой: почти окупается одним билетом | Ваня в Тае",
     "description": "Лайфхак перед поездкой в Таиланд: кэшбэк за авиабилет, страховка путешественников на всю семью и бизнес-залы с Т-Банк Премиум. Мой пример с цифрами.",
     "path": "/tbank-premium",
     "image": "https://vanyavtae.com/assets/tbank-premium-card.jpg",
-    "type": "article"
+    "type": "article",
+    "published": "2026-10-23"
   },
   "index.html": {
     "title": "Ваня в Тае | Жизнь и путешествия в Таиланде",
@@ -45,14 +49,16 @@
     "description": "Как после десяти лет за рулём я впервые отправился в Таиланд: бессонный перелёт, поезд через страну, паром и первые дни на Самуи. Воспоминания о феврале 2017 года.",
     "path": "/first-thailand",
     "image": "https://vanyavtae.com/first-thailand-04.jpg",
-    "type": "article"
+    "type": "article",
+    "published": "2026-10-22"
   },
   "samui-first-days.html": {
     "title": "Первые дни на Самуи: монах-отшельник, джунгли и первые знакомства | Ваня в Тае",
     "description": "Первые дни на Самуи: рассвет у пагоды, знакомство с Олесей, тайский буфет, джунгли и неожиданная встреча с продавцами своего байка.",
     "path": "/samui-first-days",
     "image": "https://vanyavtae.com/second-thailand-chair.jpg",
-    "type": "article"
+    "type": "article",
+    "published": "2026-10-22"
   },
   "advertising.html": {
     "title": "Реклама и сотрудничество | Ваня в Тае",
