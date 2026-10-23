@@ -9,8 +9,8 @@ const ASSET_VERSIONS={
   'site-fixes.css':'rounded-20261023',
   'home-useful.css':'services-20261023',
   'blog-filters.js':'home-20261023',
-  'partners-cards.css':'scam-20261023',
-  'places.js':'scam-20261023',
+  'partners-cards.css':'scam-all-20261023',
+  'places.js':'scam-all-20261023',
   'places-data.js':'scam-20261023',
   'places-maps.js':'krabi-relief-20261023'
 };
