@@ -28,6 +28,7 @@ const PARTNERS = {
   booking: {name:'Booking.com', places:['services'], channels:['website']},
   agoda: {name:'Agoda', places:['services'], channels:['website']},
   tbank: {name:'Т-Банк', places:['services'], channels:['website']},
+  'viktor-samui': {name:'Виктор · Samui One', places:['samui'], channels:['telegram','phone']},
   'stasya-visa': {name:'Стася · визы и школа', places:['phuket'], channels:['telegram']}
 };
 const ORIGINS = new Set(['https://vanyavtae.com','https://www.vanyavtae.com','https://yellow-term-6761.ddnpw2r226.workers.dev']);
