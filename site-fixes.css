@@ -135,3 +135,5 @@ dialog.modal:not([open]){display:none}
 .story-content .compare-table tbody th{font-weight:800;color:#596e62;white-space:nowrap}
 @media(max-width:520px){.story-content .compare-table{font-size:12.5px}.story-content .compare-table th,.story-content .compare-table td{padding:8px 7px}.story-content .compare-table thead th{font-size:15px}}
 .story-content .story-note{margin:22px 0 26px;padding:16px 20px;border:1px solid var(--line);border-radius:16px;background:var(--paper);font-size:14px;line-height:1.65}
+.story-content .table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:16px}
+@media(max-width:620px){.story-content .weather-table{min-width:560px}}
