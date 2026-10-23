@@ -77,6 +77,50 @@ window.PLACE_RECOMMENDATIONS = [
     paragraphs:['Для фанатов пива: огромный выбор пива из Бельгии и со всего мира. Цены кусачие, но каждый день есть блюдо дня со скидкой — обычно что-то мясное и увесистое, вроде свиной рульки.','Обязательно попробуйте запечённую сахарную косточку с крупной солью: вычерпываешь ложечкой — кайф.'],
     links:[{label:'На Google Картах',url:'https://maps.app.goo.gl/wBdqspBkWtACwsZ79',channel:'maps'},{label:'+66 93 783 7340',url:'tel:+66937837340',channel:'phone'}]
   },
+  {
+    id:'khao-hua-jook',places:['samui'],categories:['Виды и храмы'],spot:true,
+    name:'Пагода Khao Hua Jook',role:'Смотровая у аэропорта · Бопут',
+    paragraphs:['Здесь я встретил свой первый рассвет на Самуи. Нереально классный вид: аэропорт со взлетающими и садящимися самолётами, озеро и весь остров.','Место must-have — хотя бы ради одной смотровой площадки.'],
+    photos:[{src:'/second-thailand-sunrise.jpg',alt:'Рассвет со смотровой площадки пагоды Khao Hua Jook',width:1280,height:720,caption:'Мой первый рассвет на Самуи · 2017'}],
+    links:[{label:'На Google Картах',url:'https://maps.app.goo.gl/QSdbcU4fZCF4pQdc8',channel:'maps'},{label:'История в главе 2',url:'/samui-first-days',channel:'article'}]
+  },
+  {
+    id:'monk-cave',places:['samui'],categories:['Природа'],spot:true,
+    name:'Monk Cave',role:'Пещера монахов · Талинг Нгам',
+    paragraphs:['Пещера, где жили монахи. В 2017 году я пришёл сюда искать отшельника, а познакомился с Олесей — об этом во второй главе.','Идти только в отлив: лезть по камням, местами по пояс в воде. На байке не подъехать, тропа начинается от Beryl Bar.'],
+    photos:[{src:'/second-thailand-cave.jpg',alt:'Внутри пещеры монахов на Самуи',width:1280,height:720,caption:'Внутри пещеры · 2017'}],
+    links:[{label:'На Google Картах',url:'https://maps.app.goo.gl/V4Z9UKxnpYvC2HYeA',channel:'maps'},{label:'История в главе 2',url:'/samui-first-days',channel:'article'}]
+  },
+  {
+    id:'beryl-bar',places:['samui'],categories:['Еда','Закаты и атмосфера'],spot:true,
+    name:'Beryl Bar',role:'Бар на диком пляже · Талинг Нгам',
+    paragraphs:['Старался бывать здесь каждый приезд. Хозяин — легендарный мистер Пьяк: весь в татуировках, выглядит экстравагантно, по духу хиппи-неформал. С ним всегда весело поболтать и поржать. Раньше здесь делали очень вкусный том ям.','Отсюда начинается тропа к пещере монахов. Последний раз я был здесь пару лет назад, а в свежих отзывах жалуются на беспорядок — проверяйте на Картах, что там сейчас.'],
+    links:[{label:'На Google Картах',url:'https://maps.app.goo.gl/TXYaSoATUondN1tx5',channel:'maps'}]
+  },
+  {
+    id:'wat-plai-laem',places:['samui'],categories:['Виды и храмы'],spot:true,
+    name:'Wat Plai Laem',role:'Храм на озере · рядом с Большим Буддой',
+    paragraphs:['Храм на озере с белой статуей Гуаньинь с 18 руками.','Самое прикольное для меня — кормить сомов в озере. Они огромные: сунете кулак с кормом — укусят, так что лучше бросайте.'],
+    links:[{label:'На Google Картах',url:'https://maps.app.goo.gl/g6tZ1Kv6QeuwiG7S9',channel:'maps'}]
+  },
+  {
+    id:'maithy-pool-lounge',places:['samui'],categories:['Еда','Закаты и атмосфера'],spot:true,
+    name:'Maithy Pool Lounge',role:'Ресторан с бассейном · холмы Банг Рак',
+    paragraphs:['Офигенный ресторан с очень красивым видом на закат: залив, Большой Будда и самолёты. Есть бассейн и очень вкусная кухня — особенно устрицы. Место зачёт.','Приезжайте к закату и бронируйте столик заранее.'],
+    links:[{label:'На Google Картах',url:'https://maps.app.goo.gl/dxxiKg4B1WE5966s9',channel:'maps'}]
+  },
+  {
+    id:'kaif-sauna',places:['samui'],categories:['Сауны и спа'],spot:true,
+    name:'Kaif Spa & Sauna',role:'Сауны с видом на море · Чавенг',
+    paragraphs:['Одна из лучших бань и саун, в которых я был. Очень добротно и цивильно сделано: разные виды саун, ледяная купель, вид на море.','Перед поездкой проверьте, работают ли: в несезон они закрываются на ремонт и обновление.'],
+    links:[{label:'На Google Картах',url:'https://maps.app.goo.gl/N11We7knCxZNFMdw7',channel:'maps'}]
+  },
+  {
+    id:'o-mart',places:['samui'],categories:['Магазины'],spot:true,
+    name:'O’Mart',role:'Импортные продукты · Бопут',
+    paragraphs:['Магазин, где много импортной продукции, которой не бывает в обычных Lotus’s и Big C: уникальные сыры, колбасы, салями, очень вкусный солёный лосось с укропом — в последний раз около 90 бат за 100 г.','На Самуи у них, кажется, несколько магазинов, а на Пхангане открылся свой — когда я там жил, это был мой любимый магазин.'],
+    links:[{label:'На Google Картах',url:'https://maps.app.goo.gl/ZFRJ97FzKrrV4dW27',channel:'maps'}]
+  },
 {
   "id": "autain-bike",
   "places": [

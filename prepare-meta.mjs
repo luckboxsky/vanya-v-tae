@@ -10,8 +10,8 @@ const ASSET_VERSIONS={
   'home-useful.css':'services-20261023',
   'blog-filters.js':'home-20261023',
   'partners-cards.css':'scam-all-20261023',
-  'places.js':'links-20261023',
-  'places-data.js':'stasya-nodiscount-20261024',
+  'places.js':'samui-spots-20261023',
+  'places-data.js':'samui-spots-20261023',
   'places-maps.js':'krabi-relief-20261023'
 };
 function applyAssetVersions(html) {
