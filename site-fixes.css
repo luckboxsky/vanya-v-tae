@@ -137,3 +137,5 @@ dialog.modal:not([open]){display:none}
 .story-content .story-note{margin:22px 0 26px;padding:16px 20px;border:1px solid var(--line);border-radius:16px;background:var(--paper);font-size:14px;line-height:1.65}
 .story-content .table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:16px}
 @media(max-width:620px){.story-content .weather-table{min-width:560px}}
+.story-content .story-video video{display:block;width:100%;max-width:360px;height:auto;margin:0 auto;border-radius:14px;background:#1d2b27}
+.story-content .story-video figcaption{text-align:center}
