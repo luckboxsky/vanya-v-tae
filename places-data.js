@@ -81,7 +81,12 @@ window.PLACE_RECOMMENDATIONS = [
     id:'khao-hua-jook',places:['samui'],categories:['Виды и храмы'],spot:true,
     name:'Пагода Khao Hua Jook',role:'Смотровая у аэропорта · Бопут',
     paragraphs:['Здесь я встретил свой первый рассвет на Самуи. Нереально классный вид: аэропорт со взлетающими и садящимися самолётами, озеро и весь остров.','Место must-have — хотя бы ради одной смотровой площадки.'],
-    photos:[{src:'/second-thailand-sunrise.jpg',alt:'Рассвет со смотровой площадки пагоды Khao Hua Jook',width:1280,height:720,caption:'Мой первый рассвет на Самуи · 2017'}],
+    photos:[
+      {src:'/assets/samui-pagoda-lake.webp',alt:'Вид с пагоды Khao Hua Jook на озеро, залив Чавенг и горы',width:960,height:1280},
+      {src:'/assets/samui-pagoda-runway.webp',alt:'Взлётная полоса аэропорта Самуи с высоты пагоды',width:960,height:1280,caption:'Взлётная полоса аэропорта'},
+      {src:'/assets/samui-pagoda-sea-island.webp',alt:'Вид с пагоды на море и остров',width:960,height:1280},
+      {src:'/second-thailand-sunrise.jpg',alt:'Рассвет со смотровой площадки пагоды Khao Hua Jook',width:1280,height:720,caption:'Мой первый рассвет на Самуи · 2017'}
+    ],
     links:[{label:'На Google Картах',url:'https://maps.app.goo.gl/QSdbcU4fZCF4pQdc8',channel:'maps'},{label:'История в главе 2',url:'/samui-first-days',channel:'article'}]
   },
   {
