@@ -47,7 +47,7 @@ for(const [file,meta] of Object.entries(pages)) {
     head=head.replace(/<script\b[^>]*id=["']site-schema["'][^>]*>[\s\S]*?<\/script>/gi,'');
     head=head.replace(/<title>[\s\S]*?<\/title>/gi,'')
       .replace(/<meta\b[^>]*>/gi,tag=>/charset=|(?:name|property)=["'](?:viewport|theme-color|description|twitter:[^"']+|og:[^"']+)["']/i.test(tag)?'':tag)
-      .replace(/<link\b[^>]*>/gi,tag=>/rel=["'](?:canonical|icon)["']|fonts\.(?:googleapis|gstatic)\.com|site-fixes\.css/i.test(tag)?'':tag);
+      .replace(/<link\b[^>]*>/gi,tag=>/rel=["'](?:canonical|icon|apple-touch-icon)["']|fonts\.(?:googleapis|gstatic)\.com|site-fixes\.css/i.test(tag)?'':tag);
     const sharedHead=metadata(meta);
     // Collapse lines left empty by removed tags so repeated runs don't add blank lines.
     head=head.trim().replace(/\r?\n[ \t\r]*(?:\n[ \t\r]*)+/g,'\n');

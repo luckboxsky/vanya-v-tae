@@ -25,7 +25,9 @@ ${image.endsWith("/assets/og.jpg")?'<meta property="og:image:width" content="120
 <meta name="twitter:description" content="${esc(description)}">
 <meta name="twitter:image" content="${esc(image)}">
 <script type="application/ld+json" id="site-schema">${schema}</script>
-<link rel="icon" href="/assets/favicon.png" type="image/png">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/assets/favicon-120.png" type="image/png" sizes="120x120">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
