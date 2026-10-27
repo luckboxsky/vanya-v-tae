@@ -83,4 +83,6 @@ copy.samui.categories=['Все','Виды и храмы','Еда','Закаты 
  window.addEventListener('hashchange',route);
  window.addEventListener('popstate',route);
  createCards();route();
+ // Promo code buttons in the services block copy the code and confirm on the button itself.
+ document.addEventListener('click',async event=>{const button=event.target.closest('.service-copy[data-copy]');if(!button)return;const label=button.textContent;try{await navigator.clipboard.writeText(button.dataset.copy);button.textContent='Скопировано ✓'}catch{button.textContent='Промокод: '+button.dataset.copy}setTimeout(()=>{button.textContent=label},2500)});
 })();

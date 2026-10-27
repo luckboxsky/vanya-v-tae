@@ -153,3 +153,5 @@
 @media(max-width:600px){.places-directory .scam-notice>summary{padding:18px;gap:12px}.places-directory .scam-icon{width:38px;height:38px;font-size:22px}.places-directory .scam-head strong{font-size:21px}.places-directory .scam-body{padding:0 18px 18px}}
 @media(prefers-reduced-motion:reduce){.places-directory .scam-toggle{transition:none}}
 .places-directory .place-safety{margin-top:34px}
+.service-card .service-copy{align-self:stretch;min-height:44px;margin:0 0 10px;border:1px dashed #234b42;border-radius:12px;background:transparent;color:#234b42;font:inherit;font-size:13px;font-weight:800;cursor:pointer}
+.service-card .service-copy:hover{background:#e6ecdc}

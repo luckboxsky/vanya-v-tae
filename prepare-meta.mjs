@@ -9,8 +9,8 @@ const ASSET_VERSIONS={
   'site-fixes.css':'bike-yt-20261028',
   'home-useful.css':'services-20261023',
   'blog-filters.js':'home-20261023',
-  'partners-cards.css':'scam-all-20261023',
-  'places.js':'samui-spots-20261023',
+  'partners-cards.css':'legenda-20261028',
+  'places.js':'promo-copy-20261028',
   'places-data.js':'pagoda-photos-20261023',
   'media-kit-tv.css':'youtube-20261028',
   'places-maps.js':'krabi-relief-20261023'

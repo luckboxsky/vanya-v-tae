@@ -35,6 +35,7 @@ const PARTNERS = {
   booking: {name:'Booking.com', places:['services'], channels:['website']},
   agoda: {name:'Agoda', places:['services'], channels:['website']},
   tbank: {name:'Т-Банк', places:['services'], channels:['website']},
+  legenda: {name:'Легенда', places:['services'], channels:['website']},
   'viktor-samui': {name:'Виктор · Samui One', places:['samui'], channels:['telegram','phone','article']},
   'stasya-visa': {name:'Стася · визы и школа', places:['phuket'], channels:['telegram']}
 };
