@@ -12,6 +12,7 @@ const ASSET_VERSIONS={
   'partners-cards.css':'scam-all-20261023',
   'places.js':'samui-spots-20261023',
   'places-data.js':'pagoda-photos-20261023',
+  'media-kit-tv.css':'youtube-20261028',
   'places-maps.js':'krabi-relief-20261023'
 };
 function applyAssetVersions(html) {
