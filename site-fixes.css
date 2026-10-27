@@ -139,3 +139,5 @@ dialog.modal:not([open]){display:none}
 @media(max-width:620px){.story-content .weather-table{min-width:560px}}
 .story-content .story-video video{display:block;width:100%;max-width:360px;height:auto;margin:0 auto;border-radius:14px;background:#1d2b27}
 .story-content .story-video figcaption{text-align:center}
+.story-content .story-portrait img{display:block;width:100%;max-width:360px;height:auto;margin:0 auto}
+.story-content .story-portrait figcaption{text-align:center}
