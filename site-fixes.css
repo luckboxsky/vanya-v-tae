@@ -177,3 +177,14 @@ dialog.modal:not([open]){display:none}
 .story-content .story-rules ul{margin:10px 0 12px;padding-left:20px}
 .story-content .story-rules li{margin:0 0 6px}
 .story-content .story-rules p{font-size:13px;line-height:1.6;margin:0;color:var(--ink-soft)}
+/* Consultation page */
+.consult-page .consult-prices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:10px 0 14px}
+.consult-page .consult-price{display:flex;flex-direction:column;gap:6px;padding:20px 22px;border:1px solid var(--line);border-radius:16px;background:var(--paper)}
+.consult-page .consult-price span{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#9b624f}
+.consult-page .consult-price strong{font-family:Oswald,sans-serif;font-size:40px;line-height:1.1}
+.consult-page .consult-price small{font-size:13px;line-height:1.5;color:var(--ink-soft)}
+.consult-page .consult-note{font-size:14px;color:var(--ink-soft);margin-bottom:22px}
+.consult-page .consult-actions{margin:0 0 10px}
+.consult-page .consult-list,.consult-page .consult-steps{margin:0 0 24px;padding-left:22px}
+.consult-page .consult-list li,.consult-page .consult-steps li{font-size:17px;line-height:1.75;margin:0 0 10px}
+@media(max-width:650px){.consult-page .consult-prices{grid-template-columns:1fr}.consult-page .consult-list li,.consult-page .consult-steps li{font-size:16px}.consult-page .consult-actions .button{width:100%;text-align:center}}
