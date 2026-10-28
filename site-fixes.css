@@ -240,5 +240,32 @@ a:is(.button,.service-action):is([href*="avosend"],[href*="tbank"],[href*="agoda
 @keyframes gk-wiggle{from{transform:rotate(-4deg)}to{transform:rotate(4deg)}}
 @keyframes gk-tail{from{transform:rotate(-9deg)}to{transform:rotate(7deg)}}
 @keyframes gk-breathe{from{transform:scale(1)}to{transform:scale(1.03,1.06)}}
-.gecko-say{position:absolute;left:0;top:0;padding:4px 9px;border-radius:999px;background:#234b42;color:#fff8f0;font:800 12px/1.2 Manrope,sans-serif;white-space:nowrap;animation:gk-say 1.4s ease-out forwards}
+.gecko-say{position:fixed;left:0;top:0;z-index:35;pointer-events:none;padding:4px 9px;border-radius:999px;background:#234b42;color:#fff8f0;font:800 12px/1.2 Manrope,sans-serif;white-space:nowrap;animation:gk-say 1.4s ease-out forwards}
 @keyframes gk-say{0%{opacity:0;margin-top:6px}15%{opacity:1;margin-top:0}75%{opacity:1}100%{opacity:0;margin-top:-8px}}
+/* Thai strip above the footer: ornament band and a Thai phrase (thai.js) */
+:root{--thai-ornament:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 18'%3E%3Cg fill='%23e59a74'%3E%3Cpath d='M18 1.5c2.6 3.2 3.6 6.7 0 10.5-3.6-3.8-2.6-7.3 0-10.5Z'/%3E%3Cpath d='M18 12.5c-3.9-.2-7.4-2.3-9.4-6 3.9.6 7 2.6 9.4 6Zm0 0c3.9-.2 7.4-2.3 9.4-6-3.9.6-7 2.6-9.4 6Z' opacity='.75'/%3E%3Ccircle cx='1.5' cy='12' r='1.3'/%3E%3Ccircle cx='34.5' cy='12' r='1.3'/%3E%3C/g%3E%3Cpath d='M0 16.5h36' stroke='%23e59a74' stroke-width='1' opacity='.55'/%3E%3C/svg%3E")}
+.thai-strip{padding:30px 0 22px;background:var(--thai-ornament) repeat-x center 8px/36px 18px}
+.thai-phrase{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:center;gap:4px 10px;width:100%;margin:6px auto 0;padding-top:4px;padding-bottom:4px;border:0;background:none;color:inherit;font:inherit;text-align:center;cursor:pointer}
+.thai-phrase-label{width:100%;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#9b624f}
+.thai-phrase-th{font-size:22px;font-weight:600;line-height:1.4;color:#234b42}
+.thai-phrase-say{font-size:15px;font-weight:800}
+.thai-phrase-means{font-size:15px;color:var(--ink-soft,#5d6b64)}
+.thai-phrase-means::before{content:"— "}
+.thai-phrase-more{width:100%;font-size:12px;font-weight:700;color:#9b624f;text-decoration:underline;text-underline-offset:3px}
+.thai-phrase:focus-visible{outline:2px solid #b75f43;outline-offset:4px;border-radius:8px}
+/* The same ornament instead of plain lines before "Читайте также" */
+.read-also{border-top:0!important;background:var(--thai-ornament) repeat-x left top/36px 18px;padding-top:40px!important}
+/* Gecko bubble: long messages wrap */
+.gecko-say.is-long{max-width:260px;white-space:normal;border-radius:14px;padding:8px 12px;line-height:1.4;animation-duration:3.8s}
+/* Songkran (thai.js, around 13 April): water drops from buttons */
+.songkran-drop{position:fixed;z-index:60;width:9px;height:9px;border-radius:50% 50% 50% 0;transform:translate(-50%,-50%);background:#4fb3e8;box-shadow:inset -2px -2px 0 rgba(255,255,255,.45);pointer-events:none}
+/* 404: lost tuk-tuk drives across */
+.tuk-road{position:relative;height:96px;margin:6px 0 18px;overflow:hidden;border-bottom:2px dashed #d9c3b2}
+.tuk{position:absolute;left:0;bottom:2px;animation:tuk-drive 7s linear -2.6s infinite}
+.tuk .tuk-body{animation:tuk-bump .35s ease-in-out infinite alternate}
+.tuk .tuk-puff{animation:tuk-puff 1s ease-out infinite}
+.tuk .tuk-puff.p2{animation-delay:.5s}
+@keyframes tuk-drive{0%{transform:translateX(-170px)}100%{transform:translateX(780px)}}
+@keyframes tuk-bump{from{transform:translateY(0)}to{transform:translateY(-1.5px)}}
+@keyframes tuk-puff{0%{transform:translate(0,0) scale(.6);opacity:.8}100%{transform:translate(-14px,-6px) scale(1.8);opacity:0}}
+@media(prefers-reduced-motion:reduce){.tuk,.tuk .tuk-body,.tuk .tuk-puff{animation:none}.tuk{left:40px}}

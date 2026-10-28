@@ -1,5 +1,5 @@
 // A small tokay gecko (ตุ๊กแก) now and then runs out to a button or card on screen, sits for a moment and runs off.
-// Tap it and it shouts "Ток-кэ!" and darts away. Off for visitors who ask for reduced motion.
+// Tap it and it shouts "Ток-кэ!" (with sound) and darts away. Off for visitors who ask for reduced motion.
 (() => {
   'use strict';
   if (matchMedia('(prefers-reduced-motion: reduce)').matches || !Element.prototype.animate) return;
@@ -26,7 +26,7 @@
   layer.appendChild(gecko);
 
   const SPEED = .42; // px per ms: geckos dart fast
-  let visits = 0, running = null, timer = 0, busy = false;
+  let visits = 0, running = null, timer = 0, busy = false, sound = null;
 
   function spots() {
     return [...document.querySelectorAll('.button,.service-action,.partner-action,.story-card,.read-also-card,.yt-card,.reel-card,.service-card,.recommendation-card,.place-card,.story-yt,.actor-card,.tv-card,.story-share,.story-next-step,.story-content figure,.story-note,.service,.story-content h2,.story-rules')].filter(el => {
@@ -52,6 +52,8 @@
     if (!list.length && !header) { schedule(5000); return; }
     busy = true;
     visits++;
+    // Vanya's own recording of a tokay; fetched once the gecko first shows up, played only on a tap.
+    if (!sound) { sound = new Audio('/assets/tokay.mp3'); sound.preload = 'auto'; sound.volume = .7; }
     if (!layer.isConnected) document.body.appendChild(layer);
     layer.style.height = document.documentElement.scrollHeight + 'px';
     const el = list.length ? list[Math.floor(Math.random() * list.length)] : header;
@@ -106,16 +108,37 @@
     running.cancel();
     gecko.classList.remove('is-sitting');
     gecko.classList.add('is-running', 'is-scared');
-    const bubble = document.createElement('span');
-    bubble.className = 'gecko-say';
-    bubble.textContent = 'Ток-кэ!';
-    bubble.style.transform = `translate(${x + 4}px,${y - 30}px)`;
-    layer.appendChild(bubble);
-    setTimeout(() => bubble.remove(), 1400);
+    if (sound) { sound.currentTime = 0; sound.play().catch(() => {}); }
+    say(x, y);
     const exit = flip ? scrollX - 70 : scrollX + innerWidth + 14;
     running = gecko.animate([{transform: place(x, y, flip)}, {transform: place(exit, y, flip)}], {duration: Math.max(Math.abs(exit - x) / 1.1, 200), easing: 'ease-in', fill: 'forwards'});
     running.finished.then(() => { gecko.classList.remove('is-scared'); finish(); }).catch(() => {});
   });
+
+  // The bubble counts catches on this device: the 3rd, 5th, 7th and 10th get their own words.
+  // Thais say a tokay calling seven times in a row brings luck.
+  function say(x, y) {
+    let caught = 1;
+    try {
+      caught = (parseInt(localStorage.getItem('gecko-caught'), 10) || 0) + 1;
+      localStorage.setItem('gecko-caught', caught);
+    } catch { /* private mode: every catch is the first */ }
+    const words = {
+      3: 'Ты поймал геккона уже 3 раза 🦎',
+      5: 'Эй, отстань от геккона!',
+      7: '7 раз! В Таиланде верят: токи прокричал семь раз — к счастью. Удачи тебе!',
+      10: '10 раз! Всё, ты местный 🦎'
+    }[caught] || 'Ток-кэ!';
+    const bubble = document.createElement('span');
+    bubble.className = 'gecko-say' + (words.length > 12 ? ' is-long' : '');
+    bubble.textContent = words;
+    bubble.setAttribute('role', 'status');
+    document.body.appendChild(bubble);
+    const left = Math.min(Math.max(x - scrollX - 10, 12), innerWidth - bubble.offsetWidth - 12);
+    bubble.style.left = left + 'px';
+    bubble.style.top = Math.max(y - scrollY - bubble.offsetHeight - 6, 90) + 'px';
+    setTimeout(() => bubble.remove(), words.length > 12 ? 3800 : 1400);
+  }
 
   // #gecko in the address calls it right away (handy for showing it off).
   schedule(location.hash === '#gecko' ? 800 : 7000 + Math.random() * 7000);
