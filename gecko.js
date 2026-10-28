@@ -29,7 +29,7 @@
   let visits = 0, running = null, timer = 0, busy = false, sound = null;
 
   function spots() {
-    return [...document.querySelectorAll('.button,.service-action,.partner-action,.story-card,.read-also-card,.yt-card,.reel-card,.service-card,.recommendation-card,.place-card,.story-yt,.actor-card,.tv-card,.story-share,.story-next-step,.story-content figure,.story-note,.service,.story-content h2,.story-rules')].filter(el => {
+    return [...document.querySelectorAll('.button,.service-action,.partner-action,.story-card,.read-also-card,.yt-card,.reel-card,.service-card,.recommendation-card,.place-card,.story-yt,.actor-card,.tv-card,.story-share,.story-next-step,.story-content figure,.story-note,.service,.story-content h2,.story-rules,.links-btn')].filter(el => {
       const r = el.getBoundingClientRect();
       return r.width > 90 && r.top > 110 && r.top < innerHeight - 40 && r.left > 4 && r.right < innerWidth - 4 && getComputedStyle(el).visibility !== 'hidden';
     });
