@@ -47,7 +47,7 @@ copy.samui.categories=['Все','Виды и храмы','Еда','Закаты 
   return `<article class="recommendation-card partner-entry ${item.featured?'partner-featured':''}" data-partner="${esc(item.id)}">${logo}<div class="partner-content"><div class="partner-category">${item.categories.map(esc).join(' · ')}</div>${heading}<p class="partner-role-text">${esc(item.role)}${item.promocode?`<span class="partner-promocode">Промокод: <strong>${esc(item.promocode)}</strong></span>`:''}</p>${content}</div></article>`;
  }
  function createCards(){
-  grid.innerHTML=maps.map(m=>`<article class="place-card"><div class="map-frame">${m.map}</div><div class="card-copy"><div><h2><a href="#${m.id}" data-place="${m.id}">${m.name}</a></h2><p>${copy[m.id].sub}</p></div><a class="card-arrow" href="#${m.id}" data-place="${m.id}" aria-label="Открыть ${m.name}">↗</a></div></article>`).join('');
+  grid.innerHTML=maps.map(m=>`<article class="place-card"><div class="map-frame">${m.map}</div><div class="card-copy"><div><h2><a href="#${m.id}" data-place="${m.id}">${m.name}</a></h2><p>${copy[m.id].sub}</p></div><a class="card-arrow" href="#${m.id}" data-place="${m.id}" aria-label="Открыть ${m.name}"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></a></div></article>`).join('');
  }
  function showItems(category){
   const items=copy[current].items.filter(x=>category==='Все'||x[0]===category);
@@ -65,7 +65,7 @@ copy.samui.categories=['Все','Виды и храмы','Еда','Закаты 
  function showPlace(id){
   const m=maps.find(m=>m.id===id);if(!m)return;
   current=id;const c=copy[id];
-  detail.innerHTML=`<a class="back-link" href="#" data-back>← Все места</a><div class="detail-head"><div><div class="eyebrow">РЕКОМЕНДУЮ ЛИЧНО · ${c.title}</div><h1>${c.title}</h1><p class="detail-intro">${c.intro}</p></div><div class="detail-map">${m.map.replaceAll('id="',`id="detail-`).replaceAll('url(#','url(#detail-')}</div></div><div class="categories" role="group" aria-label="Категория рекомендаций">${c.categories.map((name,i)=>`<button type="button" data-category="${name}" aria-pressed="${i===0}">${name}</button>`).join('')}</div><div class="recommendation-grid" id="recommendations"></div>${safetySection(id)}<p class="empty-note">Подборка готовится. Скоро здесь появятся контакты, фотографии и подробные рекомендации.</p>`;
+  detail.innerHTML=`<a class="back-link nav-prev" href="#" data-back>Все места</a><div class="detail-head"><div><div class="eyebrow">РЕКОМЕНДУЮ ЛИЧНО · ${c.title}</div><h1>${c.title}</h1><p class="detail-intro">${c.intro}</p></div><div class="detail-map">${m.map.replaceAll('id="',`id="detail-`).replaceAll('url(#','url(#detail-')}</div></div><div class="categories" role="group" aria-label="Категория рекомендаций">${c.categories.map((name,i)=>`<button type="button" data-category="${name}" aria-pressed="${i===0}">${name}</button>`).join('')}</div><div class="recommendation-grid" id="recommendations"></div>${safetySection(id)}<p class="empty-note">Подборка готовится. Скоро здесь появятся контакты, фотографии и подробные рекомендации.</p>`;
   detail.querySelector('.empty-note').hidden=recommendations.some(item=>item.places.includes(id)&&item.status!=='not-recommended');
   // Category filters only help when a place has enough cards to sort through.
   const cardCount=recommendations.filter(item=>item.places.includes(id)&&item.status!=='not-recommended').length+c.items.length;
