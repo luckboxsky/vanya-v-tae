@@ -6,7 +6,7 @@ const pages=JSON.parse(fs.readFileSync(new URL('./site-pages.json',import.meta.u
 // Files not listed keep the shared version from page-polish.mjs. See SITE-MAINTENANCE.md.
 const ASSET_VERSIONS={
   'script.js':'share-20261029',
-  'site-fixes.css':'share-20261029',
+  'site-fixes.css':'gecko-20261029',
   'home-useful.css':'services-20261023',
   'blog-filters.js':'home-20261023',
   'partners-cards.css':'legenda-20261028',
@@ -14,6 +14,7 @@ const ASSET_VERSIONS={
   'places-data.js':'pagoda-photos-20261023',
   'media-kit-tv.css':'youtube-20261028',
   'motion.js':'count2-20261029',
+  'gecko.js':'gecko-20261029',
   'places-maps.js':'krabi-relief-20261023'
 };
 function applyAssetVersions(html) {
@@ -60,14 +61,14 @@ for(const [file,meta] of Object.entries(pages)) {
     .replace(/\s*<!-- Yandex\.Metrika fallback -->[\s\S]*?<!-- \/Yandex\.Metrika fallback -->\s*/g,'');
   html=html.replace(/<head>([\s\S]*?)<\/head>/i,(_,head)=>{
     head=head.replace(/<script\b[^>]*id=["']site-schema["'][^>]*>[\s\S]*?<\/script>/gi,'')
-      .replace(/<script\b[^>]*src=["']\/motion\.js[^>]*><\/script>/gi,'');
+      .replace(/<script\b[^>]*src=["']\/(?:motion|gecko)\.js[^>]*><\/script>/gi,'');
     head=head.replace(/<title>[\s\S]*?<\/title>/gi,'')
       .replace(/<meta\b[^>]*>/gi,tag=>/charset=|(?:name|property)=["'](?:viewport|theme-color|description|twitter:[^"']+|og:[^"']+)["']/i.test(tag)?'':tag)
       .replace(/<link\b[^>]*>/gi,tag=>/rel=["'](?:canonical|icon|apple-touch-icon)["']|fonts\.(?:googleapis|gstatic)\.com|site-fixes\.css/i.test(tag)?'':tag);
     const sharedHead=metadata(meta);
     // Collapse lines left empty by removed tags so repeated runs don't add blank lines.
     head=head.trim().replace(/\r?\n[ \t\r]*(?:\n[ \t\r]*)+/g,'\n');
-    return '<head>\n'+sharedHead+'\n'+head+'\n<link rel="stylesheet" href="/site-fixes.css">\n<script defer src="/motion.js?v=1"></script>\n</head>';
+    return '<head>\n'+sharedHead+'\n'+head+'\n<link rel="stylesheet" href="/site-fixes.css">\n<script defer src="/motion.js?v=1"></script>\n<script defer src="/gecko.js?v=1"></script>\n</head>';
   });
 
   if(file!=='consultation.html')html=articleExtras(html,meta);
