@@ -173,3 +173,7 @@ dialog.modal:not([open]){display:none}
 .place-card:nth-child(3n) .coast-rings{animation-delay:-3s}
 @keyframes coast-breathe{0%,100%{opacity:.35}50%{opacity:1}}
 }
+/* Visa-free article: short rules box */
+.story-content .story-rules ul{margin:10px 0 12px;padding-left:20px}
+.story-content .story-rules li{margin:0 0 6px}
+.story-content .story-rules p{font-size:13px;line-height:1.6;margin:0;color:var(--ink-soft)}
