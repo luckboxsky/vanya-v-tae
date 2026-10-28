@@ -1,10 +1,12 @@
 // Shared metadata template. Keep page titles, canonical URLs and social cards together.
-export function metadata({title,description,path,image='https://vanyavtae.com/assets/og.jpg',type='website',published}) {
+export function metadata({title,description,path,image='https://vanyavtae.com/assets/og.jpg',type='website',published,faq}) {
   const esc=value=>String(value).replaceAll('&','&amp;').replaceAll('"','&quot;').replaceAll('<','&lt;');
   const url='https://vanyavtae.com'+path;
   const graph=[{'@type':'WebSite','@id':'https://vanyavtae.com/#website',url:'https://vanyavtae.com/',name:'Ваня в Тае',inLanguage:'ru',author:{'@id':'https://vanyavtae.com/#person'}},{'@type':'Person','@id':'https://vanyavtae.com/#person',name:'Иван Минеев',alternateName:'Ваня в Тае',url:'https://vanyavtae.com/',sameAs:['https://t.me/thevany','https://www.instagram.com/vanyavtae/']}];
   // Articles also describe themselves for search engines: headline, image, author and publish date.
   if(type==='article')graph.push({'@type':'Article','@id':url+'#article',headline:title.replace(/ \| Ваня в Тае$/,''),description,image,url,mainEntityOfPage:url,inLanguage:'ru',author:{'@id':'https://vanyavtae.com/#person'},publisher:{'@id':'https://vanyavtae.com/#person'},...(published?{datePublished:published,dateModified:published}:{})});
+  // Questions shown in the "Коротко: частые вопросы" block of the page (see prepare-meta.mjs) are repeated for search engines.
+  if(faq?.length)graph.push({'@type':'FAQPage','@id':url+'#faq',mainEntity:faq.map(({q,a})=>({'@type':'Question',name:q,acceptedAnswer:{'@type':'Answer',text:a}}))});
   const schema=JSON.stringify({'@context':'https://schema.org','@graph':graph});
   return `<meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">

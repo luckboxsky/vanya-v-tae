@@ -161,4 +161,29 @@
   document.querySelectorAll('.mobile-nav nav a').forEach(a => a.addEventListener('click', () => {const menu=a.closest('details');if(menu)menu.open=false;}));
   const year = document.getElementById('year');
   if (year) year.textContent = new Date().getFullYear();
+
+  // Share block under articles: copy the page link. The Telegram button is a plain share link.
+  document.addEventListener('click', async event => {
+    const button = event.target.closest('[data-share-copy]');
+    if (!button) return;
+    const label = button.textContent;
+    try {
+      await navigator.clipboard.writeText(button.dataset.shareCopy);
+      button.textContent = 'Ссылка скопирована ✓';
+    } catch {
+      window.prompt('Скопируйте ссылку:', button.dataset.shareCopy);
+    }
+    setTimeout(() => { button.textContent = label; }, 2500);
+  });
+
+  // Consultation page: on phones a sign-up button sticks to the bottom while the page's own buttons are off screen.
+  const sticky = document.querySelector('[data-consult-sticky]');
+  if (sticky && 'IntersectionObserver' in window) {
+    const visible = new Set();
+    const watcher = new IntersectionObserver(entries => {
+      entries.forEach(entry => entry.isIntersecting ? visible.add(entry.target) : visible.delete(entry.target));
+      sticky.classList.toggle('is-shown', !visible.size && window.scrollY > 200);
+    });
+    document.querySelectorAll('.consult-actions, .story-next-step, footer').forEach(target => watcher.observe(target));
+  }
 })();

@@ -200,3 +200,29 @@ a:is(.button,.service-action,.reel-link,.tv-youtube-link):not(.social-button):is
 a.nav-prev{--ico:var(--ico-prev)}a.nav-prev::before{width:15px;height:15px;margin-right:6px;vertical-align:-2px}
 a.nav-next{--ico:var(--ico-next)}a.nav-next::after{width:15px;height:15px;margin-left:6px;vertical-align:-2px}
 a.button.nav-prev,a.button.nav-next{justify-content:center;gap:6px}a.button.nav-prev::before{margin-right:0}a.button.nav-next::after{margin-left:0}
+/* Partner and share button icons (same mask technique as the link icons above). */
+:root{--ico-money:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.9' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='2.5' y='6' width='19' height='12' rx='2'/%3E%3Ccircle cx='12' cy='12' r='2.6'/%3E%3Cpath d='M6 9.5v5M18 9.5v5'/%3E%3C/svg%3E");--ico-card:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.9' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='2.5' y='5' width='19' height='14' rx='2.5'/%3E%3Cpath d='M2.5 10h19M6.5 15h4'/%3E%3C/svg%3E");--ico-home:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.9' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 11.5 12 4l9 7.5'/%3E%3Cpath d='M5.5 9.5V20h13V9.5'/%3E%3Cpath d='M10 20v-5.5h4V20'/%3E%3C/svg%3E");--ico-plane:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.9' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M10.2 20.5 12 15l4.6 4.3 1.4-1.4-2.2-8.2 3.9-3.9a1.8 1.8 0 0 0-2.5-2.5l-3.9 3.9-8.2-2.2-1.4 1.4L8 10.9 2.5 12.7l.9 1.6 4.4.1.1 4.4Z'/%3E%3C/svg%3E");--ico-bag:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.9' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='7.5' width='18' height='12.5' rx='2.5'/%3E%3Cpath d='M8.5 7.5V5.5a1.5 1.5 0 0 1 1.5-1.5h4a1.5 1.5 0 0 1 1.5 1.5v2M3 13h18M10.5 13v1.5h3V13'/%3E%3C/svg%3E");--ico-link:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.9' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1 1'/%3E%3Cpath d='M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1-1'/%3E%3C/svg%3E")}
+a:is(.button,.service-action)[href*="avosend"]{--ico:var(--ico-money)}
+a:is(.button,.service-action)[href*="tbank"]{--ico:var(--ico-card)}
+a:is(.button,.service-action)[href*="agoda."]{--ico:var(--ico-home)}
+a:is(.button,.service-action)[href*="booking.com"]{--ico:var(--ico-home)}
+a:is(.button,.service-action)[href*="trip.com"]{--ico:var(--ico-plane)}
+a:is(.button,.service-action)[href*="legenda-travel"]{--ico:var(--ico-bag)}
+.share-copy{--ico:var(--ico-link)}
+a:is(.button,.service-action):is([href*="avosend"],[href*="tbank"],[href*="agoda."],[href*="booking.com"],[href*="trip.com"],[href*="legenda-travel"]),.share-copy{justify-content:center;gap:9px}
+a:is(.button,.service-action):is([href*="avosend"],[href*="tbank"],[href*="agoda."],[href*="booking.com"],[href*="trip.com"],[href*="legenda-travel"])::before,.share-copy::before{content:"";flex:none;display:inline-block;width:18px;height:18px;vertical-align:-4px;background:currentColor;-webkit-mask:var(--ico) center/contain no-repeat;mask:var(--ico) center/contain no-repeat}
+/* FAQ and share blocks at the end of articles */
+.story-content .story-faq{margin:40px 0 10px}
+.story-content .story-faq h2{margin-top:0}
+.story-content .story-faq details{border:1px solid var(--line);border-radius:14px;background:var(--paper);padding:14px 18px;margin:0 0 10px}
+.story-content .story-faq summary{cursor:pointer;font-weight:800;font-size:16px;line-height:1.5}
+.story-content .story-faq details p{font-size:16px;line-height:1.75;margin:10px 0 0}
+.story-content .story-share{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;margin:32px 0 8px;padding:18px 20px;border:1px solid var(--line);border-radius:16px;background:var(--paper)}
+.story-content .story-share>span{font-weight:800;font-size:15px;line-height:1.5}
+.story-share-actions{display:flex;flex-wrap:wrap;gap:10px}
+.story-share .share-copy{font-family:inherit;background:transparent;color:inherit;cursor:pointer}
+@media(max-width:650px){.story-share-actions{flex-direction:column;width:100%}.story-share-actions .button{width:100%}}
+/* Consultation: sticky sign-up button on phones */
+.consult-sticky{display:none}
+@media(max-width:650px){.consult-sticky{display:block;position:fixed;left:16px;right:16px;bottom:calc(14px + env(safe-area-inset-bottom));z-index:30;opacity:0;transform:translateY(130%);pointer-events:none;transition:opacity .25s,transform .25s}.consult-sticky.is-shown{opacity:1;transform:none;pointer-events:auto}.consult-sticky .button{width:100%;justify-content:center;box-shadow:0 12px 30px rgba(20,40,34,.25)}}
+@media(prefers-reduced-motion:reduce){.consult-sticky{transition:none}}
