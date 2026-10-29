@@ -63,6 +63,8 @@ function thaiStrip(html) {
 
 for(const [file,meta] of Object.entries(pages)) {
   const path=new URL('./'+file,import.meta.url);
+  // A page can be listed before its file is committed (drafts kept only locally); skip it instead of failing the build.
+  if(!fs.existsSync(path))continue;
   let html=fs.readFileSync(path,'utf8');
   html=html.replace(/<!-- Yandex\.Metrika counter -->[\s\S]*?<!-- \/Yandex\.Metrika counter -->\s*/g,'')
     .replace(/\s*<!-- Yandex\.Metrika fallback -->[\s\S]*?<!-- \/Yandex\.Metrika fallback -->\s*/g,'');
