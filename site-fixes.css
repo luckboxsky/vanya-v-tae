@@ -299,3 +299,6 @@ a:is(.button,.service-action):is([href*="avosend"],[href*="tbank"],[href*="agoda
 .story-content .story-reel-cta{display:flex;align-items:center;justify-content:center;gap:8px;padding:12px 14px;font-size:14px;font-weight:800}
 .story-content .story-reel-cta::before{content:"";width:18px;height:18px;background:currentColor;-webkit-mask:var(--ico-ig) center/contain no-repeat;mask:var(--ico-ig) center/contain no-repeat}
 @media(max-width:650px){.story-content .story-reel{max-width:280px;margin-left:auto;margin-right:auto}}
+/* Photo gallery inside an article: 2×2 grid, one caption */
+.story-content .story-gallery>div{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.story-content .story-gallery img{width:100%;height:100%;aspect-ratio:4/3;object-fit:cover}

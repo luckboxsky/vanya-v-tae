@@ -43,7 +43,8 @@ window.PLACE_RECOMMENDATIONS = [
     photos:[
       {src:'/assets/phasawan-view.webp',alt:'Вид с Phasawan Viewpoint на бухту с белым пляжем и бирюзовой водой',width:1280,height:960},
       {src:'/assets/phasawan-dad.webp',alt:'Папа Вани сидит на вершине скалы над морем',width:1280,height:960,caption:'Папа на вершине'},
-      {src:'/assets/phasawan-selfie.webp',alt:'Ваня делает селфи на скале вьюпойнта над бухтой',width:1280,height:960}
+      {src:'/assets/phasawan-selfie.webp',alt:'Ваня делает селфи на скале вьюпойнта над бухтой',width:1280,height:960},
+      {src:'/assets/phasawan-feet.jpg',alt:'Ноги Вани на краю скалы, внизу джунгли и море',width:720,height:960,caption:'Дальше только море'}
     ],
     links:[{label:'Вьюпойнт на Картах',url:'https://maps.app.goo.gl/tJ7BBRPbzFyEdp2p6',channel:'maps'},{label:'Где оставить байк',url:'https://goo.gl/maps/RnVzHd8v9Kgi8WadA',channel:'maps'}]
   },

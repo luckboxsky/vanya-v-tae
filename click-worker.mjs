@@ -38,6 +38,7 @@ const PARTNERS = {
   legenda: {name:'Легенда', places:['services'], channels:['website']},
   'viktor-samui': {name:'Виктор · Samui One', places:['samui'], channels:['telegram','phone','article']},
   'stasya-visa': {name:'Стася · визы и школа', places:['phuket'], channels:['telegram']},
+  'coffee-order': {name:'Кофе · заказ у Ромы', places:['coffee'], channels:['telegram']},
   // Buttons of the /links page (link in the Instagram profile and under Reels).
   'links-new': {name:'/links · Новая статья', places:['links'], channels:['article']},
   'links-consultation': {name:'/links · Консультация', places:['links'], channels:['article']},
@@ -49,7 +50,7 @@ const PARTNERS = {
   'links-youtube': {name:'/links · YouTube', places:['links'], channels:['website']}
 };
 const ORIGINS = new Set(['https://vanyavtae.com','https://www.vanyavtae.com','https://yellow-term-6761.ddnpw2r226.workers.dev']);
-const ISLANDS = {phuket:'Пхукет',samui:'Самуи',krabi:'Краби',phangan:'Пханган',chiangmai:'Чиангмай',services:'Сервисы',links:'Страница /links'};
+const ISLANDS = {phuket:'Пхукет',samui:'Самуи',krabi:'Краби',phangan:'Пханган',chiangmai:'Чиангмай',services:'Сервисы',links:'Страница /links',coffee:'Страница /coffee'};
 const ACTIONS = {website:'Сайт / приложение',telegram:'Telegram',phone:'Телефон',maps:'Google Карты',instagram:'Instagram',article:'Статья на сайте'};
 const response = (status) => new Response(null,{status,headers:{'Cache-Control':'no-store'}});
 
