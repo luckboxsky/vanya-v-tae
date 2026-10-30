@@ -58,3 +58,17 @@
   .coffee-order-main{width:100%;justify-content:center}
 }
 .coffee-brew-photo{aspect-ratio:4/5;max-width:420px;margin-top:22px}
+/* Selling first screen: short promise, three perks, catalog right below */
+.coffee-perks{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin:0 0 26px;padding:0}
+.coffee-perks li{padding:8px 14px;border:1px solid #e6c3ad;border-radius:999px;background:#fff8f0;font-size:14px;font-weight:800;color:#234b42}
+.coffee-buy{width:100%;justify-content:center;margin-top:14px;min-height:46px}
+#coffee-catalog{padding-top:20px;scroll-margin-top:90px}
+@media(max-width:650px){
+  .coffee-hero{gap:22px;padding-top:24px;padding-bottom:10px}
+  .coffee-hero h1{font-size:46px;margin-bottom:14px}
+  .coffee-lead{font-size:17px!important;line-height:1.6!important;margin-bottom:18px}
+  .coffee-perks{margin-bottom:20px}
+  .coffee-perks li{font-size:13px;padding:7px 12px}
+  .coffee-hero-photo{aspect-ratio:16/10}
+  .coffee-hero-photo img{object-position:50% 22%}
+}
