@@ -122,3 +122,7 @@ prepare-meta.mjs сам добавляет во все страницы с `"typ
 prices-thailand.html (/prices-thailand): текст Вани из RUTEXT, обложка assets/cover-prices.jpg (фото продуктов из Big C), блок «Коротко» с главными цифрами, сравнение с 2019 годом, фото продуктов и чек (assets/prices-bigc-*.jpg, класс `story-receipt`), таблицы `compare-table`, рилсы Instagram ссылками в тексте. Алкоголь — коротко и без брендов и советов. Ссылка на кофе ведёт в /partners#coffee — когда выйдет /coffee, поменять на неё. Цены (бензин, паромы, сим-карты, курс) пересматривать раз в полгода и ставить `"modified"` в site-pages.json.
 
 Facebook: prepare-meta.mjs теперь ставит звёздочку и к «Facebook», а сноска на такой странице говорит «Instagram и Facebook принадлежат компании Meta…».
+
+## Страница кофе /coffee (опубликована 31.10.2026)
+
+coffee.html + coffee.css. Фото от Ромы: assets/coffee-*.jpg (без EXIF), обложка для ссылок — assets/cover-coffee.jpg. Каталог и цены живут только на /coffee; в /partners#coffee — короткий анонс со ссылкой. Заказы — кнопки `coffee-order` (Telegram Ромы), клики с /links — `links-coffee`. Место фермы не раскрываем: только «Кхун Чанг Кхиан, ~1400 м» в карточке Chiang Mai Mix; кадры с видом на долину и деревню не ставить. Катимор не называть редким. Когда Ваня пришлёт текст из RUTEXT — заменить тексты блоков, вёрстку не трогать.

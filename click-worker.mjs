@@ -48,6 +48,7 @@ const PARTNERS = {
   // Buttons of the /links page (link in the Instagram profile and under Reels).
   'links-new': {name:'/links · Новая статья', places:['links'], channels:['article']},
   'links-consultation': {name:'/links · Консультация', places:['links'], channels:['article']},
+  'links-coffee': {name:'/links · Кофе', places:['links'], channels:['article']},
   'links-partners': {name:'/links · Рекомендую лично', places:['links'], channels:['article']},
   'links-useful': {name:'/links · Полезное', places:['links'], channels:['article']},
   'links-about': {name:'/links · Моя история', places:['links'], channels:['article']},

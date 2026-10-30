@@ -1,0 +1,60 @@
+/* Coffee page (/coffee): hero, facts, farm story, processing, catalog (styles from partners-cards.css), brewing, order. */
+.coffee-page{padding-bottom:40px}
+.coffee-page .kicker{display:block;margin-bottom:10px;font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#9b624f}
+.coffee-page h2{font-family:Oswald,sans-serif;font-size:clamp(30px,4vw,44px);line-height:1.18;margin:0 0 18px;color:#234b42}
+.coffee-page p{font-size:17px;line-height:1.8}
+
+.coffee-hero{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:48px;align-items:center;padding-top:56px;padding-bottom:36px}
+.coffee-hero h1{font-family:Oswald,sans-serif;font-size:clamp(54px,8vw,104px);line-height:1.02;margin:0 0 22px;text-transform:uppercase;color:#234b42}
+.coffee-hero h1 span{display:block;color:#bc6d56}
+.coffee-lead{max-width:520px;font-size:19px!important;margin:0 0 26px}
+.coffee-hero-actions{display:flex;flex-wrap:wrap;gap:12px}
+
+.coffee-photo{margin:0;border-radius:20px;overflow:hidden;background:#234b42}
+.coffee-photo img{display:block;width:100%;height:100%;object-fit:cover}
+.coffee-hero-photo{aspect-ratio:4/5}
+
+.coffee-facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-bottom:34px}
+.coffee-facts div{padding:18px 18px 16px;border:1px solid #dac9b9;border-radius:16px;background:#fff8f0}
+.coffee-facts strong{display:block;font-family:Oswald,sans-serif;font-size:26px;line-height:1.15;color:#234b42}
+.coffee-facts span{display:block;margin-top:4px;font-size:13px;line-height:1.45;color:#6b5a50}
+
+.coffee-block{padding-top:46px;padding-bottom:10px}
+.coffee-farm{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:start}
+.coffee-gallery{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.coffee-gallery .coffee-photo{aspect-ratio:3/4}
+.coffee-gallery .coffee-photo:first-child{grid-column:1/-1;aspect-ratio:16/10}
+
+.coffee-process-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.coffee-process-grid article{padding:22px;border:1px solid #dac9b9;border-radius:16px;background:#fff8f0}
+.coffee-process-grid h3{font-family:Oswald,sans-serif;font-size:26px;margin:0 0 8px;color:#234b42}
+.coffee-process-grid h3 small{display:block;font-family:Manrope,sans-serif;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#9b624f}
+.coffee-process-grid p{font-size:15px;line-height:1.7;margin:0}
+
+.coffee-catalog-note{font-size:13px!important;color:#6b5a50;margin-top:14px}
+
+.coffee-split{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:36px;align-items:center}
+.coffee-roaster{display:flex;gap:18px;align-items:flex-start;padding:22px;border:1px solid #dac9b9;border-radius:18px;background:#fff8f0}
+.coffee-roaster img{flex:none;width:84px;height:84px;border-radius:50%;object-fit:cover;border:3px solid #f0a77f}
+.coffee-roaster h3{font-family:Oswald,sans-serif;font-size:28px;margin:0 0 6px;color:#234b42}
+.coffee-roaster p{font-size:15px;line-height:1.7;margin:0}
+
+.coffee-order-block .coffee-steps,.coffee-order-block p{max-width:720px}
+.coffee-steps{margin:0 0 16px;padding-left:22px}
+.coffee-steps li{font-size:17px;line-height:1.75;margin:0 0 8px}
+.coffee-note-ru{font-size:14px!important;color:#6b5a50}
+
+@media(max-width:900px){
+  .coffee-hero,.coffee-farm,.coffee-split{grid-template-columns:1fr;gap:26px}
+  .coffee-hero{padding-top:34px}
+  .coffee-facts{grid-template-columns:1fr 1fr}
+  .coffee-process-grid{grid-template-columns:1fr}
+}
+@media(max-width:650px){
+  .coffee-page p{font-size:16px}
+  .coffee-hero-actions{flex-direction:column}
+  .coffee-hero-actions .button{justify-content:center}
+  .coffee-facts strong{font-size:22px}
+  .coffee-order-main{width:100%;justify-content:center}
+}
+.coffee-brew-photo{aspect-ratio:4/5;max-width:420px;margin-top:22px}

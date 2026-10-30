@@ -356,3 +356,6 @@ a:is(.button,.service-action):is([href*="avosend"],[href*="tbank"],[href*="agoda
 .story-content .story-receipt img{aspect-ratio:9/16;object-fit:cover}
 .story-content .story-receipt a{display:block}
 .story-content .story-receipt figcaption{text-transform:none;letter-spacing:0;font-weight:500;font-size:13px;line-height:1.6}
+/* Coffee cup icon for the /links coffee button */
+:root{--ico-coffee:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.9' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 9h12v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5Z'/%3E%3Cpath d='M16 10h1.5a2.5 2.5 0 0 1 0 5H16'/%3E%3Cpath d='M8 3c-.6 1 .6 2 0 3M12 3c-.6 1 .6 2 0 3'/%3E%3C/svg%3E")}
+.ico-coffee{--ico:var(--ico-coffee)}

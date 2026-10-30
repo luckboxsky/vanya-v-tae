@@ -230,6 +230,7 @@
     "title": "Кофе от Вани — свежая обжарка с ферм севера Таиланда | Ваня в Тае",
     "description": "Кофе с высокогорных ферм севера Таиланда — Чиангмай и Нан: обжариваем перед отправкой, доставка по всему Таиланду около 100 бат, самовывоз в Чиангмае. Natural, Honey, Washed.",
     "path": "/coffee",
-    "type": "website"
+    "type": "website",
+    "image": "https://vanyavtae.com/assets/cover-coffee.jpg"
   }
 }
