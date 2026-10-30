@@ -370,3 +370,6 @@ a:is(.button,.service-action):is([href*="avosend"],[href*="tbank"],[href*="agoda
 .home-coffee-perks li{padding:8px 14px;border:1px solid #e6c3ad;border-radius:999px;background:#fff;font-size:14px;font-weight:800;color:#234b42}
 .home-coffee .button.primary{min-height:52px;padding-inline:28px}
 @media(max-width:760px){.home-coffee{padding:44px 0}.home-coffee-grid{grid-template-columns:1fr;gap:24px}.home-coffee-photo{aspect-ratio:16/10}.home-coffee-photo img{object-position:50% 30%}.home-coffee-copy p{font-size:15px}.home-coffee-perks li{font-size:13px;padding:7px 12px}.home-coffee .button.primary{width:100%;justify-content:center}}
+/* Text links inside articles, notes and FAQ look clickable: coral, bold, underlined (buttons and cards untouched) */
+.story-content :is(p,li,dd,figcaption,.story-note) a:not(.button):not([class*="card"]),.story-faq details p a{color:#b75f43;font-weight:700;text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:3px;text-decoration-color:rgba(183,95,67,.45);transition:color .15s,text-decoration-color .15s}
+.story-content :is(p,li,dd,figcaption,.story-note) a:not(.button):not([class*="card"]):hover,.story-faq details p a:hover{color:#8f4530;text-decoration-color:currentColor}
