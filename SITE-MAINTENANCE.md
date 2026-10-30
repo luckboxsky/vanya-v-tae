@@ -132,3 +132,5 @@ coffee.html + coffee.css. Фото от Ромы: assets/coffee-*.jpg (без EX
 Главная: блок `.home-coffee` (#coffee) после карты рекомендаций, клик `coffee-home`. Пункт «Кофе» в меню всех страниц (обе навигации) — в HTML каждой страницы, при новой странице копировать шапку с ним.
 
 Ссылки в тексте статей (p, li, dd, figcaption, .story-note, FAQ) — коралловые #b75f43, жирные, подчёркнутые; кнопки и карточки не затрагиваются (правило в конце site-fixes.css).
+
+Чиангмай (31.10.2026): 8 личных мест Вани (spot-карточки mon-yiap-mek, mae-kuang-dam, huay-tueng-thao, railway-park-half, nguadoi-wagyu, auf-der-au, renegade-cm, night-bazaar-cm) и bike-helper-cm (помощь с покупкой байка, Telegram @saltreador, без имени). Подход: только места с личной историей Вани, не «точки из Google Карт»; полный путеводитель — у Наташи. Фото только свои — не брать снимки из Google Карт. Сбор новых мест — _inbox/places/chiangmai-list.md.

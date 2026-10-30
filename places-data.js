@@ -275,6 +275,16 @@ window.PLACE_RECOMMENDATIONS = [
     links:[{label:'Открыть на Google Картах',url:'https://maps.app.goo.gl/My1ot9CRpVBVhjQUA',channel:'maps'},{label:'Как не потерять депозит',url:'/bike-rental-thailand',channel:'article'}]
   },
   {
+    id:'bike-helper-cm',places:['chiangmai'],categories:['Транспорт'],
+    name:'Помощь с покупкой байка',role:'Подбор и осмотр байка · Чиангмай',serviceIcon:'bike',
+    paragraphs:[
+      'Парень из Чиангмая, который помогает, если вы хотите купить байк: проконсультирует, осмотрит состояние, поможет поторговаться и проведёт переговоры с продавцом на английском или китайском.',
+      'Если приехать к нему на байке — всё бесплатно. Если нужен выезд вместе с вами — 1 000 бат: до двух точек в пределах города и осмотр до трёх байков.',
+      'Очень сильно помогает при выборе мопеда, если хочется его купить.'
+    ],
+    links:[{label:'Написать в Telegram',url:'https://t.me/saltreador',channel:'telegram'}]
+  },
+  {
     id:'natasha-guide',places:['chiangmai'],categories:['Гайды'],
     name:'Наташа · гайд по Чиангмаю',role:'Авторский гайд и канал о Чиангмае',logo:'/assets/natasha-avatar.jpg',isPortrait:true,
     paragraphs:[
@@ -294,12 +304,65 @@ window.PLACE_RECOMMENDATIONS = [
     paragraphs:[
       'Рома — мой хороший друг, фотограф и видеограф. У него куча профессионального оборудования, он успешно снимает фото и видео для стоков — профессионал своего дела.',
       'Делает фотосессии, а также контент и видео для блогеров.',
-      'Рома живёт в Чиангмае уже около шести лет, мы знакомы ещё с Пхангана и постоянно тусим вместе. А ещё мы вместе продаём кофе — о нём ниже на этой странице. Всем рекомендую.'
+      'Рома живёт в Чиангмае уже около шести лет, мы знакомы ещё с Пхангана и постоянно тусим вместе. А ещё мы вместе продаём кофе — о нём на отдельной странице. Всем рекомендую.'
     ],
     links:[
       {label:'Написать Роме в Telegram',url:'https://t.me/RomaBlack',channel:'telegram'},
-      {label:'Instagram Ромы*',url:'https://www.instagram.com/romablack/',channel:'instagram'}
+      {label:'Instagram Ромы*',url:'https://www.instagram.com/romablack/',channel:'instagram'},
+      {label:'Кофе от Вани',url:'/coffee',channel:'article'}
     ]
+  },
+  {
+    id:'mon-yiap-mek',places:['chiangmai'],categories:['Жильё','Природа'],spot:true,
+    name:'Mon Yiap Mek 1450',role:'Домики в горах с клубничной фермой · 90 км от Чиангмая',
+    paragraphs:['Легендарное для меня место. Я застрял там, пережидая дождь, в итоге остался: снял домик и два дня провёл с местными тайцами. Меня возили по деревням, я познакомился с местными каренами, а ещё у хозяев своя клубничная ферма — клубники очень много.','Домики офигенные, с видом на горы. Ночь стоит 600 бат. Кондиционера нет, только вентилятор — в горах и так прохладно. Вода с газовым нагревом, горячая.','Добираться на байке около 90 км от Чиангмая, по второй, очень красивой дороге в сторону Пая. Вся история — в трёх моих рилсах.'],
+    photos:[
+      {src:'/assets/monyiapmek-room.webp',alt:'Комната в домике с панорамными окнами на горы в облаках',width:1280,height:720},
+      {src:'/assets/monyiapmek-strawberries.jpg',alt:'Клубничные грядки на склоне горы в облаках',width:720,height:760,caption:'Клубничная ферма хозяев'}
+    ],
+    links:[{label:'Домики на Google Картах',url:'https://maps.app.goo.gl/ZNAJbRXTLd87LssP7',channel:'maps'},{label:'Рилс · часть 1',url:'https://www.instagram.com/vanyavtae/reel/DfAKuRxtGAk/',channel:'instagram'},{label:'Часть 2',url:'https://www.instagram.com/vanyavtae/reel/DfAVj4Wvy2J/',channel:'instagram'},{label:'Часть 3',url:'https://www.instagram.com/vanyavtae/reel/DfAb9A0SMTK/',channel:'instagram'}]
+  },
+  {
+    id:'mae-kuang-dam',places:['chiangmai'],categories:['Природа'],spot:true,
+    name:'Mae Kuang Udom Thara Dam',role:'Водохранилище для прогулок · Дой Сакет',
+    paragraphs:['Одно из моих любимых мест в Чиангмае. Офигенное место для прогулок: с одной стороны вода, с другой — вид сверху на Чиангмай, всё на возвышенности.','Просто нереально красиво. Приезжайте погулять.'],
+    links:[{label:'На Google Картах',url:'https://maps.app.goo.gl/HuM5FQmNkQi2mhKE7',channel:'maps'}]
+  },
+  {
+    id:'huay-tueng-thao',places:['chiangmai'],categories:['Природа','Еда'],spot:true,
+    name:'Huay Tueng Thao',role:'Озеро с домиками на воде · въезд 50 бат',
+    paragraphs:['Классное место вдоль озера: интересные статуи, фигуры животных из цветов, буйволы, овечки, которых можно погладить, катамараны. Въезд — 50 бат.','Вдоль воды стоят бамбуковые домики-шалаши: заказываешь еду, сидишь и смотришь на озеро. Очень красиво и живописно, часа 2–3 спокойно можно провести.','Велосипеды берут через приложение, но они старые и неудобные — лучше гулять пешком. Люди там купаются, но это пресное озеро, так что на свой риск.'],
+    links:[{label:'На Google Картах',url:'https://maps.app.goo.gl/qFZLSRuvKpRo6Tpq5',channel:'maps'}]
+  },
+  {
+    id:'railway-park-half',places:['chiangmai'],categories:['Природа'],spot:true,
+    name:'Парк у вокзала и кафе Half',role:'Парк для прогулок и спорта · джаз по вечерам',
+    paragraphs:['Просто красивый парк у железнодорожного вокзала. Есть детская площадка, большая парковка, хорошо подходит для спорта.','Самое классное — рядом кафе Half: по вечерам там иногда играют джаз на балконе, и его очень приятно слушать, сидя на газоне в парке.'],
+    links:[{label:'Парк на Google Картах',url:'https://maps.app.goo.gl/d5B3RQvVWvtQmCMWA',channel:'maps'},{label:'Кафе Half в Instagram*',url:'https://www.instagram.com/half.cnx/',channel:'instagram'}]
+  },
+  {
+    id:'nguadoi-wagyu',places:['chiangmai'],categories:['Еда'],spot:true,
+    name:'NGUADOI Wagyu Beef',role:'Стейк-хаус со своей фермой',
+    paragraphs:['Ресторан стейков со своей фермой: животных выращивают сами. Стейки нереальные — мясо выбираешь сам, есть все уровни прожарки и классные соусы. Приносят горячий камень, чтобы подогревать стейк самому.','Цены дороговаты: местный рибай стоит около 2 000–2 500 бат, так что закладывайте нормальную сумму. Но очень вкусно.'],
+    links:[{label:'На Google Картах',url:'https://maps.app.goo.gl/3AFqsTnv7uExiTNt7',channel:'maps'}]
+  },
+  {
+    id:'auf-der-au',places:['chiangmai'],categories:['Еда'],spot:true,
+    name:'Auf der Au Garden',role:'Немецкий буфет · 300 бат',
+    paragraphs:['Нереальное место: платишь 300 бат и ешь всё, что хочешь. Немецкая кухня — соленья, огурцы, очень много мяса, свиная рулька. Всё постоянно обновляется, свежее и очень вкусное.','Чай и кофе включены, пиво — за отдельную плату. Место, где можно обожраться и лопнуть.'],
+    links:[{label:'На Google Картах',url:'https://maps.app.goo.gl/xkLVopXT7tR7HgqN8',channel:'maps'}]
+  },
+  {
+    id:'renegade-cm',places:['chiangmai'],categories:['Еда'],spot:true,
+    name:'Renegade Craft Beer',role:'Бар с пиццей и бургерами',
+    paragraphs:['Один из самых популярных баров Чиангмая. Огромный выбор пива, цены на алкоголь, как и везде, кусачие.','Очень вкусные бургеры и вообще классная еда, есть бильярд — часто бесплатный. Хорошее место, чтобы посидеть с друзьями и насладиться атмосферой.'],
+    links:[{label:'На Google Картах',url:'https://maps.app.goo.gl/er6ZQHcKMCGmxfst5',channel:'maps'}]
+  },
+  {
+    id:'night-bazaar-cm',places:['chiangmai'],categories:['Еда'],spot:true,
+    name:'Night Bazaar',role:'Ночной рынок · каждый вечер',
+    paragraphs:['Огромный базар, где есть всё, но в первую очередь — очень много вкусной еды. Готовят быстро, так что очередей особо не бывает. Работает каждый вечер.','Цены чуть выше, потому что место популярное у туристов. На местных фудкортах всё дешевле.'],
+    links:[{label:'На Google Картах',url:'https://maps.app.goo.gl/iqu2c4Gz89R6G91D8',channel:'maps'}]
   }
 ];
 
