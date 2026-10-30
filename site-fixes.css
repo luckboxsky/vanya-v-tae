@@ -302,3 +302,40 @@ a:is(.button,.service-action):is([href*="avosend"],[href*="tbank"],[href*="agoda
 /* Photo gallery inside an article: 2×2 grid, one caption */
 .story-content .story-gallery>div{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .story-content .story-gallery img{width:100%;height:100%;aspect-ratio:4/3;object-fit:cover}
+/* Consultation offer: home banner, format cards on /consultation, card at the end of articles */
+.home-consult{background:#234b42;color:#fff9f3;padding:64px 0}
+.home-consult-inner{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:48px;align-items:center}
+.home-consult .kicker{color:#f0a77f}
+.home-consult h2{font-family:Oswald,sans-serif;font-size:clamp(36px,4.4vw,58px);line-height:1.15;margin:16px 0 18px;color:#fff9f3}
+.home-consult-copy>p{font-size:16px;line-height:1.7;margin:0 0 24px;max-width:560px}
+.home-consult .button.primary{background:#f0a77f;border-color:#f0a77f;color:#234b42;min-height:52px;padding-inline:26px}
+.home-consult .home-consult-note{font-size:12px;margin:14px 0 0;opacity:.75}
+.home-consult-plans{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.home-consult-plans li{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 20px;border:1px solid rgba(255,249,243,.22);border-radius:16px;font-size:15px;font-weight:700}
+.home-consult-plans strong{font-family:Oswald,sans-serif;font-size:28px;font-weight:600;color:#f0a77f;white-space:nowrap}
+@media(min-width:761px){.help-compact .service-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:760px){.home-consult{padding:52px 0}.home-consult-inner{grid-template-columns:1fr;gap:28px}.home-consult .button.primary{width:100%;justify-content:center}.home-consult-plans li{padding:15px 17px;font-size:14px}.home-consult-plans strong{font-size:24px}}
+.consult-page .consult-hero{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:34px;align-items:center;margin-bottom:10px}
+.consult-page .consult-hero h1{margin-top:16px}
+.consult-page .consult-hero .story-lead{margin-bottom:24px}
+.consult-page .consult-hero-photo{margin:0}
+.story-content .consult-hero-photo img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center 30%;border-radius:18px;border:0}
+.consult-plans{display:grid;gap:16px;margin:0 0 20px}
+.consult-plan{display:flex;flex-direction:column;padding:24px 26px;border:1px solid var(--line);border-radius:18px;background:var(--paper)}
+.consult-plan.is-featured{border:2px solid #234b42;background:#fff}
+.consult-plan-kicker{font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#9b624f}
+.story-content .consult-plan h3{font-family:Oswald,sans-serif;font-size:30px;line-height:1.2;margin:10px 0 4px}
+.story-content .consult-plan .consult-plan-price{font-family:Oswald,sans-serif;font-size:40px;line-height:1.1;margin:0 0 10px}
+.story-content .consult-plan .consult-plan-for{font-size:15px;line-height:1.6;color:var(--ink-soft);margin:0 0 14px}
+.consult-plan ul{margin:0 0 20px;padding-left:20px}
+.consult-plan li{font-size:15px;line-height:1.6;margin:0 0 7px}
+.consult-plan .button{align-self:flex-start;justify-content:center;min-height:50px;padding-inline:24px}
+.consult-guarantee{padding:18px 22px;border-radius:16px;background:#fbe2d6;font-size:15px;line-height:1.65;margin:0 0 10px}
+.consult-cases{display:grid;gap:12px;margin:0 0 20px}
+.story-content .consult-cases p{margin:0;padding:4px 0 4px 18px;border-left:3px solid #f0a77f;font-size:16px;line-height:1.7}
+.consult-card{display:flex;align-items:center;justify-content:space-between;gap:24px;margin:32px 0 0;padding:24px 26px;border-radius:18px;background:#234b42;color:#fff9f3}
+.consult-card-kicker{display:block;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#f0a77f}
+.consult-card strong{display:block;font-family:Oswald,sans-serif;font-size:26px;line-height:1.25;margin:8px 0 6px}
+.story-content .consult-card p{font-size:15px;line-height:1.6;margin:0}
+.consult-card .button.primary{flex:none;background:#f0a77f;border-color:#f0a77f;color:#234b42;min-height:50px;padding-inline:26px;justify-content:center}
+@media(max-width:650px){.consult-page .consult-hero{grid-template-columns:1fr;gap:22px}.consult-page .consult-hero-photo{order:-1}.story-content .consult-hero-photo img{aspect-ratio:16/10;object-position:center 22%}.consult-plan{padding:20px}.consult-plan .button{align-self:stretch}.consult-card{flex-direction:column;align-items:stretch;padding:22px}.consult-card .button.primary{width:100%}}

@@ -184,6 +184,6 @@
       entries.forEach(entry => entry.isIntersecting ? visible.add(entry.target) : visible.delete(entry.target));
       sticky.classList.toggle('is-shown', !visible.size && window.scrollY > 200);
     });
-    document.querySelectorAll('.consult-actions, .story-next-step, footer').forEach(target => watcher.observe(target));
+    document.querySelectorAll('.consult-actions, .consult-plans, .story-next-step, footer').forEach(target => watcher.observe(target));
   }
 })();

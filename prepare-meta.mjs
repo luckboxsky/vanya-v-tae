@@ -5,9 +5,9 @@ const pages=JSON.parse(fs.readFileSync(new URL('./site-pages.json',import.meta.u
 // Cache-busting versions (?v=) for local CSS/JS. When a file changes, set a new version here — one line per file.
 // Files not listed keep the shared version from page-polish.mjs. See SITE-MAINTENANCE.md.
 const ASSET_VERSIONS={
-  'script.js':'share-20261029',
-  'site-fixes.css':'gallery-20261030',
-  'home-useful.css':'services-20261023',
+  'script.js':'consult-20261030',
+  'site-fixes.css':'consult-20261030',
+  'home-useful.css':'consult-20261030',
   'blog-filters.js':'home-20261023',
   'partners-cards.css':'legenda-20261028',
   'places.js':'icons-20261029',
@@ -41,18 +41,20 @@ function instagramNotice(html) {
   const note='<!-- Instagram notice -->\n<aside class="wrap instagram-notice" id="instagram-notice" aria-label="Примечание об Instagram" style="padding-top:20px;padding-bottom:20px;font-size:13px;line-height:1.6"><p style="margin:0">* Instagram принадлежит компании Meta Platforms Inc., признанной экстремистской организацией; её деятельность запрещена на территории Российской Федерации.</p></aside>\n<!-- /Instagram notice -->\n';
   return html.replace(/<footer\b/i,note+'<footer');
 }
-// End of every article and story: optional FAQ block (from site-pages.json "faq") and share buttons (copy handler in script.js).
-function articleExtras(html,meta) {
+// End of every article and story: optional FAQ block (from site-pages.json "faq"), a consultation card and share buttons (copy handler in script.js).
+// The consultation page itself gets only its FAQ, placed before its closing call to action.
+function articleExtras(html,meta,isConsultation=false) {
   html=html.replace(/<!-- Article extras -->[\s\S]*?<!-- \/Article extras -->/g,'');
-  if(!html.includes('<article class="story-content">'))return html;
+  if(!isConsultation&&!html.includes('<article class="story-content">'))return html;
   const esc=value=>String(value).replaceAll('&','&amp;').replaceAll('<','&lt;');
   const url='https://vanyavtae.com'+meta.path;
   const title=meta.title.replace(/\s*\|\s*Ваня в Тае$/,'');
   const faq=meta.faq?.length?'<section class="story-faq" aria-labelledby="story-faq-title"><h2 id="story-faq-title">Коротко: частые вопросы</h2>'+meta.faq.map(({q,a})=>`<details><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('')+'</section>':'';
   const tg='https://t.me/share/url?url='+encodeURIComponent(url)+'&amp;text='+encodeURIComponent(title);
   const share=`<div class="story-share"><span>Пригодилось? Отправьте тем, кто собирается в Таиланд</span><div class="story-share-actions"><a class="button primary" href="${tg}" target="_blank" rel="noopener noreferrer" data-goal="share_telegram">Отправить в Telegram</a><button class="button outline share-copy" type="button" data-share-copy="${url}">Скопировать ссылку</button></div></div>`;
-  const block='<!-- Article extras -->'+faq+share+'<!-- /Article extras -->';
-  const at=html.search(/<aside class="read-also"|<nav class="story-end"/);
+  const consult='<div class="consult-card"><div><span class="consult-card-kicker">Консультация онлайн</span><strong>Не хочется разбираться самому?</strong><p>Разберу вашу ситуацию и соберу план: ответ текстом — 990&nbsp;₽, созвон — от 1&nbsp;490&nbsp;₽.</p></div><a class="button primary" href="/consultation" data-click-partner="consult-article" data-click-place="articles" data-click-channel="article">Выбрать формат</a></div>';
+  const block='<!-- Article extras -->'+faq+(isConsultation?'':consult+share)+'<!-- /Article extras -->';
+  const at=html.search(isConsultation?/<aside class="story-next-step"/:/<aside class="read-also"|<nav class="story-end"/);
   return at<0?html:html.slice(0,at)+block+html.slice(at);
 }
 // Strip with a Thai ornament and a Thai phrase right above the footer of every page (phrases rotate in thai.js).
@@ -80,7 +82,7 @@ for(const [file,meta] of Object.entries(pages)) {
     return '<head>\n'+sharedHead+'\n'+head+'\n<link rel="stylesheet" href="/site-fixes.css">\n<script defer src="/motion.js?v=1"></script>\n<script defer src="/gecko.js?v=1"></script>\n<script defer src="/thai.js?v=1"></script>\n</head>';
   });
 
-  if(file!=='consultation.html')html=articleExtras(html,meta);
+  html=articleExtras(html,meta,file==='consultation.html');
   html=instagramNotice(html);
   html=thaiStrip(html);
   html=polishPage(html);

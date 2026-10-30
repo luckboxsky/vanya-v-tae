@@ -42,7 +42,6 @@ body .site-header .site-nav a{font-size:13px}
 .useful-home .help .service-footer{grid-row:4;display:block;border:0;margin:0;padding:0}
 .useful-home .help .service-footer .button{width:100%;min-height:52px;background:#234b42;color:#fff8f0;border-color:#234b42}
 .useful-home .help .service-details{grid-row:5;margin-top:20px}
-.useful-home .help .consultation-footnote{font-size:11px;line-height:1.5;margin:14px 0 0;color:#566b60}
 .useful-home .help .service-details .consultation-rates{margin:0 0 20px}
 .home-friends-grid{display:grid;grid-template-columns:1.12fr 1fr;gap:55px;align-items:center}
 .home-friends-grid .button{margin-top:22px}.home-friends-grid p{font-size:17px}

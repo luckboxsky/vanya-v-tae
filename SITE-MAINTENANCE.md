@@ -100,3 +100,11 @@ Cloudflare Web Analytics автоматически подключается Clo
 Фотообложки статей (30.10.2026, пункт 7 плана): assets/cover-visa|money|bike|islands|weather.jpg, 1280×720 — слева зелёная панель с заголовком, справа фото Вани. Заменили старые текстовые карточки (*-card.jpg) в блоге, «Читайте также» и og:image. Шаблон — HTML с панелью и object-position фото, рендер Edge headless. На фото паспорта размыты номера билетов (ETKT) и QR-наклейка. Добавлены: галерея .story-gallery (2×2) в /bike-rental-thailand («Будни проката»), видео парома assets/ferry-wake.mp4 в /islands-thailand (раздел «Как добираться»), фото phasawan-feet.jpg в карточку Phasawan Viewpoint.
 
 IndexNow (30.10.2026): ключ лежит в корне файлом <ключ>.txt (публичный по протоколу, это не секрет). После публикации новых или изменённых страниц отправить их список POST-запросом на https://yandex.com/indexnow и https://api.indexnow.org/indexnow (host vanyavtae.com, key, keyLocation, urlList). Google IndexNow не поддерживает — для него «Запросить индексирование» в Search Console.
+
+## Консультация: три формата (30.10.2026)
+
+- Цены и форматы: «Ответ текстом» 990 ₽, «Быстрый старт» 30 мин 1 490 ₽, «План зимовки или переезда» 60 мин 3 490 ₽ (+7 дней ответов в Telegram). Оплата рублями на карту Т-Банка или Яндекс Банка. Гарантия: возврат, если за первые 10 минут не то.
+- Если цены меняются, править везде: consultation.html (карточки и блок внизу), site-pages.json (description и FAQ «Как оплатить»), баннер `.home-consult` в index.html, карточка `consult-card` в `articleExtras()` в prepare-meta.mjs, кнопка `links-consultation` в links.html.
+- Формулировки держим в рамках «онлайн, личный опыт»: не гид, не визовый агент, не риелтор, без встреч и сопровождения на месте (Ваня на DTV, удалённая работа на клиентов вне Таиланда).
+- Клики: `consult-text|quick|plan` (место consultation), `consult-home` (home), `consult-article` (articles) — в D1 через click-worker.mjs.
+- FAQ консультации берётся из site-pages.json и вставляется перед `<aside class="story-next-step">`, кнопок «поделиться» на этой странице нет.
