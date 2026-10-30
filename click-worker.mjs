@@ -47,7 +47,7 @@ const PARTNERS = {
   'auf-der-au': {name:'Auf der Au Garden', places:['chiangmai'], channels:['maps']},
   'renegade-cm': {name:'Renegade Craft Beer', places:['chiangmai'], channels:['maps']},
   'night-bazaar-cm': {name:'Night Bazaar', places:['chiangmai'], channels:['maps']},
-  'bike-helper-cm': {name:'Помощь с покупкой байка · Чиангмай', places:['chiangmai'], channels:['telegram']},
+  'bike-helper-cm': {name:'Саша · помощь с покупкой байка', places:['chiangmai'], channels:['telegram']},
   // Consultation: format buttons on /consultation, the home banner and the card at the end of articles.
   'consult-text': {name:'Консультация · Ответ текстом', places:['consultation'], channels:['telegram']},
   'consult-quick': {name:'Консультация · Быстрый старт', places:['consultation'], channels:['telegram']},

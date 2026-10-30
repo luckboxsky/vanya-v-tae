@@ -11,7 +11,7 @@ const ASSET_VERSIONS={
   'blog-filters.js':'home-20261023',
   'partners-cards.css':'legenda-20261028',
   'places.js':'chiangmai-20261031',
-  'places-data.js':'chiangmai-20261031',
+  'places-data.js':'sasha-20261031',
   'media-kit-tv.css':'youtube-20261028',
   'motion.js':'count2-20261029',
   'gecko.js':'links-20261029',
