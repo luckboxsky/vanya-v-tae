@@ -72,3 +72,5 @@
   .coffee-hero-photo{aspect-ratio:16/10}
   .coffee-hero-photo img{object-position:50% 22%}
 }
+.coffee-hero-roma{display:flex;align-items:center;gap:10px;margin:16px 0 0;font-size:14px!important;line-height:1.5!important;color:#6b5a50}
+.coffee-hero-roma img{flex:none;width:36px;height:36px;border-radius:50%;object-fit:cover;border:2px solid #f0a77f}

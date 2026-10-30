@@ -15,7 +15,7 @@ const ASSET_VERSIONS={
   'media-kit-tv.css':'youtube-20261028',
   'motion.js':'count2-20261029',
   'gecko.js':'links-20261029',
-  'coffee.css':'sell-20261031',
+  'coffee.css':'roma-20261031',
   'thai.js':'thai-20261029',
   'places-maps.js':'krabi-relief-20261023'
 };
