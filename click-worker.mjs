@@ -43,6 +43,7 @@ const PARTNERS = {
   'consult-text': {name:'Консультация · Ответ текстом', places:['consultation'], channels:['telegram']},
   'consult-quick': {name:'Консультация · Быстрый старт', places:['consultation'], channels:['telegram']},
   'consult-plan': {name:'Консультация · План зимовки или переезда', places:['consultation'], channels:['telegram']},
+  'coffee-home': {name:'Главная · Кофе', places:['home'], channels:['article']},
   'consult-home': {name:'Главная · Консультация', places:['home'], channels:['article']},
   'consult-article': {name:'Статьи · Консультация', places:['articles'], channels:['article']},
   // Buttons of the /links page (link in the Instagram profile and under Reels).
