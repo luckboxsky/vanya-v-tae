@@ -351,3 +351,8 @@ a:is(.button,.service-action):is([href*="avosend"],[href*="tbank"],[href*="agoda
 .author-box-links{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:14px;font-weight:800}
 .author-box-links a{border-bottom:1px solid currentColor}
 @media(max-width:650px){.author-byline{margin-top:-8px}.author-box{flex-direction:column;gap:14px;padding:20px}.story-content .author-box img{width:72px;height:72px}}
+/* Receipt + groceries pair in the prices article: two tall photos side by side, receipt opens full size */
+.story-content .story-receipt>div{grid-template-columns:1fr 1fr}
+.story-content .story-receipt img{aspect-ratio:9/16;object-fit:cover}
+.story-content .story-receipt a{display:block}
+.story-content .story-receipt figcaption{text-transform:none;letter-spacing:0;font-weight:500;font-size:13px;line-height:1.6}

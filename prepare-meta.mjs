@@ -6,7 +6,7 @@ const pages=JSON.parse(fs.readFileSync(new URL('./site-pages.json',import.meta.u
 // Files not listed keep the shared version from page-polish.mjs. See SITE-MAINTENANCE.md.
 const ASSET_VERSIONS={
   'script.js':'consult-20261030',
-  'site-fixes.css':'author-20261030',
+  'site-fixes.css':'prices-20261030',
   'home-useful.css':'consult-20261030',
   'blog-filters.js':'home-20261023',
   'partners-cards.css':'legenda-20261028',
@@ -28,8 +28,10 @@ function instagramNotice(html) {
   html=html.replace(/<!-- Instagram notice -->[\s\S]*?<!-- \/Instagram notice -->\s*/g,'');
   html=html.split(/(<script\b[^>]*>[\s\S]*?<\/script>|<style\b[^>]*>[\s\S]*?<\/style>|<[^>]+>)/gi).map(part=>{
     if(part.startsWith('<')) return part;
-    return part.replace(/Instagram(?![\w*])/g,'Instagram*');
+    return part.replace(/(Instagram|Facebook)(?![\w*])/g,'$1*');
   }).join('');
+  // Facebook belongs to Meta too: when a page mentions it, the notice names both.
+  const meta=html.includes('Facebook*')?'Instagram и Facebook принадлежат':'Instagram принадлежит';
   html=html.replace(/<a\b([^>]*href=["']https?:\/\/(?:www\.)?instagram\.com[^>]*)>([\s\S]*?)<\/a>/gi,(_,attrs,body)=>{
     if(!attrs.includes('aria-describedby=')) attrs+=' aria-describedby="instagram-notice"';
     if(!body.includes('*')) {
@@ -38,7 +40,7 @@ function instagramNotice(html) {
     }
     return '<a'+attrs+'>'+body+'</a>';
   });
-  const note='<!-- Instagram notice -->\n<aside class="wrap instagram-notice" id="instagram-notice" aria-label="Примечание об Instagram" style="padding-top:20px;padding-bottom:20px;font-size:13px;line-height:1.6"><p style="margin:0">* Instagram принадлежит компании Meta Platforms Inc., признанной экстремистской организацией; её деятельность запрещена на территории Российской Федерации.</p></aside>\n<!-- /Instagram notice -->\n';
+  const note='<!-- Instagram notice -->\n<aside class="wrap instagram-notice" id="instagram-notice" aria-label="Примечание об Instagram" style="padding-top:20px;padding-bottom:20px;font-size:13px;line-height:1.6"><p style="margin:0">* '+meta+' компании Meta Platforms Inc., признанной экстремистской организацией; её деятельность запрещена на территории Российской Федерации.</p></aside>\n<!-- /Instagram notice -->\n';
   return html.replace(/<footer\b/i,note+'<footer');
 }
 // Author line under the lead and the "Об авторе" box at the end of every article and story (trust for readers and search engines).

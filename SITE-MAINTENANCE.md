@@ -116,3 +116,9 @@ IndexNow (30.10.2026): ключ лежит в корне файлом <ключ>
 ## Об авторе (30.10.2026)
 
 prepare-meta.mjs сам добавляет во все страницы с `"type":"article"`: строку автора под `.story-lead` (аватар assets/avatar-links.jpg, «живу в Таиланде с 2017 года», дата) и блок «Об авторе» в конце, перед FAQ. Дата берётся из `published` в site-pages.json; если статью заметно обновили, добавьте `"modified":"ГГГГ-ММ-ДД"` — будет «Обновлено …», и то же уйдёт в dateModified для поисковиков. Текст блока — константа AUTHOR_BOX. В схеме Person (site-meta.mjs) есть фото, описание и ссылки на Telegram, Instagram, YouTube.
+
+## Статья «Сколько стоит поездка и жизнь» (30.10.2026)
+
+prices-thailand.html (/prices-thailand): текст Вани из RUTEXT, обложка assets/cover-prices.jpg (фото продуктов из Big C), блок «Коротко» с главными цифрами, сравнение с 2019 годом, фото продуктов и чек (assets/prices-bigc-*.jpg, класс `story-receipt`), таблицы `compare-table`, рилсы Instagram ссылками в тексте. Алкоголь — коротко и без брендов и советов. Ссылка на кофе ведёт в /partners#coffee — когда выйдет /coffee, поменять на неё. Цены (бензин, паромы, сим-карты, курс) пересматривать раз в полгода и ставить `"modified"` в site-pages.json.
+
+Facebook: prepare-meta.mjs теперь ставит звёздочку и к «Facebook», а сноска на такой странице говорит «Instagram и Facebook принадлежат компании Meta…».
