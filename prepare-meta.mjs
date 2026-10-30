@@ -6,7 +6,7 @@ const pages=JSON.parse(fs.readFileSync(new URL('./site-pages.json',import.meta.u
 // Files not listed keep the shared version from page-polish.mjs. See SITE-MAINTENANCE.md.
 const ASSET_VERSIONS={
   'script.js':'consult-20261030',
-  'site-fixes.css':'consult-20261030',
+  'site-fixes.css':'author-20261030',
   'home-useful.css':'consult-20261030',
   'blog-filters.js':'home-20261023',
   'partners-cards.css':'legenda-20261028',
@@ -41,6 +41,18 @@ function instagramNotice(html) {
   const note='<!-- Instagram notice -->\n<aside class="wrap instagram-notice" id="instagram-notice" aria-label="Примечание об Instagram" style="padding-top:20px;padding-bottom:20px;font-size:13px;line-height:1.6"><p style="margin:0">* Instagram принадлежит компании Meta Platforms Inc., признанной экстремистской организацией; её деятельность запрещена на территории Российской Федерации.</p></aside>\n<!-- /Instagram notice -->\n';
   return html.replace(/<footer\b/i,note+'<footer');
 }
+// Author line under the lead and the "Об авторе" box at the end of every article and story (trust for readers and search engines).
+const MONTHS=['января','февраля','марта','апреля','мая','июня','июля','августа','сентября','октября','ноября','декабря'];
+const ruDate=iso=>{const [y,m,d]=iso.split('-').map(Number);return d+' '+MONTHS[m-1]+' '+y};
+function authorByline(html,meta) {
+  html=html.replace(/<!-- Author byline -->[\s\S]*?<!-- \/Author byline -->/g,'');
+  if(meta.type!=='article')return html;
+  const date=meta.modified||meta.published;
+  const when=date?`<br><time datetime="${date}">${meta.modified?'Обновлено':'Опубликовано'} ${ruDate(date)}</time>`:'';
+  const line=`<!-- Author byline --><div class="author-byline"><img src="/assets/avatar-links.jpg" alt="" width="44" height="44"><span><a href="/about">Ваня</a> · живу в Таиланде с 2017 года${when}</span></div><!-- /Author byline -->`;
+  return html.replace(/(<p class="story-lead">[\s\S]*?<\/p>)/,'$1'+line);
+}
+const AUTHOR_BOX='<section class="author-box" aria-label="Об авторе"><img src="/assets/avatar-links.jpg" alt="Ваня" width="96" height="96" loading="lazy"><div><span class="author-box-kicker">Об авторе</span><strong>Ваня, автор блога «Ваня в Тае»</strong><p>С 2017 года живу в Таиланде: Самуи, Пханган, Пхукет, теперь Чиангмай. Пять лет работал в прокате байков, жил по разным визам. Пишу только о том, что проверил сам.</p><div class="author-box-links"><a href="/about">Моя история</a><a href="https://www.instagram.com/vanyavtae/" target="_blank" rel="noopener noreferrer">Instagram</a><a href="https://www.youtube.com/@vanyavtae" target="_blank" rel="noopener noreferrer">YouTube</a></div></div></section>';
 // End of every article and story: optional FAQ block (from site-pages.json "faq"), a consultation card and share buttons (copy handler in script.js).
 // The consultation page itself gets only its FAQ, placed before its closing call to action.
 function articleExtras(html,meta,isConsultation=false) {
@@ -53,7 +65,7 @@ function articleExtras(html,meta,isConsultation=false) {
   const tg='https://t.me/share/url?url='+encodeURIComponent(url)+'&amp;text='+encodeURIComponent(title);
   const share=`<div class="story-share"><span>Пригодилось? Отправьте тем, кто собирается в Таиланд</span><div class="story-share-actions"><a class="button primary" href="${tg}" target="_blank" rel="noopener noreferrer" data-goal="share_telegram">Отправить в Telegram</a><button class="button outline share-copy" type="button" data-share-copy="${url}">Скопировать ссылку</button></div></div>`;
   const consult='<div class="consult-card"><div><span class="consult-card-kicker">Консультация онлайн</span><strong>Не хочется разбираться самому?</strong><p>Разберу вашу ситуацию и соберу план: ответ текстом — 990&nbsp;₽, созвон — от 1&nbsp;490&nbsp;₽.</p></div><a class="button primary" href="/consultation" data-click-partner="consult-article" data-click-place="articles" data-click-channel="article">Выбрать формат</a></div>';
-  const block='<!-- Article extras -->'+faq+(isConsultation?'':consult+share)+'<!-- /Article extras -->';
+  const block='<!-- Article extras -->'+(isConsultation?faq:AUTHOR_BOX+faq+consult+share)+'<!-- /Article extras -->';
   const at=html.search(isConsultation?/<aside class="story-next-step"/:/<aside class="read-also"|<nav class="story-end"/);
   return at<0?html:html.slice(0,at)+block+html.slice(at);
 }
@@ -83,6 +95,7 @@ for(const [file,meta] of Object.entries(pages)) {
   });
 
   html=articleExtras(html,meta,file==='consultation.html');
+  html=authorByline(html,meta);
   html=instagramNotice(html);
   html=thaiStrip(html);
   html=polishPage(html);

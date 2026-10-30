@@ -339,3 +339,15 @@ a:is(.button,.service-action):is([href*="avosend"],[href*="tbank"],[href*="agoda
 .story-content .consult-card p{font-size:15px;line-height:1.6;margin:0}
 .consult-card .button.primary{flex:none;background:#f0a77f;border-color:#f0a77f;color:#234b42;min-height:50px;padding-inline:26px;justify-content:center}
 @media(max-width:650px){.consult-page .consult-hero{grid-template-columns:1fr;gap:22px}.consult-page .consult-hero-photo{order:-1}.story-content .consult-hero-photo img{aspect-ratio:16/10;object-position:center 22%}.consult-plan{padding:20px}.consult-plan .button{align-self:stretch}.consult-card{flex-direction:column;align-items:stretch;padding:22px}.consult-card .button.primary{width:100%}}
+/* Author: line under the article lead and "Об авторе" box at the end (added by prepare-meta.mjs) */
+.author-byline{display:flex;align-items:center;gap:12px;margin:-14px 0 30px;font-size:13px;line-height:1.5;color:var(--ink-soft)}
+.story-content .author-byline img{width:44px;height:44px;border-radius:50%;object-fit:cover;border:0;flex:none}
+.author-byline a{font-weight:800;color:var(--ink)}
+.author-box{display:flex;gap:20px;align-items:flex-start;margin:40px 0 0;padding:24px 26px;border:1px solid var(--line);border-radius:18px;background:var(--paper)}
+.story-content .author-box img{width:84px;height:84px;border-radius:50%;object-fit:cover;border:0;flex:none}
+.author-box-kicker{display:block;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#9b624f}
+.author-box strong{display:block;font-family:Oswald,sans-serif;font-size:24px;line-height:1.25;margin:6px 0 8px}
+.story-content .author-box p{font-size:15px;line-height:1.65;margin:0 0 12px}
+.author-box-links{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:14px;font-weight:800}
+.author-box-links a{border-bottom:1px solid currentColor}
+@media(max-width:650px){.author-byline{margin-top:-8px}.author-box{flex-direction:column;gap:14px;padding:20px}.story-content .author-box img{width:72px;height:72px}}
